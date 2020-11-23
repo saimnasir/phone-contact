@@ -1,0 +1,16 @@
+D:\Source\PhoneContact\Repositories\Repositories\bin\Debug\netcoreapp3.1\Core.dll
+D:\Source\PhoneContact\Repositories\Repositories\bin\Debug\netcoreapp3.1\DataModels.dll
+D:\Source\PhoneContact\Repositories\Repositories\obj\Debug\netcoreapp3.1\Repositories.csprojAssemblyReference.cache
+D:\Source\PhoneContact\Repositories\Repositories\obj\Debug\netcoreapp3.1\Repositories.AssemblyInfoInputs.cache
+D:\Source\PhoneContact\Repositories\Repositories\obj\Debug\netcoreapp3.1\Repositories.AssemblyInfo.cs
+D:\Source\PhoneContact\Repositories\Repositories\bin\Debug\netcoreapp3.1\Queries.dll
+D:\Source\PhoneContact\Repositories\Repositories\obj\Debug\netcoreapp3.1\Repositories.csproj.CoreCompileInputs.cache
+D:\Source\PhoneContact\Repositories\Repositories\bin\Debug\netcoreapp3.1\Repositories.deps.json
+D:\Source\PhoneContact\Repositories\Repositories\bin\Debug\netcoreapp3.1\Repositories.dll
+D:\Source\PhoneContact\Repositories\Repositories\bin\Debug\netcoreapp3.1\Repositories.pdb
+D:\Source\PhoneContact\Repositories\Repositories\bin\Debug\netcoreapp3.1\DataModels.pdb
+D:\Source\PhoneContact\Repositories\Repositories\bin\Debug\netcoreapp3.1\Queries.pdb
+D:\Source\PhoneContact\Repositories\Repositories\bin\Debug\netcoreapp3.1\Core.pdb
+D:\Source\PhoneContact\Repositories\Repositories\obj\Debug\netcoreapp3.1\Repositories.csproj.CopyComplete
+D:\Source\PhoneContact\Repositories\Repositories\obj\Debug\netcoreapp3.1\Repositories.dll
+D:\Source\PhoneContact\Repositories\Repositories\obj\Debug\netcoreapp3.1\Repositories.pdb
