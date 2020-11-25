@@ -14,33 +14,32 @@ namespace PhoneContact.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PersonController : ControllerBase
+    public class ContactInfoController : ControllerBase
     {
         private readonly IRepositoryFactory _repositoryFactory;
-        private readonly IPersonRepository _repository;
-        private readonly IContactInfoRepository _contactInfoRepository;
+        private readonly IContactInfoRepository _repository;
         private readonly IMapper _mapper;
-        public PersonController(IRepositoryFactory repositoryFactory, IMapper mapper)
+        public ContactInfoController(IRepositoryFactory repositoryFactory, IMapper mapper)
         {
             _repositoryFactory = repositoryFactory;
             _mapper = mapper;
-            _repository = _repositoryFactory.PersonRepository;
-            _contactInfoRepository = _repositoryFactory.ContactInfoRepository;
+            _repository = _repositoryFactory.ContactInfoRepository;
         }
 
-        // GET: api/Person
+
+        // GET: api/ContactInfo
         [HttpGet]
         [Route("ListAll")]
-        public ActionResult<IEnumerable<Person>> ListAll()
+        public ActionResult<IEnumerable<ContactInfo>> ListAll()
         {
             try
             {
                 var dataModels = _repository.ListAll();
-                var viewModels = _mapper.Map<List<Person>>(dataModels);
-                viewModels.ForEach(viewModel =>
-                {
-                    viewModel.ContactInfos = listContactInfos(viewModel.Id).ToList();
-                });
+                var viewModels = _mapper.Map<List<ContactInfo>>(dataModels);
+                //viewModels.ForEach(viewModel =>
+                //{
+                //    // getContactInfoDetails(viewModel);
+                //});
                 return viewModels;
             }
             catch (Exception ex)
@@ -51,17 +50,18 @@ namespace PhoneContact.Controllers
             }
         }
 
-        // POST: api/Person/Create
+        // POST: api/ContactInfo/Create
         [HttpPost]
         [Route("Create")]
-        public ActionResult<Person> Create(Person viewModel)
+        public ActionResult<ContactInfo> Create(ContactInfo viewModel)
         {
             try
             {
-                var dataModel = _mapper.Map<DataModels.Person>(viewModel);
+                var dataModel = _mapper.Map<DataModels.ContactInfo>(viewModel);
                 dataModel = _repository.Create(dataModel);
-                viewModel = _mapper.Map<Person>(dataModel);
-                viewModel.ContactInfos = listContactInfos(viewModel.Id).ToList();
+                viewModel = _mapper.Map<ContactInfo>(dataModel);
+                // getContactInfoDetails(viewModel);
+
                 return viewModel;
             }
             catch (Exception ex)
@@ -75,14 +75,15 @@ namespace PhoneContact.Controllers
         // PUT: api/ContactInfo/Create
         [HttpPut]
         [Route("Update")]
-        public ActionResult<Person> Update(Person viewModel)
+        public ActionResult<ContactInfo> Update(ContactInfo viewModel)
         {
             try
             {
-                var dataModel = _mapper.Map<DataModels.Person>(viewModel);
+                var dataModel = _mapper.Map<DataModels.ContactInfo>(viewModel);
                 dataModel = _repository.Update(dataModel);
-                viewModel = _mapper.Map<Person>(dataModel);
-                viewModel.ContactInfos = listContactInfos(viewModel.Id).ToList();
+                viewModel = _mapper.Map<ContactInfo>(dataModel);
+                // getContactInfoDetails(viewModel);
+
                 return viewModel;
             }
             catch (Exception ex)
@@ -93,18 +94,17 @@ namespace PhoneContact.Controllers
             }
         }
 
-
-        // DELETE: api/Person/Delete
+        // DELETE: api/ContactInfo/Delete
         [HttpDelete]
         [Route("Delete")]
         public ActionResult Delete(long id)
         {
             try
             {
-                var messageResponse = "Person Deleted.";
+                var messageResponse = "ContactInfo Deleted.";
                 if (_repository.Delete(id))
                 {
-                    messageResponse = $"Delete Person failed.";
+                    messageResponse = $"Delete ContactInfo failed.";
                     Log.Error(messageResponse);
                     throw new Exception(messageResponse);
                 }
@@ -112,23 +112,7 @@ namespace PhoneContact.Controllers
             }
             catch (Exception ex)
             {
-                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} Person failed.{ex.Message}";
-                Log.Error(messageResponse);
-                throw new Exception(messageResponse);
-            }
-        }
-
-        private IEnumerable<ContactInfo> listContactInfos(long personId)
-        {
-            try
-            {
-                var dataModels = _contactInfoRepository.ListAllByMaster(personId);
-                var viewModels = _mapper.Map<List<ContactInfo>>(dataModels);
-                return viewModels;
-            }
-            catch (Exception ex)
-            {
-                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} failed.{ex.Message}";
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} ContactInfo failed.{ex.Message}";
                 Log.Error(messageResponse);
                 throw new Exception(messageResponse);
             }

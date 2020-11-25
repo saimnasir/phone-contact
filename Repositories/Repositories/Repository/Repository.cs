@@ -115,6 +115,23 @@ namespace Repositories
             return items;
         }
 
+        public IEnumerable<T> ListAllByMaster(long masterId)
+        {
+            setCurrentTable();
+            var parameters = new
+            {
+                MasterId = masterId
+            };
+            var items = _executers.ExecuteCommand(
+                         _connStr,
+                         conn => conn.Query<T>(
+                             _commandText.ListAllCommand,
+                            parameters,
+                            commandType: CommandType.StoredProcedure
+                         ));
+
+            return items;
+        }
         public IEnumerable<T> Search(object parameters)
         {
             setCurrentTable();
@@ -152,6 +169,6 @@ namespace Repositories
             _commandText.CurrentTableName = _tableName;
         }
 
-
+      
     }
 }

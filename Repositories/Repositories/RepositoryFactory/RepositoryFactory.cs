@@ -8,6 +8,7 @@ namespace Repositories
     public class RepositoryFactory : IRepositoryFactory
     {
         private IPersonRepository _personRepository;
+        private IContactInfoRepository _contactInfoRepository;
 
         private IExecuters _executers;
         private ICommandText _commandText;
@@ -35,6 +36,19 @@ namespace Repositories
                     _personRepository = new PersonRepository(_configuration, CommandText, Executers, TableName<Person>());
                 }
                 return _personRepository;
+            }
+        }
+
+
+        public IContactInfoRepository ContactInfoRepository
+        {
+            get
+            {
+                if (_contactInfoRepository == null)
+                {
+                    _contactInfoRepository = new ContactInfoRepository(_configuration, CommandText, Executers, TableName<ContactInfo>());
+                }
+                return _contactInfoRepository;
             }
         }
 

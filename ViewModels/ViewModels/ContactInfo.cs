@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataModels
+namespace ViewModels
 {
-    public class ContactInfo : DataModel
+    public class ContactInfo : ViewModel
     {
         public long Person { get; set; }
         public InfoType InfoType { get; set; }
