@@ -1,0 +1,12 @@
+D:\Source\PhoneContact\DataModels\DataModels\bin\Debug\netcoreapp3.1\DataModels.deps.json
+D:\Source\PhoneContact\DataModels\DataModels\bin\Debug\netcoreapp3.1\DataModels.dll
+D:\Source\PhoneContact\DataModels\DataModels\bin\Debug\netcoreapp3.1\DataModels.pdb
+D:\Source\PhoneContact\DataModels\DataModels\bin\Debug\netcoreapp3.1\Core.dll
+D:\Source\PhoneContact\DataModels\DataModels\bin\Debug\netcoreapp3.1\Core.pdb
+D:\Source\PhoneContact\DataModels\DataModels\obj\Debug\netcoreapp3.1\DataModels.csprojAssemblyReference.cache
+D:\Source\PhoneContact\DataModels\DataModels\obj\Debug\netcoreapp3.1\DataModels.csproj.CoreCompileInputs.cache
+D:\Source\PhoneContact\DataModels\DataModels\obj\Debug\netcoreapp3.1\DataModels.AssemblyInfoInputs.cache
+D:\Source\PhoneContact\DataModels\DataModels\obj\Debug\netcoreapp3.1\DataModels.AssemblyInfo.cs
+D:\Source\PhoneContact\DataModels\DataModels\obj\Debug\netcoreapp3.1\DataModels.csproj.CopyComplete
+D:\Source\PhoneContact\DataModels\DataModels\obj\Debug\netcoreapp3.1\DataModels.dll
+D:\Source\PhoneContact\DataModels\DataModels\obj\Debug\netcoreapp3.1\DataModels.pdb

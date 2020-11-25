@@ -1,0 +1,8 @@
+D:\Source\PhoneContact\Core\Core\bin\Debug\netcoreapp3.1\Core.deps.json
+D:\Source\PhoneContact\Core\Core\bin\Debug\netcoreapp3.1\Core.dll
+D:\Source\PhoneContact\Core\Core\bin\Debug\netcoreapp3.1\Core.pdb
+D:\Source\PhoneContact\Core\Core\obj\Debug\netcoreapp3.1\Core.csproj.CoreCompileInputs.cache
+D:\Source\PhoneContact\Core\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfoInputs.cache
+D:\Source\PhoneContact\Core\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfo.cs
+D:\Source\PhoneContact\Core\Core\obj\Debug\netcoreapp3.1\Core.dll
+D:\Source\PhoneContact\Core\Core\obj\Debug\netcoreapp3.1\Core.pdb
