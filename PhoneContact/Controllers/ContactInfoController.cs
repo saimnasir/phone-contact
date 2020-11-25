@@ -50,6 +50,30 @@ namespace PhoneContact.Controllers
             }
         }
 
+
+        // GET: api/ContactInfo
+        [HttpGet]
+        [Route("ListAllByMaster/{personId}")]
+        public ActionResult<IEnumerable<ContactInfo>> ListAllByMaster(long personId)
+        {
+            try
+            {
+                var dataModels = _repository.ListAllByMaster(personId);
+                var viewModels = _mapper.Map<List<ContactInfo>>(dataModels);
+                //viewModels.ForEach(viewModel =>
+                //{
+                //    // getContactInfoDetails(viewModel);
+                //});
+                return viewModels;
+            }
+            catch (Exception ex)
+            {
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} ContactInfo failed.{ex.Message}";
+                Log.Error(messageResponse);
+                throw new Exception(messageResponse);
+            }
+        }
+
         // POST: api/ContactInfo/Create
         [HttpPost]
         [Route("Create")]
