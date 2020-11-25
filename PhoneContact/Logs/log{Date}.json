@@ -1,0 +1,1079 @@
+[INF] 2020:11:24 22:28:07 Starting web host
+[DBG] 2020:11:24 22:28:08 Hosting starting
+[INF] 2020:11:24 22:28:08 Starting @angular/cli on port 53451...
+[INF] 2020:11:24 22:28:08 User profile is available. Using 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[DBG] 2020:11:24 22:28:08 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-25e533eb-7f1a-408a-bbfd-4962644780bf.xml'.
+[DBG] 2020:11:24 22:28:08 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-74920df4-a3bd-4a60-8a64-6fbb33e0158b.xml'.
+[DBG] 2020:11:24 22:28:08 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-8bc9da5a-3689-478f-aec2-545a7961c9f5.xml'.
+[DBG] 2020:11:24 22:28:08 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-d7141953-5d39-4a22-8113-0cb9b1951830.xml'.
+[DBG] 2020:11:24 22:28:08 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-ebe4bfbf-9fe3-4fd0-ae9b-b5fbb3100364.xml'.
+[DBG] 2020:11:24 22:28:08 Found key {25e533eb-7f1a-408a-bbfd-4962644780bf}.
+[DBG] 2020:11:24 22:28:08 Found key {74920df4-a3bd-4a60-8a64-6fbb33e0158b}.
+[DBG] 2020:11:24 22:28:08 Found key {8bc9da5a-3689-478f-aec2-545a7961c9f5}.
+[DBG] 2020:11:24 22:28:08 Found key {d7141953-5d39-4a22-8113-0cb9b1951830}.
+[DBG] 2020:11:24 22:28:08 Found key {ebe4bfbf-9fe3-4fd0-ae9b-b5fbb3100364}.
+[DBG] 2020:11:24 22:28:08 Considering key {d7141953-5d39-4a22-8113-0cb9b1951830} with expiration date 2021-02-21 19:10:47Z as default key.
+[DBG] 2020:11:24 22:28:08 Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+[DBG] 2020:11:24 22:28:08 Decrypting secret element using Windows DPAPI.
+[DBG] 2020:11:24 22:28:08 Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+[DBG] 2020:11:24 22:28:08 Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+[DBG] 2020:11:24 22:28:08 Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+[DBG] 2020:11:24 22:28:08 Using key {d7141953-5d39-4a22-8113-0cb9b1951830} as the default key.
+[DBG] 2020:11:24 22:28:08 Key ring with default key {d7141953-5d39-4a22-8113-0cb9b1951830} was loaded during application startup.
+[DBG] 2020:11:24 22:28:08 Hosting started
+[DBG] 2020:11:24 22:28:08 Loaded hosting startup assembly PhoneContact
+[INF] 2020:11:24 22:28:08 Request starting HTTP/2.0 GET https://localhost:44393/  
+[DBG] 2020:11:24 22:28:08 Wildcard detected, all requests with hosts will be allowed.
+[DBG] 2020:11:24 22:28:08 The request path / does not match a supported file type
+[DBG] 2020:11:24 22:28:08 No candidates found for the request path '/'
+[DBG] 2020:11:24 22:28:08 Request did not match any endpoints
+[DBG] 2020:11:24 22:28:27 Connection ID "18374686481282236417" disconnecting.
+[INF] 2020:11:24 22:28:27 Request starting HTTP/2.0 GET https://localhost:44393/api/person/listall  
+[DBG] 2020:11:24 22:28:27 The request path /api/person/listall does not match a supported file type
+[DBG] 2020:11:24 22:28:27 1 candidate(s) found for the request path '/api/person/listall'
+[DBG] 2020:11:24 22:28:27 Endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)' with route pattern 'api/Person/ListAll' is valid for the request path '/api/person/listall'
+[DBG] 2020:11:24 22:28:27 Request matched endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 22:28:27 Executing endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[DBG] 2020:11:24 22:28:27 Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider"]
+[INF] 2020:11:24 22:28:27 Route matched with {action = "ListAll", controller = "Person"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[DataModels.Person]] ListAll() on controller PhoneContact.Controllers.PersonController (PhoneContact).
+[DBG] 2020:11:24 22:28:27 Execution plan of authorization filters (in the following order): ["None"]
+[DBG] 2020:11:24 22:28:27 Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+[DBG] 2020:11:24 22:28:27 Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[DBG] 2020:11:24 22:28:27 Execution plan of exception filters (in the following order): ["None"]
+[DBG] 2020:11:24 22:28:27 Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[DBG] 2020:11:24 22:28:27 Executing controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[INF] 2020:11:24 22:28:27 Executed action PhoneContact.Controllers.PersonController.ListAll (PhoneContact) in 3.1385ms
+[INF] 2020:11:24 22:28:27 Executed endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[ERR] 2020:11:24 22:28:27 An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Repositories.IRepositoryFactory' while attempting to activate 'PhoneContact.Controllers.PersonController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+[INF] 2020:11:24 22:28:27 Request finished in 200.6863ms 500 text/html; charset=utf-8
+[INF] 2020:11:24 22:28:52 > article-assingment@0.0.0 start D:\Source\PhoneContact\PhoneContact\ClientApp
+> ng serve "--port" "53451"
+
+
+
+[ERR] 2020:11:24 22:28:52 ERROR in src/app/app-routing.module.ts:3:38 - error TS2307: Cannot find module './article/article-list/article-list.component'.
+
+3 import { ArticleListComponent } from './article/article-list/article-list.component';
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app-routing.module.ts:4:37 - error TS2307: Cannot find module './author/author-list/author-list.component'.
+
+4 import { AuthorListComponent } from './author/author-list/author-list.component';
+                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app-routing.module.ts:5:33 - error TS2307: Cannot find module './author/author/author.component'.
+
+5 import { AuthorComponent } from './author/author/author.component';
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app.module.ts:8:38 - error TS2307: Cannot find module './article/article-list/article-list.component'.
+
+8 import { ArticleListComponent } from './article/article-list/article-list.component';
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app.module.ts:9:37 - error TS2307: Cannot find module './author/author-list/author-list.component'.
+
+9 import { AuthorListComponent } from './author/author-list/author-list.component';
+                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app.module.ts:10:34 - error TS2307: Cannot find module './article/article/article.component'.
+
+10 import { ArticleComponent } from './article/article/article.component';
+
+[INF] 2020:11:24 22:28:52 chunk {main} main.js, main.js.map (main) 2.02 kB [initial] [rendered]
+chunk {polyfills} polyfills.js, polyfills.js.map (polyfills) 691 bytes [initial] [rendered]
+chunk {runtime} runtime.js, runtime.js.map (runtime) 6.15 kB [entry] [rendered]
+chunk {scripts} scripts.js, scripts.js.map (scripts) 146 kB [entry] [rendered]
+chunk {styles} styles.js, styles.js.map (styles) 2.09 MB [initial] [rendered]
+chunk {vendor} vendor.js, vendor.js.map (vendor) 339 kB [initial] [rendered]
+Date: 2020-11-24T19:28:52.648Z - Hash: 04e17fc05c90f2620e8b - Time: 14629ms
+
+[ERR] 2020:11:24 22:30:08 An unhandled exception has occurred while executing the request.
+System.TimeoutException: The Angular CLI process did not start listening for requests within the timeout period of 0 seconds. Check the log output for error information.
+   at Microsoft.AspNetCore.SpaServices.Extensions.Util.TaskTimeoutExtensions.WithTimeout[T](Task`1 task, TimeSpan timeoutDelay, String message)
+   at Microsoft.AspNetCore.SpaServices.Extensions.Proxy.SpaProxy.PerformProxyRequest(HttpContext context, HttpClient httpClient, Task`1 baseUriTask, CancellationToken applicationStoppingToken, Boolean proxy404s)
+   at Microsoft.AspNetCore.Builder.SpaProxyingExtensions.<>c__DisplayClass2_0.<<UseProxyToSpaDevelopmentServer>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+[INF] 2020:11:24 22:30:08 Request finished in 120163.6785ms 500 text/html; charset=utf-8
+[INF] 2020:11:24 22:32:12 Starting web host
+[DBG] 2020:11:24 22:32:12 Hosting starting
+[INF] 2020:11:24 22:32:12 Starting @angular/cli on port 53471...
+[INF] 2020:11:24 22:32:12 User profile is available. Using 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[DBG] 2020:11:24 22:32:12 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-25e533eb-7f1a-408a-bbfd-4962644780bf.xml'.
+[DBG] 2020:11:24 22:32:12 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-74920df4-a3bd-4a60-8a64-6fbb33e0158b.xml'.
+[DBG] 2020:11:24 22:32:12 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-8bc9da5a-3689-478f-aec2-545a7961c9f5.xml'.
+[DBG] 2020:11:24 22:32:12 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-d7141953-5d39-4a22-8113-0cb9b1951830.xml'.
+[DBG] 2020:11:24 22:32:12 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-ebe4bfbf-9fe3-4fd0-ae9b-b5fbb3100364.xml'.
+[DBG] 2020:11:24 22:32:12 Found key {25e533eb-7f1a-408a-bbfd-4962644780bf}.
+[DBG] 2020:11:24 22:32:12 Found key {74920df4-a3bd-4a60-8a64-6fbb33e0158b}.
+[DBG] 2020:11:24 22:32:12 Found key {8bc9da5a-3689-478f-aec2-545a7961c9f5}.
+[DBG] 2020:11:24 22:32:12 Found key {d7141953-5d39-4a22-8113-0cb9b1951830}.
+[DBG] 2020:11:24 22:32:12 Found key {ebe4bfbf-9fe3-4fd0-ae9b-b5fbb3100364}.
+[DBG] 2020:11:24 22:32:12 Considering key {d7141953-5d39-4a22-8113-0cb9b1951830} with expiration date 2021-02-21 19:10:47Z as default key.
+[DBG] 2020:11:24 22:32:12 Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+[DBG] 2020:11:24 22:32:12 Decrypting secret element using Windows DPAPI.
+[DBG] 2020:11:24 22:32:12 Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+[DBG] 2020:11:24 22:32:12 Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+[DBG] 2020:11:24 22:32:12 Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+[DBG] 2020:11:24 22:32:12 Using key {d7141953-5d39-4a22-8113-0cb9b1951830} as the default key.
+[DBG] 2020:11:24 22:32:12 Key ring with default key {d7141953-5d39-4a22-8113-0cb9b1951830} was loaded during application startup.
+[DBG] 2020:11:24 22:32:12 Hosting started
+[DBG] 2020:11:24 22:32:12 Loaded hosting startup assembly PhoneContact
+[INF] 2020:11:24 22:32:12 Request starting HTTP/2.0 GET https://localhost:44393/  
+[DBG] 2020:11:24 22:32:12 Wildcard detected, all requests with hosts will be allowed.
+[DBG] 2020:11:24 22:32:12 The request path / does not match a supported file type
+[DBG] 2020:11:24 22:32:12 No candidates found for the request path '/'
+[DBG] 2020:11:24 22:32:12 Request did not match any endpoints
+[INF] 2020:11:24 22:32:30 > article-assingment@0.0.0 start D:\Source\PhoneContact\PhoneContact\ClientApp
+> ng serve "--port" "53471"
+
+
+
+[ERR] 2020:11:24 22:32:30 ERROR in src/app/app-routing.module.ts:3:38 - error TS2307: Cannot find module './article/article-list/article-list.component'.
+
+3 import { ArticleListComponent } from './article/article-list/article-list.component';
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app-routing.module.ts:4:37 - error TS2307: Cannot find module './author/author-list/author-list.component'.
+
+4 import { AuthorListComponent } from './author/author-list/author-list.component';
+                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app-routing.module.ts:5:33 - error TS2307: Cannot find module './author/author/author.component'.
+
+5 import { AuthorComponent } from './author/author/author.component';
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app.module.ts:8:38 - error TS2307: Cannot find module './article/article-list/article-list.component'.
+
+8 import { ArticleListComponent } from './article/article-list/article-list.component';
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app.module.ts:9:37 - error TS2307: Cannot find module './author/author-list/author-list.component'.
+
+9 import { AuthorListComponent } from './author/author-list/author-list.component';
+                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app.module.ts:10:34 - error TS2307: Cannot find module './article/article/article.component'.
+
+10 import { ArticleComponent } from './article/article/article.component';
+
+[INF] 2020:11:24 22:32:30 chunk {main} main.js, main.js.map (main) 2.02 kB [initial] [rendered]
+chunk {polyfills} polyfills.js, polyfills.js.map (polyfills) 691 bytes [initial] [rendered]
+chunk {runtime} runtime.js, runtime.js.map (runtime) 6.15 kB [entry] [rendered]
+chunk {scripts} scripts.js, scripts.js.map (scripts) 146 kB [entry] [rendered]
+chunk {styles} styles.js, styles.js.map (styles) 2.09 MB [initial] [rendered]
+chunk {vendor} vendor.js, vendor.js.map (vendor) 339 kB [initial] [rendered]
+Date: 2020-11-24T19:32:30.509Z - Hash: 04e17fc05c90f2620e8b - Time: 10892ms
+
+[DBG] 2020:11:24 22:34:02 Connection ID "18302628917309079553" disconnecting.
+[INF] 2020:11:24 22:34:02 Request starting HTTP/2.0 GET https://localhost:44393/api/person/listall  
+[DBG] 2020:11:24 22:34:02 The request path /api/person/listall does not match a supported file type
+[DBG] 2020:11:24 22:34:02 1 candidate(s) found for the request path '/api/person/listall'
+[DBG] 2020:11:24 22:34:02 Endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)' with route pattern 'api/Person/ListAll' is valid for the request path '/api/person/listall'
+[DBG] 2020:11:24 22:34:02 Request matched endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 22:34:02 Executing endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[DBG] 2020:11:24 22:34:02 Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider"]
+[INF] 2020:11:24 22:34:02 Route matched with {action = "ListAll", controller = "Person"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[DataModels.Person]] ListAll() on controller PhoneContact.Controllers.PersonController (PhoneContact).
+[DBG] 2020:11:24 22:34:02 Execution plan of authorization filters (in the following order): ["None"]
+[DBG] 2020:11:24 22:34:02 Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+[DBG] 2020:11:24 22:34:02 Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[DBG] 2020:11:24 22:34:02 Execution plan of exception filters (in the following order): ["None"]
+[DBG] 2020:11:24 22:34:02 Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[DBG] 2020:11:24 22:34:02 Executing controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 22:34:02 Executed controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[ERR] 2020:11:24 22:34:03 List Persons failed.Could not find stored procedure 'LST_PERSON_SP'.
+[INF] 2020:11:24 22:34:03 Executed action PhoneContact.Controllers.PersonController.ListAll (PhoneContact) in 496.8782ms
+[INF] 2020:11:24 22:34:03 Executed endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[ERR] 2020:11:24 22:34:03 An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'LST_PERSON_SP'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in /_/Dapper/SqlMapper.cs:line 1055
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in /_/Dapper/SqlMapper.cs:line 1083
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 725
+   at Repositories.Repository`1.<ListAll>b__10_0(SqlConnection conn) in D:\Source\PhoneContact\Repositories\Repositories\Repository\Repository.cs:line 110
+   at Queries.Executers.ExecuteCommand[T](String connStr, Func`2 task) in D:\Source\PhoneContact\Queries\Queries\Executers\Executers.cs:line 22
+   at Repositories.Repository`1.ListAll() in D:\Source\PhoneContact\Repositories\Repositories\Repository\Repository.cs:line 108
+   at PhoneContact.Controllers.PersonController.ListAll() in D:\Source\PhoneContact\PhoneContact\Controllers\PersonController.cs:line 37
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:e09674ac-3413-4363-8947-c756bcc1c316
+Error Number:2812,State:62,Class:16
+[INF] 2020:11:24 22:34:03 Request finished in 654.6216ms 500 text/html; charset=utf-8
+[ERR] 2020:11:24 22:34:12 An unhandled exception has occurred while executing the request.
+System.TimeoutException: The Angular CLI process did not start listening for requests within the timeout period of 0 seconds. Check the log output for error information.
+   at Microsoft.AspNetCore.SpaServices.Extensions.Util.TaskTimeoutExtensions.WithTimeout[T](Task`1 task, TimeSpan timeoutDelay, String message)
+   at Microsoft.AspNetCore.SpaServices.Extensions.Proxy.SpaProxy.PerformProxyRequest(HttpContext context, HttpClient httpClient, Task`1 baseUriTask, CancellationToken applicationStoppingToken, Boolean proxy404s)
+   at Microsoft.AspNetCore.Builder.SpaProxyingExtensions.<>c__DisplayClass2_0.<<UseProxyToSpaDevelopmentServer>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+[INF] 2020:11:24 22:34:12 Request finished in 120044.8644ms 500 text/html; charset=utf-8
+[INF] 2020:11:24 22:35:26 Request starting HTTP/2.0 GET https://localhost:44393/api/person/listall  
+[DBG] 2020:11:24 22:35:26 The request path /api/person/listall does not match a supported file type
+[DBG] 2020:11:24 22:35:26 1 candidate(s) found for the request path '/api/person/listall'
+[DBG] 2020:11:24 22:35:26 Endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)' with route pattern 'api/Person/ListAll' is valid for the request path '/api/person/listall'
+[DBG] 2020:11:24 22:35:26 Request matched endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 22:35:26 Executing endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 22:35:26 Route matched with {action = "ListAll", controller = "Person"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[DataModels.Person]] ListAll() on controller PhoneContact.Controllers.PersonController (PhoneContact).
+[DBG] 2020:11:24 22:35:26 Execution plan of authorization filters (in the following order): ["None"]
+[DBG] 2020:11:24 22:35:26 Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+[DBG] 2020:11:24 22:35:26 Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[DBG] 2020:11:24 22:35:26 Execution plan of exception filters (in the following order): ["None"]
+[DBG] 2020:11:24 22:35:26 Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[DBG] 2020:11:24 22:35:26 Executing controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 22:35:26 Executed controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 22:35:26 List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+[DBG] 2020:11:24 22:35:26 No information found on request to perform content negotiation.
+[DBG] 2020:11:24 22:35:26 Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+[DBG] 2020:11:24 22:35:26 Attempting to select the first formatter in the output formatters list which can write the result.
+[DBG] 2020:11:24 22:35:26 Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+[INF] 2020:11:24 22:35:26 Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataModels.Person, DataModels, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[INF] 2020:11:24 22:35:26 Executed action PhoneContact.Controllers.PersonController.ListAll (PhoneContact) in 108.4654ms
+[INF] 2020:11:24 22:35:26 Executed endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 22:35:26 Request finished in 113.4954ms 200 application/json; charset=utf-8
+[INF] 2020:11:24 22:35:26 Request starting HTTP/2.0 GET https://localhost:44393/favicon.ico  
+[INF] 2020:11:24 22:35:28 Sending file. Request path: '/favicon.ico'. Physical path: 'D:\Source\PhoneContact\PhoneContact\wwwroot\favicon.ico'
+[INF] 2020:11:24 22:35:28 Request finished in 2129.6423ms 200 image/x-icon
+[INF] 2020:11:24 22:50:55 Starting web host
+[DBG] 2020:11:24 22:50:55 Hosting starting
+[INF] 2020:11:24 22:50:55 Starting @angular/cli on port 53565...
+[INF] 2020:11:24 22:50:55 User profile is available. Using 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[DBG] 2020:11:24 22:50:55 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-25e533eb-7f1a-408a-bbfd-4962644780bf.xml'.
+[DBG] 2020:11:24 22:50:55 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-74920df4-a3bd-4a60-8a64-6fbb33e0158b.xml'.
+[DBG] 2020:11:24 22:50:55 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-8bc9da5a-3689-478f-aec2-545a7961c9f5.xml'.
+[DBG] 2020:11:24 22:50:55 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-d7141953-5d39-4a22-8113-0cb9b1951830.xml'.
+[DBG] 2020:11:24 22:50:55 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-ebe4bfbf-9fe3-4fd0-ae9b-b5fbb3100364.xml'.
+[DBG] 2020:11:24 22:50:55 Found key {25e533eb-7f1a-408a-bbfd-4962644780bf}.
+[DBG] 2020:11:24 22:50:55 Found key {74920df4-a3bd-4a60-8a64-6fbb33e0158b}.
+[DBG] 2020:11:24 22:50:55 Found key {8bc9da5a-3689-478f-aec2-545a7961c9f5}.
+[DBG] 2020:11:24 22:50:55 Found key {d7141953-5d39-4a22-8113-0cb9b1951830}.
+[DBG] 2020:11:24 22:50:55 Found key {ebe4bfbf-9fe3-4fd0-ae9b-b5fbb3100364}.
+[DBG] 2020:11:24 22:50:55 Considering key {d7141953-5d39-4a22-8113-0cb9b1951830} with expiration date 2021-02-21 19:10:47Z as default key.
+[DBG] 2020:11:24 22:50:55 Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+[DBG] 2020:11:24 22:50:55 Decrypting secret element using Windows DPAPI.
+[DBG] 2020:11:24 22:50:55 Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+[DBG] 2020:11:24 22:50:55 Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+[DBG] 2020:11:24 22:50:55 Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+[DBG] 2020:11:24 22:50:55 Using key {d7141953-5d39-4a22-8113-0cb9b1951830} as the default key.
+[DBG] 2020:11:24 22:50:55 Key ring with default key {d7141953-5d39-4a22-8113-0cb9b1951830} was loaded during application startup.
+[DBG] 2020:11:24 22:50:55 Hosting started
+[DBG] 2020:11:24 22:50:55 Loaded hosting startup assembly PhoneContact
+[INF] 2020:11:24 22:50:55 Request starting HTTP/2.0 GET https://localhost:44393/  
+[DBG] 2020:11:24 22:50:55 Wildcard detected, all requests with hosts will be allowed.
+[DBG] 2020:11:24 22:50:55 The request path / does not match a supported file type
+[DBG] 2020:11:24 22:50:55 No candidates found for the request path '/'
+[DBG] 2020:11:24 22:50:55 Request did not match any endpoints
+[INF] 2020:11:24 22:51:03 Request starting HTTP/2.0 POST https://localhost:44393/api/person/create application/json 118
+[DBG] 2020:11:24 22:51:03 POST requests are not supported
+[DBG] 2020:11:24 22:51:03 1 candidate(s) found for the request path '/api/person/create'
+[DBG] 2020:11:24 22:51:03 Endpoint 'PhoneContact.Controllers.PersonController.Create (PhoneContact)' with route pattern 'api/Person/Create' is valid for the request path '/api/person/create'
+[DBG] 2020:11:24 22:51:03 Request matched endpoint 'PhoneContact.Controllers.PersonController.Create (PhoneContact)'
+[DBG] 2020:11:24 22:51:03 The request has an origin header: 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop'.
+[INF] 2020:11:24 22:51:03 CORS policy execution successful.
+[INF] 2020:11:24 22:51:03 Executing endpoint 'PhoneContact.Controllers.PersonController.Create (PhoneContact)'
+[DBG] 2020:11:24 22:51:04 Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider"]
+[INF] 2020:11:24 22:51:04 Route matched with {action = "Create", controller = "Person"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[DataModels.Person] Create(DataModels.Person) on controller PhoneContact.Controllers.PersonController (PhoneContact).
+[DBG] 2020:11:24 22:51:04 Execution plan of authorization filters (in the following order): ["None"]
+[DBG] 2020:11:24 22:51:04 Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+[DBG] 2020:11:24 22:51:04 Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[DBG] 2020:11:24 22:51:04 Execution plan of exception filters (in the following order): ["None"]
+[DBG] 2020:11:24 22:51:04 Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[DBG] 2020:11:24 22:51:04 Executing controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 22:51:04 Executed controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 22:51:04 Attempting to bind parameter 'viewModel' of type 'DataModels.Person' ...
+[DBG] 2020:11:24 22:51:04 Attempting to bind parameter 'viewModel' of type 'DataModels.Person' using the name '' in request data ...
+[DBG] 2020:11:24 22:51:04 Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+[DBG] 2020:11:24 22:51:04 JSON input formatter succeeded, deserializing to type 'DataModels.Person'
+[DBG] 2020:11:24 22:51:04 Done attempting to bind parameter 'viewModel' of type 'DataModels.Person'.
+[DBG] 2020:11:24 22:51:04 Done attempting to bind parameter 'viewModel' of type 'DataModels.Person'.
+[DBG] 2020:11:24 22:51:04 Attempting to validate the bound parameter 'viewModel' of type 'DataModels.Person' ...
+[DBG] 2020:11:24 22:51:04 Done attempting to validate the bound parameter 'viewModel' of type 'DataModels.Person'.
+[ERR] 2020:11:24 22:51:04 Create Person failed.Cannot insert the value NULL into column 'Id', table 'PhoneContactDb.dbo.Person'; column does not allow nulls. INSERT fails.
+[INF] 2020:11:24 22:51:04 Executed action PhoneContact.Controllers.PersonController.Create (PhoneContact) in 471.2526ms
+[INF] 2020:11:24 22:51:04 Executed endpoint 'PhoneContact.Controllers.PersonController.Create (PhoneContact)'
+[ERR] 2020:11:24 22:51:04 An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Id', table 'PhoneContactDb.dbo.Person'; column does not allow nulls. INSERT fails.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.Read()
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteExecuteScalar(SqlDataReader ds, Boolean returnSqlValue)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteScalar()
+   at Dapper.SqlMapper.ExecuteScalarImpl[T](IDbConnection cnn, CommandDefinition& command) in /_/Dapper/SqlMapper.cs:line 2841
+   at Dapper.SqlMapper.ExecuteScalar[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 484
+   at Repositories.Repository`1.<>c__DisplayClass6_0.<Create>b__0(SqlConnection conn) in D:\Source\PhoneContact\Repositories\Repositories\Repository\Repository.cs:line 37
+   at Queries.Executers.ExecuteCommand[T](String connStr, Func`2 task) in D:\Source\PhoneContact\Queries\Queries\Executers\Executers.cs:line 22
+   at Repositories.Repository`1.Create(T dataModel, Object parameters) in D:\Source\PhoneContact\Repositories\Repositories\Repository\Repository.cs:line 33
+   at Repositories.PersonRepository.Create(Person person) in D:\Source\PhoneContact\Repositories\Repositories\Person\PersonRepository.cs:line 25
+   at PhoneContact.Controllers.PersonController.Create(Person viewModel) in D:\Source\PhoneContact\PhoneContact\Controllers\PersonController.cs:line 61
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:9fbb6985-8659-4758-8e25-9bb0d127bf3e
+Error Number:515,State:2,Class:16
+[INF] 2020:11:24 22:51:04 Request finished in 588.663ms 500 text/plain
+[INF] 2020:11:24 22:51:12 > article-assingment@0.0.0 start D:\Source\PhoneContact\PhoneContact\ClientApp
+> ng serve "--port" "53565"
+
+
+
+[INF] 2020:11:24 22:51:12 chunk {main} main.js, main.js.map (main) 2.02 kB [initial] [rendered]
+chunk {polyfills} polyfills.js, polyfills.js.map (polyfills) 691 bytes [initial] [rendered]
+chunk {runtime} runtime.js, runtime.js.map (runtime) 6.15 kB [entry] [rendered]
+chunk {scripts} scripts.js, scripts.js.map (scripts) 146 kB [entry] [rendered]
+chunk {styles} styles.js, styles.js.map (styles) 2.09 MB [initial] [rendered]
+chunk {vendor} vendor.js, vendor.js.map (vendor) 339 kB [initial] [rendered]
+Date: 2020-11-24T19:51:12.525Z - Hash: 04e17fc05c90f2620e8b - Time: 10151ms
+
+[ERR] 2020:11:24 22:51:12 ERROR in src/app/app-routing.module.ts:3:38 - error TS2307: Cannot find module './article/article-list/article-list.component'.
+
+3 import { ArticleListComponent } from './article/article-list/article-list.component';
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app-routing.module.ts:4:37 - error TS2307: Cannot find module './author/author-list/author-list.component'.
+
+4 import { AuthorListComponent } from './author/author-list/author-list.component';
+                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app-routing.module.ts:5:33 - error TS2307: Cannot find module './author/author/author.component'.
+
+5 import { AuthorComponent } from './author/author/author.component';
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app.module.ts:8:38 - error TS2307: Cannot find module './article/article-list/article-list.component'.
+
+8 import { ArticleListComponent } from './article/article-list/article-list.component';
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app.module.ts:9:37 - error TS2307: Cannot find module './author/author-list/author-list.component'.
+
+9 import { AuthorListComponent } from './author/author-list/author-list.component';
+                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app.module.ts:10:34 - error TS2307: Cannot find module './article/article/article.component'.
+
+10 import { ArticleComponent } from './article/article/article.component';
+
+[INF] 2020:11:24 22:51:12 ** Angular Live Development Server is listening on localhost:53565, open your browser on http://localhost:53565/ **
+
+[INF] 2020:11:24 22:51:18 Request finished in 22632.4187ms 404 text/html; charset=utf-8
+[INF] 2020:11:24 22:52:01 Request starting HTTP/2.0 POST https://localhost:44393/api/person/create application/json 118
+[DBG] 2020:11:24 22:52:01 POST requests are not supported
+[DBG] 2020:11:24 22:52:01 1 candidate(s) found for the request path '/api/person/create'
+[DBG] 2020:11:24 22:52:01 Endpoint 'PhoneContact.Controllers.PersonController.Create (PhoneContact)' with route pattern 'api/Person/Create' is valid for the request path '/api/person/create'
+[DBG] 2020:11:24 22:52:01 Request matched endpoint 'PhoneContact.Controllers.PersonController.Create (PhoneContact)'
+[DBG] 2020:11:24 22:52:01 The request has an origin header: 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop'.
+[INF] 2020:11:24 22:52:01 CORS policy execution successful.
+[INF] 2020:11:24 22:52:01 Executing endpoint 'PhoneContact.Controllers.PersonController.Create (PhoneContact)'
+[INF] 2020:11:24 22:52:01 Route matched with {action = "Create", controller = "Person"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[DataModels.Person] Create(DataModels.Person) on controller PhoneContact.Controllers.PersonController (PhoneContact).
+[DBG] 2020:11:24 22:52:01 Execution plan of authorization filters (in the following order): ["None"]
+[DBG] 2020:11:24 22:52:01 Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+[DBG] 2020:11:24 22:52:01 Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[DBG] 2020:11:24 22:52:01 Execution plan of exception filters (in the following order): ["None"]
+[DBG] 2020:11:24 22:52:01 Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[DBG] 2020:11:24 22:52:01 Executing controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 22:52:01 Executed controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 22:52:01 Attempting to bind parameter 'viewModel' of type 'DataModels.Person' ...
+[DBG] 2020:11:24 22:52:01 Attempting to bind parameter 'viewModel' of type 'DataModels.Person' using the name '' in request data ...
+[DBG] 2020:11:24 22:52:01 Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+[DBG] 2020:11:24 22:52:01 JSON input formatter succeeded, deserializing to type 'DataModels.Person'
+[DBG] 2020:11:24 22:52:01 Done attempting to bind parameter 'viewModel' of type 'DataModels.Person'.
+[DBG] 2020:11:24 22:52:01 Done attempting to bind parameter 'viewModel' of type 'DataModels.Person'.
+[DBG] 2020:11:24 22:52:01 Attempting to validate the bound parameter 'viewModel' of type 'DataModels.Person' ...
+[DBG] 2020:11:24 22:52:01 Done attempting to validate the bound parameter 'viewModel' of type 'DataModels.Person'.
+[ERR] 2020:11:24 22:52:01 Create Person failed.Could not find stored procedure 'SEL_PERSON_SP'.
+[INF] 2020:11:24 22:52:01 Executed action PhoneContact.Controllers.PersonController.Create (PhoneContact) in 27.6078ms
+[INF] 2020:11:24 22:52:01 Executed endpoint 'PhoneContact.Controllers.PersonController.Create (PhoneContact)'
+[ERR] 2020:11:24 22:52:01 An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'SEL_PERSON_SP'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in /_/Dapper/SqlMapper.cs:line 1055
+   at Dapper.SqlMapper.QueryRowImpl[T](IDbConnection cnn, Row row, CommandDefinition& command, Type effectiveType) in /_/Dapper/SqlMapper.cs:line 1174
+   at Dapper.SqlMapper.QueryFirstOrDefault[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 765
+   at Repositories.Repository`1.<>c__DisplayClass7_0.<Read>b__0(SqlConnection conn) in D:\Source\PhoneContact\Repositories\Repositories\Repository\Repository.cs:line 58
+   at Queries.Executers.ExecuteCommand[T](String connStr, Func`2 task) in D:\Source\PhoneContact\Queries\Queries\Executers\Executers.cs:line 22
+   at Repositories.Repository`1.Read(Int64 id) in D:\Source\PhoneContact\Repositories\Repositories\Repository\Repository.cs:line 56
+   at Repositories.Repository`1.Create(T dataModel, Object parameters) in D:\Source\PhoneContact\Repositories\Repositories\Repository\Repository.cs:line 44
+   at Repositories.PersonRepository.Create(Person person) in D:\Source\PhoneContact\Repositories\Repositories\Person\PersonRepository.cs:line 25
+   at PhoneContact.Controllers.PersonController.Create(Person viewModel) in D:\Source\PhoneContact\PhoneContact\Controllers\PersonController.cs:line 61
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:9fbb6985-8659-4758-8e25-9bb0d127bf3e
+Error Number:2812,State:62,Class:16
+[INF] 2020:11:24 22:52:01 Request finished in 37.7827ms 500 text/plain
+[INF] 2020:11:24 22:54:09 Request starting HTTP/2.0 POST https://localhost:44393/api/person/create application/json 118
+[DBG] 2020:11:24 22:54:09 POST requests are not supported
+[DBG] 2020:11:24 22:54:09 1 candidate(s) found for the request path '/api/person/create'
+[DBG] 2020:11:24 22:54:09 Endpoint 'PhoneContact.Controllers.PersonController.Create (PhoneContact)' with route pattern 'api/Person/Create' is valid for the request path '/api/person/create'
+[DBG] 2020:11:24 22:54:09 Request matched endpoint 'PhoneContact.Controllers.PersonController.Create (PhoneContact)'
+[DBG] 2020:11:24 22:54:09 The request has an origin header: 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop'.
+[INF] 2020:11:24 22:54:09 CORS policy execution successful.
+[INF] 2020:11:24 22:54:09 Executing endpoint 'PhoneContact.Controllers.PersonController.Create (PhoneContact)'
+[INF] 2020:11:24 22:54:09 Route matched with {action = "Create", controller = "Person"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[DataModels.Person] Create(DataModels.Person) on controller PhoneContact.Controllers.PersonController (PhoneContact).
+[DBG] 2020:11:24 22:54:09 Execution plan of authorization filters (in the following order): ["None"]
+[DBG] 2020:11:24 22:54:09 Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+[DBG] 2020:11:24 22:54:09 Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[DBG] 2020:11:24 22:54:09 Execution plan of exception filters (in the following order): ["None"]
+[DBG] 2020:11:24 22:54:09 Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[DBG] 2020:11:24 22:54:09 Executing controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 22:54:09 Executed controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 22:54:09 Attempting to bind parameter 'viewModel' of type 'DataModels.Person' ...
+[DBG] 2020:11:24 22:54:09 Attempting to bind parameter 'viewModel' of type 'DataModels.Person' using the name '' in request data ...
+[DBG] 2020:11:24 22:54:09 Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+[DBG] 2020:11:24 22:54:09 JSON input formatter succeeded, deserializing to type 'DataModels.Person'
+[DBG] 2020:11:24 22:54:09 Done attempting to bind parameter 'viewModel' of type 'DataModels.Person'.
+[DBG] 2020:11:24 22:54:09 Done attempting to bind parameter 'viewModel' of type 'DataModels.Person'.
+[DBG] 2020:11:24 22:54:09 Attempting to validate the bound parameter 'viewModel' of type 'DataModels.Person' ...
+[DBG] 2020:11:24 22:54:09 Done attempting to validate the bound parameter 'viewModel' of type 'DataModels.Person'.
+[DBG] 2020:11:24 22:54:09 List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+[DBG] 2020:11:24 22:54:09 No information found on request to perform content negotiation.
+[DBG] 2020:11:24 22:54:09 Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+[DBG] 2020:11:24 22:54:09 Attempting to select the first formatter in the output formatters list which can write the result.
+[DBG] 2020:11:24 22:54:09 Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+[INF] 2020:11:24 22:54:09 Executing ObjectResult, writing value of type 'DataModels.Person'.
+[INF] 2020:11:24 22:54:09 Executed action PhoneContact.Controllers.PersonController.Create (PhoneContact) in 51.5901ms
+[INF] 2020:11:24 22:54:09 Executed endpoint 'PhoneContact.Controllers.PersonController.Create (PhoneContact)'
+[INF] 2020:11:24 22:54:09 Request finished in 56.7225ms 200 application/json; charset=utf-8
+[INF] 2020:11:24 22:55:03 Request starting HTTP/2.0 GET https://localhost:44393/api/person/listall  
+[DBG] 2020:11:24 22:55:03 The request path /api/person/listall does not match a supported file type
+[DBG] 2020:11:24 22:55:03 1 candidate(s) found for the request path '/api/person/listall'
+[DBG] 2020:11:24 22:55:03 Endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)' with route pattern 'api/Person/ListAll' is valid for the request path '/api/person/listall'
+[DBG] 2020:11:24 22:55:03 Request matched endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 22:55:03 Executing endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 22:55:03 Route matched with {action = "ListAll", controller = "Person"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[DataModels.Person]] ListAll() on controller PhoneContact.Controllers.PersonController (PhoneContact).
+[DBG] 2020:11:24 22:55:03 Execution plan of authorization filters (in the following order): ["None"]
+[DBG] 2020:11:24 22:55:03 Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+[DBG] 2020:11:24 22:55:03 Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[DBG] 2020:11:24 22:55:03 Execution plan of exception filters (in the following order): ["None"]
+[DBG] 2020:11:24 22:55:03 Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[DBG] 2020:11:24 22:55:03 Executing controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 22:55:03 Executed controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 22:55:03 List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+[DBG] 2020:11:24 22:55:03 No information found on request to perform content negotiation.
+[DBG] 2020:11:24 22:55:03 Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+[DBG] 2020:11:24 22:55:03 Attempting to select the first formatter in the output formatters list which can write the result.
+[DBG] 2020:11:24 22:55:03 Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+[INF] 2020:11:24 22:55:03 Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataModels.Person, DataModels, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[INF] 2020:11:24 22:55:03 Executed action PhoneContact.Controllers.PersonController.ListAll (PhoneContact) in 50.6694ms
+[INF] 2020:11:24 22:55:03 Executed endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 22:55:03 Request finished in 56.2785ms 200 application/json; charset=utf-8
+[INF] 2020:11:24 23:23:32 Starting web host
+[DBG] 2020:11:24 23:23:32 Hosting starting
+[INF] 2020:11:24 23:23:32 Starting @angular/cli on port 53680...
+[INF] 2020:11:24 23:23:33 User profile is available. Using 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[DBG] 2020:11:24 23:23:33 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-25e533eb-7f1a-408a-bbfd-4962644780bf.xml'.
+[DBG] 2020:11:24 23:23:33 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-74920df4-a3bd-4a60-8a64-6fbb33e0158b.xml'.
+[DBG] 2020:11:24 23:23:33 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-8bc9da5a-3689-478f-aec2-545a7961c9f5.xml'.
+[DBG] 2020:11:24 23:23:33 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-d7141953-5d39-4a22-8113-0cb9b1951830.xml'.
+[DBG] 2020:11:24 23:23:33 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-ebe4bfbf-9fe3-4fd0-ae9b-b5fbb3100364.xml'.
+[DBG] 2020:11:24 23:23:33 Found key {25e533eb-7f1a-408a-bbfd-4962644780bf}.
+[DBG] 2020:11:24 23:23:33 Found key {74920df4-a3bd-4a60-8a64-6fbb33e0158b}.
+[DBG] 2020:11:24 23:23:33 Found key {8bc9da5a-3689-478f-aec2-545a7961c9f5}.
+[DBG] 2020:11:24 23:23:33 Found key {d7141953-5d39-4a22-8113-0cb9b1951830}.
+[DBG] 2020:11:24 23:23:33 Found key {ebe4bfbf-9fe3-4fd0-ae9b-b5fbb3100364}.
+[DBG] 2020:11:24 23:23:33 Considering key {d7141953-5d39-4a22-8113-0cb9b1951830} with expiration date 2021-02-21 19:10:47Z as default key.
+[DBG] 2020:11:24 23:23:33 Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+[DBG] 2020:11:24 23:23:33 Decrypting secret element using Windows DPAPI.
+[DBG] 2020:11:24 23:23:33 Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+[DBG] 2020:11:24 23:23:33 Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+[DBG] 2020:11:24 23:23:33 Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+[DBG] 2020:11:24 23:23:33 Using key {d7141953-5d39-4a22-8113-0cb9b1951830} as the default key.
+[DBG] 2020:11:24 23:23:33 Key ring with default key {d7141953-5d39-4a22-8113-0cb9b1951830} was loaded during application startup.
+[DBG] 2020:11:24 23:23:33 Hosting started
+[DBG] 2020:11:24 23:23:33 Loaded hosting startup assembly PhoneContact
+[INF] 2020:11:24 23:23:33 Request starting HTTP/2.0 POST https://localhost:44393/api/person/create application/json 118
+[DBG] 2020:11:24 23:23:33 Wildcard detected, all requests with hosts will be allowed.
+[DBG] 2020:11:24 23:23:33 POST requests are not supported
+[DBG] 2020:11:24 23:23:33 1 candidate(s) found for the request path '/api/person/create'
+[DBG] 2020:11:24 23:23:33 Endpoint 'PhoneContact.Controllers.PersonController.Create (PhoneContact)' with route pattern 'api/Person/Create' is valid for the request path '/api/person/create'
+[DBG] 2020:11:24 23:23:33 Request matched endpoint 'PhoneContact.Controllers.PersonController.Create (PhoneContact)'
+[DBG] 2020:11:24 23:23:33 The request has an origin header: 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop'.
+[INF] 2020:11:24 23:23:33 CORS policy execution successful.
+[INF] 2020:11:24 23:23:33 Executing endpoint 'PhoneContact.Controllers.PersonController.Create (PhoneContact)'
+[DBG] 2020:11:24 23:23:33 Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider"]
+[INF] 2020:11:24 23:23:33 Route matched with {action = "Create", controller = "Person"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[DataModels.Person] Create(DataModels.Person) on controller PhoneContact.Controllers.PersonController (PhoneContact).
+[DBG] 2020:11:24 23:23:33 Execution plan of authorization filters (in the following order): ["None"]
+[DBG] 2020:11:24 23:23:33 Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+[DBG] 2020:11:24 23:23:33 Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[DBG] 2020:11:24 23:23:33 Execution plan of exception filters (in the following order): ["None"]
+[DBG] 2020:11:24 23:23:33 Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[DBG] 2020:11:24 23:23:33 Executing controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 23:23:33 Executed controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 23:23:33 Attempting to bind parameter 'viewModel' of type 'DataModels.Person' ...
+[DBG] 2020:11:24 23:23:33 Attempting to bind parameter 'viewModel' of type 'DataModels.Person' using the name '' in request data ...
+[DBG] 2020:11:24 23:23:33 Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+[DBG] 2020:11:24 23:23:33 JSON input formatter succeeded, deserializing to type 'DataModels.Person'
+[DBG] 2020:11:24 23:23:33 Done attempting to bind parameter 'viewModel' of type 'DataModels.Person'.
+[DBG] 2020:11:24 23:23:33 Done attempting to bind parameter 'viewModel' of type 'DataModels.Person'.
+[DBG] 2020:11:24 23:23:33 Attempting to validate the bound parameter 'viewModel' of type 'DataModels.Person' ...
+[DBG] 2020:11:24 23:23:33 Done attempting to validate the bound parameter 'viewModel' of type 'DataModels.Person'.
+[DBG] 2020:11:24 23:23:33 List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+[DBG] 2020:11:24 23:23:33 No information found on request to perform content negotiation.
+[DBG] 2020:11:24 23:23:33 Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+[DBG] 2020:11:24 23:23:33 Attempting to select the first formatter in the output formatters list which can write the result.
+[DBG] 2020:11:24 23:23:33 Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+[INF] 2020:11:24 23:23:33 Executing ObjectResult, writing value of type 'DataModels.Person'.
+[INF] 2020:11:24 23:23:33 Executed action PhoneContact.Controllers.PersonController.Create (PhoneContact) in 538.4952ms
+[INF] 2020:11:24 23:23:33 Executed endpoint 'PhoneContact.Controllers.PersonController.Create (PhoneContact)'
+[INF] 2020:11:24 23:23:33 Request finished in 620.9176ms 200 application/json; charset=utf-8
+[INF] 2020:11:24 23:23:49 > article-assingment@0.0.0 start D:\Source\PhoneContact\PhoneContact\ClientApp
+> ng serve "--port" "53680"
+
+
+
+[INF] 2020:11:24 23:23:49 chunk {main} main.js, main.js.map (main) 2.02 kB [initial] [rendered]
+chunk {polyfills} polyfills.js, polyfills.js.map (polyfills) 691 bytes [initial] [rendered]
+chunk {runtime} runtime.js, runtime.js.map (runtime) 6.15 kB [entry] [rendered]
+chunk {scripts} scripts.js, scripts.js.map (scripts) 146 kB [entry] [rendered]
+chunk {styles} styles.js, styles.js.map (styles) 2.09 MB [initial] [rendered]
+chunk {vendor} vendor.js, vendor.js.map (vendor) 339 kB [initial] [rendered]
+Date: 2020-11-24T20:23:49.384Z - Hash: 04e17fc05c90f2620e8b - Time: 9865ms
+
+[ERR] 2020:11:24 23:23:49 ERROR in src/app/app-routing.module.ts:3:38 - error TS2307: Cannot find module './article/article-list/article-list.component'.
+
+3 import { ArticleListComponent } from './article/article-list/article-list.component';
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app-routing.module.ts:4:37 - error TS2307: Cannot find module './author/author-list/author-list.component'.
+
+4 import { AuthorListComponent } from './author/author-list/author-list.component';
+                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app-routing.module.ts:5:33 - error TS2307: Cannot find module './author/author/author.component'.
+
+5 import { AuthorComponent } from './author/author/author.component';
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app.module.ts:8:38 - error TS2307: Cannot find module './article/article-list/article-list.component'.
+
+8 import { ArticleListComponent } from './article/article-list/article-list.component';
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app.module.ts:9:37 - error TS2307: Cannot find module './author/author-list/author-list.component'.
+
+9 import { AuthorListComponent } from './author/author-list/author-list.component';
+                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app.module.ts:10:34 - error TS2307: Cannot find module './article/article/article.component'.
+
+10 import { ArticleComponent } from './article/article/article.component';
+
+[INF] 2020:11:24 23:23:49 ** Angular Live Development Server is listening on localhost:53680, open your browser on http://localhost:53680/ **
+
+[INF] 2020:11:24 23:24:19 Request starting HTTP/2.0 GET https://localhost:44393/api/person/listall  
+[DBG] 2020:11:24 23:24:19 The request path /api/person/listall does not match a supported file type
+[DBG] 2020:11:24 23:24:19 1 candidate(s) found for the request path '/api/person/listall'
+[DBG] 2020:11:24 23:24:19 Endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)' with route pattern 'api/Person/ListAll' is valid for the request path '/api/person/listall'
+[DBG] 2020:11:24 23:24:19 Request matched endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 23:24:19 Executing endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 23:24:19 Route matched with {action = "ListAll", controller = "Person"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[DataModels.Person]] ListAll() on controller PhoneContact.Controllers.PersonController (PhoneContact).
+[DBG] 2020:11:24 23:24:19 Execution plan of authorization filters (in the following order): ["None"]
+[DBG] 2020:11:24 23:24:19 Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+[DBG] 2020:11:24 23:24:19 Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[DBG] 2020:11:24 23:24:19 Execution plan of exception filters (in the following order): ["None"]
+[DBG] 2020:11:24 23:24:19 Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[DBG] 2020:11:24 23:24:19 Executing controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 23:24:19 Executed controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 23:24:19 List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+[DBG] 2020:11:24 23:24:19 No information found on request to perform content negotiation.
+[DBG] 2020:11:24 23:24:19 Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+[DBG] 2020:11:24 23:24:19 Attempting to select the first formatter in the output formatters list which can write the result.
+[DBG] 2020:11:24 23:24:19 Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+[INF] 2020:11:24 23:24:19 Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataModels.Person, DataModels, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[INF] 2020:11:24 23:24:19 Executed action PhoneContact.Controllers.PersonController.ListAll (PhoneContact) in 25.6976ms
+[INF] 2020:11:24 23:24:19 Executed endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 23:24:19 Request finished in 31.4263ms 200 application/json; charset=utf-8
+[INF] 2020:11:24 23:24:39 Request starting HTTP/2.0 DELETE https://localhost:44393/api/person/delete/3  
+[DBG] 2020:11:24 23:24:39 DELETE requests are not supported
+[DBG] 2020:11:24 23:24:39 No candidates found for the request path '/api/person/delete/3'
+[DBG] 2020:11:24 23:24:39 Request did not match any endpoints
+[DBG] 2020:11:24 23:24:39 The request has an origin header: 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop'.
+[INF] 2020:11:24 23:24:39 CORS policy execution successful.
+[INF] 2020:11:24 23:24:41 Request finished in 2055.3116ms 404 text/html; charset=utf-8
+[INF] 2020:11:24 23:26:00 Request starting HTTP/2.0 DELETE https://localhost:44393/api/person/delete/id=3  
+[DBG] 2020:11:24 23:26:00 DELETE requests are not supported
+[DBG] 2020:11:24 23:26:00 No candidates found for the request path '/api/person/delete/id=3'
+[DBG] 2020:11:24 23:26:00 Request did not match any endpoints
+[DBG] 2020:11:24 23:26:00 The request has an origin header: 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop'.
+[INF] 2020:11:24 23:26:00 CORS policy execution successful.
+[INF] 2020:11:24 23:26:02 Request finished in 2035.4286ms 404 text/html; charset=utf-8
+[INF] 2020:11:24 23:26:07 Request starting HTTP/2.0 DELETE https://localhost:44393/api/person/delete/id?3  
+[DBG] 2020:11:24 23:26:07 DELETE requests are not supported
+[DBG] 2020:11:24 23:26:07 No candidates found for the request path '/api/person/delete/id'
+[DBG] 2020:11:24 23:26:07 Request did not match any endpoints
+[DBG] 2020:11:24 23:26:07 The request has an origin header: 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop'.
+[INF] 2020:11:24 23:26:07 CORS policy execution successful.
+[INF] 2020:11:24 23:26:09 Request finished in 2037.9244ms 404 text/html; charset=utf-8
+[INF] 2020:11:24 23:26:13 Request starting HTTP/2.0 DELETE https://localhost:44393/api/person/delete/id?=3  
+[DBG] 2020:11:24 23:26:13 DELETE requests are not supported
+[DBG] 2020:11:24 23:26:13 No candidates found for the request path '/api/person/delete/id'
+[DBG] 2020:11:24 23:26:13 Request did not match any endpoints
+[DBG] 2020:11:24 23:26:13 The request has an origin header: 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop'.
+[INF] 2020:11:24 23:26:13 CORS policy execution successful.
+[INF] 2020:11:24 23:26:15 Request finished in 2045.0051ms 404 text/html; charset=utf-8
+[INF] 2020:11:24 23:26:26 Request starting HTTP/2.0 DELETE https://localhost:44393/api/person/delete/?3  
+[DBG] 2020:11:24 23:26:26 DELETE requests are not supported
+[DBG] 2020:11:24 23:26:26 1 candidate(s) found for the request path '/api/person/delete/'
+[DBG] 2020:11:24 23:26:26 Endpoint 'PhoneContact.Controllers.PersonController.Delete (PhoneContact)' with route pattern 'api/Person/Delete' is valid for the request path '/api/person/delete/'
+[DBG] 2020:11:24 23:26:26 Request matched endpoint 'PhoneContact.Controllers.PersonController.Delete (PhoneContact)'
+[DBG] 2020:11:24 23:26:26 The request has an origin header: 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop'.
+[INF] 2020:11:24 23:26:26 CORS policy execution successful.
+[INF] 2020:11:24 23:26:26 Executing endpoint 'PhoneContact.Controllers.PersonController.Delete (PhoneContact)'
+[INF] 2020:11:24 23:26:26 Route matched with {action = "Delete", controller = "Person"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Delete(Int64) on controller PhoneContact.Controllers.PersonController (PhoneContact).
+[DBG] 2020:11:24 23:26:26 Execution plan of authorization filters (in the following order): ["None"]
+[DBG] 2020:11:24 23:26:26 Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+[DBG] 2020:11:24 23:26:26 Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[DBG] 2020:11:24 23:26:26 Execution plan of exception filters (in the following order): ["None"]
+[DBG] 2020:11:24 23:26:26 Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[DBG] 2020:11:24 23:26:26 Executing controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 23:26:26 Executed controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 23:26:26 Attempting to bind parameter 'id' of type 'System.Int64' ...
+[DBG] 2020:11:24 23:26:26 Could not find a value in the request with name '' for binding parameter 'id' of type 'System.Int64'.
+[DBG] 2020:11:24 23:26:26 Done attempting to bind parameter 'id' of type 'System.Int64'.
+[DBG] 2020:11:24 23:26:26 Done attempting to bind parameter 'id' of type 'System.Int64'.
+[DBG] 2020:11:24 23:26:26 Attempting to validate the bound parameter 'id' of type 'System.Int64' ...
+[DBG] 2020:11:24 23:26:26 Done attempting to validate the bound parameter 'id' of type 'System.Int64'.
+[INF] 2020:11:24 23:26:26 Executing JsonResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[INF] 2020:11:24 23:26:26 Executed action PhoneContact.Controllers.PersonController.Delete (PhoneContact) in 12.1768ms
+[INF] 2020:11:24 23:26:26 Executed endpoint 'PhoneContact.Controllers.PersonController.Delete (PhoneContact)'
+[INF] 2020:11:24 23:26:26 Request finished in 20.5559ms 200 application/json; charset=utf-8
+[INF] 2020:11:24 23:26:43 Request starting HTTP/2.0 GET https://localhost:44393/api/person/listall  
+[DBG] 2020:11:24 23:26:43 The request path /api/person/listall does not match a supported file type
+[DBG] 2020:11:24 23:26:43 1 candidate(s) found for the request path '/api/person/listall'
+[DBG] 2020:11:24 23:26:43 Endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)' with route pattern 'api/Person/ListAll' is valid for the request path '/api/person/listall'
+[DBG] 2020:11:24 23:26:43 Request matched endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 23:26:43 Executing endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 23:26:43 Route matched with {action = "ListAll", controller = "Person"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[DataModels.Person]] ListAll() on controller PhoneContact.Controllers.PersonController (PhoneContact).
+[DBG] 2020:11:24 23:26:43 Execution plan of authorization filters (in the following order): ["None"]
+[DBG] 2020:11:24 23:26:43 Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+[DBG] 2020:11:24 23:26:43 Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[DBG] 2020:11:24 23:26:43 Execution plan of exception filters (in the following order): ["None"]
+[DBG] 2020:11:24 23:26:43 Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[DBG] 2020:11:24 23:26:43 Executing controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 23:26:43 Executed controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 23:26:43 List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+[DBG] 2020:11:24 23:26:43 No information found on request to perform content negotiation.
+[DBG] 2020:11:24 23:26:43 Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+[DBG] 2020:11:24 23:26:43 Attempting to select the first formatter in the output formatters list which can write the result.
+[DBG] 2020:11:24 23:26:43 Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+[INF] 2020:11:24 23:26:43 Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataModels.Person, DataModels, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[INF] 2020:11:24 23:26:43 Executed action PhoneContact.Controllers.PersonController.ListAll (PhoneContact) in 3.4449ms
+[INF] 2020:11:24 23:26:43 Executed endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 23:26:43 Request finished in 5.7594ms 200 application/json; charset=utf-8
+[INF] 2020:11:24 23:27:36 Request starting HTTP/2.0 GET https://localhost:44393/api/person/listall  
+[DBG] 2020:11:24 23:27:36 The request path /api/person/listall does not match a supported file type
+[DBG] 2020:11:24 23:27:36 1 candidate(s) found for the request path '/api/person/listall'
+[DBG] 2020:11:24 23:27:36 Endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)' with route pattern 'api/Person/ListAll' is valid for the request path '/api/person/listall'
+[DBG] 2020:11:24 23:27:36 Request matched endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 23:27:36 Executing endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 23:27:36 Route matched with {action = "ListAll", controller = "Person"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[DataModels.Person]] ListAll() on controller PhoneContact.Controllers.PersonController (PhoneContact).
+[DBG] 2020:11:24 23:27:36 Execution plan of authorization filters (in the following order): ["None"]
+[DBG] 2020:11:24 23:27:36 Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+[DBG] 2020:11:24 23:27:36 Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[DBG] 2020:11:24 23:27:36 Execution plan of exception filters (in the following order): ["None"]
+[DBG] 2020:11:24 23:27:36 Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[DBG] 2020:11:24 23:27:36 Executing controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 23:27:36 Executed controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 23:27:36 List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+[DBG] 2020:11:24 23:27:36 No information found on request to perform content negotiation.
+[DBG] 2020:11:24 23:27:36 Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+[DBG] 2020:11:24 23:27:36 Attempting to select the first formatter in the output formatters list which can write the result.
+[DBG] 2020:11:24 23:27:36 Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+[INF] 2020:11:24 23:27:36 Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataModels.Person, DataModels, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[INF] 2020:11:24 23:27:36 Executed action PhoneContact.Controllers.PersonController.ListAll (PhoneContact) in 8.2106ms
+[INF] 2020:11:24 23:27:36 Executed endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 23:27:36 Request finished in 9.9577ms 200 application/json; charset=utf-8
+[INF] 2020:11:24 23:27:49 Request starting HTTP/2.0 DELETE https://localhost:44393/api/person/delete/?3  
+[DBG] 2020:11:24 23:27:49 DELETE requests are not supported
+[DBG] 2020:11:24 23:27:49 1 candidate(s) found for the request path '/api/person/delete/'
+[DBG] 2020:11:24 23:27:49 Endpoint 'PhoneContact.Controllers.PersonController.Delete (PhoneContact)' with route pattern 'api/Person/Delete' is valid for the request path '/api/person/delete/'
+[DBG] 2020:11:24 23:27:49 Request matched endpoint 'PhoneContact.Controllers.PersonController.Delete (PhoneContact)'
+[DBG] 2020:11:24 23:27:49 The request has an origin header: 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop'.
+[INF] 2020:11:24 23:27:49 CORS policy execution successful.
+[INF] 2020:11:24 23:27:49 Executing endpoint 'PhoneContact.Controllers.PersonController.Delete (PhoneContact)'
+[INF] 2020:11:24 23:27:49 Route matched with {action = "Delete", controller = "Person"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Delete(Int64) on controller PhoneContact.Controllers.PersonController (PhoneContact).
+[DBG] 2020:11:24 23:27:49 Execution plan of authorization filters (in the following order): ["None"]
+[DBG] 2020:11:24 23:27:49 Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+[DBG] 2020:11:24 23:27:49 Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[DBG] 2020:11:24 23:27:49 Execution plan of exception filters (in the following order): ["None"]
+[DBG] 2020:11:24 23:27:49 Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[DBG] 2020:11:24 23:27:49 Executing controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 23:27:49 Executed controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 23:27:49 Attempting to bind parameter 'id' of type 'System.Int64' ...
+[DBG] 2020:11:24 23:27:49 Could not find a value in the request with name '' for binding parameter 'id' of type 'System.Int64'.
+[DBG] 2020:11:24 23:27:49 Done attempting to bind parameter 'id' of type 'System.Int64'.
+[DBG] 2020:11:24 23:27:49 Done attempting to bind parameter 'id' of type 'System.Int64'.
+[DBG] 2020:11:24 23:27:49 Attempting to validate the bound parameter 'id' of type 'System.Int64' ...
+[DBG] 2020:11:24 23:27:49 Done attempting to validate the bound parameter 'id' of type 'System.Int64'.
+[INF] 2020:11:24 23:27:49 Executing JsonResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[INF] 2020:11:24 23:27:49 Executed action PhoneContact.Controllers.PersonController.Delete (PhoneContact) in 2.9978ms
+[INF] 2020:11:24 23:27:49 Executed endpoint 'PhoneContact.Controllers.PersonController.Delete (PhoneContact)'
+[INF] 2020:11:24 23:27:49 Request finished in 5.2678ms 200 application/json; charset=utf-8
+[INF] 2020:11:24 23:27:53 Request starting HTTP/2.0 GET https://localhost:44393/api/person/listall  
+[DBG] 2020:11:24 23:27:53 The request path /api/person/listall does not match a supported file type
+[DBG] 2020:11:24 23:27:53 1 candidate(s) found for the request path '/api/person/listall'
+[DBG] 2020:11:24 23:27:53 Endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)' with route pattern 'api/Person/ListAll' is valid for the request path '/api/person/listall'
+[DBG] 2020:11:24 23:27:53 Request matched endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 23:27:53 Executing endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 23:27:53 Route matched with {action = "ListAll", controller = "Person"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[DataModels.Person]] ListAll() on controller PhoneContact.Controllers.PersonController (PhoneContact).
+[DBG] 2020:11:24 23:27:53 Execution plan of authorization filters (in the following order): ["None"]
+[DBG] 2020:11:24 23:27:53 Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+[DBG] 2020:11:24 23:27:53 Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[DBG] 2020:11:24 23:27:53 Execution plan of exception filters (in the following order): ["None"]
+[DBG] 2020:11:24 23:27:53 Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[DBG] 2020:11:24 23:27:53 Executing controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 23:27:53 Executed controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 23:27:53 List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+[DBG] 2020:11:24 23:27:53 No information found on request to perform content negotiation.
+[DBG] 2020:11:24 23:27:53 Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+[DBG] 2020:11:24 23:27:53 Attempting to select the first formatter in the output formatters list which can write the result.
+[DBG] 2020:11:24 23:27:53 Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+[INF] 2020:11:24 23:27:53 Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataModels.Person, DataModels, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[INF] 2020:11:24 23:27:53 Executed action PhoneContact.Controllers.PersonController.ListAll (PhoneContact) in 4.5315ms
+[INF] 2020:11:24 23:27:53 Executed endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 23:27:53 Request finished in 6.758ms 200 application/json; charset=utf-8
+[INF] 2020:11:24 23:28:02 Request starting HTTP/2.0 DELETE https://localhost:44393/api/person/delete/3  
+[DBG] 2020:11:24 23:28:02 DELETE requests are not supported
+[DBG] 2020:11:24 23:28:02 No candidates found for the request path '/api/person/delete/3'
+[DBG] 2020:11:24 23:28:02 Request did not match any endpoints
+[DBG] 2020:11:24 23:28:02 The request has an origin header: 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop'.
+[INF] 2020:11:24 23:28:02 CORS policy execution successful.
+[INF] 2020:11:24 23:28:04 Request finished in 2038.5528ms 404 text/html; charset=utf-8
+[INF] 2020:11:24 23:28:20 Request starting HTTP/2.0 GET https://localhost:44393/api/person/listall  
+[DBG] 2020:11:24 23:28:20 The request path /api/person/listall does not match a supported file type
+[DBG] 2020:11:24 23:28:20 1 candidate(s) found for the request path '/api/person/listall'
+[DBG] 2020:11:24 23:28:20 Endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)' with route pattern 'api/Person/ListAll' is valid for the request path '/api/person/listall'
+[DBG] 2020:11:24 23:28:20 Request matched endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 23:28:20 Executing endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 23:28:20 Route matched with {action = "ListAll", controller = "Person"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[DataModels.Person]] ListAll() on controller PhoneContact.Controllers.PersonController (PhoneContact).
+[DBG] 2020:11:24 23:28:20 Execution plan of authorization filters (in the following order): ["None"]
+[DBG] 2020:11:24 23:28:20 Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+[DBG] 2020:11:24 23:28:20 Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[DBG] 2020:11:24 23:28:20 Execution plan of exception filters (in the following order): ["None"]
+[DBG] 2020:11:24 23:28:20 Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[DBG] 2020:11:24 23:28:20 Executing controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 23:28:20 Executed controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 23:28:20 List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+[DBG] 2020:11:24 23:28:20 No information found on request to perform content negotiation.
+[DBG] 2020:11:24 23:28:20 Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+[DBG] 2020:11:24 23:28:20 Attempting to select the first formatter in the output formatters list which can write the result.
+[DBG] 2020:11:24 23:28:20 Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+[INF] 2020:11:24 23:28:20 Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataModels.Person, DataModels, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[INF] 2020:11:24 23:28:20 Executed action PhoneContact.Controllers.PersonController.ListAll (PhoneContact) in 3.0965ms
+[INF] 2020:11:24 23:28:20 Executed endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 23:28:20 Request finished in 4.6825ms 200 application/json; charset=utf-8
+[INF] 2020:11:24 23:28:24 Request starting HTTP/2.0 DELETE https://localhost:44393/api/person/delete/?2  
+[DBG] 2020:11:24 23:28:24 DELETE requests are not supported
+[DBG] 2020:11:24 23:28:24 1 candidate(s) found for the request path '/api/person/delete/'
+[DBG] 2020:11:24 23:28:24 Endpoint 'PhoneContact.Controllers.PersonController.Delete (PhoneContact)' with route pattern 'api/Person/Delete' is valid for the request path '/api/person/delete/'
+[DBG] 2020:11:24 23:28:24 Request matched endpoint 'PhoneContact.Controllers.PersonController.Delete (PhoneContact)'
+[DBG] 2020:11:24 23:28:24 The request has an origin header: 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop'.
+[INF] 2020:11:24 23:28:24 CORS policy execution successful.
+[INF] 2020:11:24 23:28:24 Executing endpoint 'PhoneContact.Controllers.PersonController.Delete (PhoneContact)'
+[INF] 2020:11:24 23:28:24 Route matched with {action = "Delete", controller = "Person"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Delete(Int64) on controller PhoneContact.Controllers.PersonController (PhoneContact).
+[DBG] 2020:11:24 23:28:24 Execution plan of authorization filters (in the following order): ["None"]
+[DBG] 2020:11:24 23:28:24 Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+[DBG] 2020:11:24 23:28:24 Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[DBG] 2020:11:24 23:28:24 Execution plan of exception filters (in the following order): ["None"]
+[DBG] 2020:11:24 23:28:24 Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[DBG] 2020:11:24 23:28:24 Executing controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 23:28:24 Executed controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 23:28:24 Attempting to bind parameter 'id' of type 'System.Int64' ...
+[DBG] 2020:11:24 23:28:24 Could not find a value in the request with name '' for binding parameter 'id' of type 'System.Int64'.
+[DBG] 2020:11:24 23:28:24 Done attempting to bind parameter 'id' of type 'System.Int64'.
+[DBG] 2020:11:24 23:28:24 Done attempting to bind parameter 'id' of type 'System.Int64'.
+[DBG] 2020:11:24 23:28:24 Attempting to validate the bound parameter 'id' of type 'System.Int64' ...
+[DBG] 2020:11:24 23:28:24 Done attempting to validate the bound parameter 'id' of type 'System.Int64'.
+[INF] 2020:11:24 23:28:24 Executing JsonResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[INF] 2020:11:24 23:28:24 Executed action PhoneContact.Controllers.PersonController.Delete (PhoneContact) in 3.3165ms
+[INF] 2020:11:24 23:28:24 Executed endpoint 'PhoneContact.Controllers.PersonController.Delete (PhoneContact)'
+[INF] 2020:11:24 23:28:24 Request finished in 4.8357ms 200 application/json; charset=utf-8
+[INF] 2020:11:24 23:28:29 Request starting HTTP/2.0 GET https://localhost:44393/api/person/listall  
+[DBG] 2020:11:24 23:28:29 The request path /api/person/listall does not match a supported file type
+[DBG] 2020:11:24 23:28:29 1 candidate(s) found for the request path '/api/person/listall'
+[DBG] 2020:11:24 23:28:29 Endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)' with route pattern 'api/Person/ListAll' is valid for the request path '/api/person/listall'
+[DBG] 2020:11:24 23:28:29 Request matched endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 23:28:29 Executing endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 23:28:29 Route matched with {action = "ListAll", controller = "Person"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[DataModels.Person]] ListAll() on controller PhoneContact.Controllers.PersonController (PhoneContact).
+[DBG] 2020:11:24 23:28:29 Execution plan of authorization filters (in the following order): ["None"]
+[DBG] 2020:11:24 23:28:29 Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+[DBG] 2020:11:24 23:28:29 Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[DBG] 2020:11:24 23:28:29 Execution plan of exception filters (in the following order): ["None"]
+[DBG] 2020:11:24 23:28:29 Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[DBG] 2020:11:24 23:28:29 Executing controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 23:28:29 Executed controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:24 23:28:29 List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+[DBG] 2020:11:24 23:28:29 No information found on request to perform content negotiation.
+[DBG] 2020:11:24 23:28:29 Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+[DBG] 2020:11:24 23:28:29 Attempting to select the first formatter in the output formatters list which can write the result.
+[DBG] 2020:11:24 23:28:29 Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+[INF] 2020:11:24 23:28:29 Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataModels.Person, DataModels, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[INF] 2020:11:24 23:28:29 Executed action PhoneContact.Controllers.PersonController.ListAll (PhoneContact) in 2.9763ms
+[INF] 2020:11:24 23:28:29 Executed endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:24 23:28:29 Request finished in 4.2058ms 200 application/json; charset=utf-8
+[INF] 2020:11:25 20:30:54 Starting web host
+[DBG] 2020:11:25 20:31:02 Hosting starting
+[INF] 2020:11:25 20:31:04 Starting @angular/cli on port 55201...
+[INF] 2020:11:25 20:31:05 User profile is available. Using 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[DBG] 2020:11:25 20:31:05 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-25e533eb-7f1a-408a-bbfd-4962644780bf.xml'.
+[DBG] 2020:11:25 20:31:05 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-74920df4-a3bd-4a60-8a64-6fbb33e0158b.xml'.
+[DBG] 2020:11:25 20:31:05 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-8bc9da5a-3689-478f-aec2-545a7961c9f5.xml'.
+[DBG] 2020:11:25 20:31:05 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-d7141953-5d39-4a22-8113-0cb9b1951830.xml'.
+[DBG] 2020:11:25 20:31:05 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-ebe4bfbf-9fe3-4fd0-ae9b-b5fbb3100364.xml'.
+[DBG] 2020:11:25 20:31:05 Found key {25e533eb-7f1a-408a-bbfd-4962644780bf}.
+[DBG] 2020:11:25 20:31:05 Found key {74920df4-a3bd-4a60-8a64-6fbb33e0158b}.
+[DBG] 2020:11:25 20:31:05 Found key {8bc9da5a-3689-478f-aec2-545a7961c9f5}.
+[DBG] 2020:11:25 20:31:05 Found key {d7141953-5d39-4a22-8113-0cb9b1951830}.
+[DBG] 2020:11:25 20:31:05 Found key {ebe4bfbf-9fe3-4fd0-ae9b-b5fbb3100364}.
+[DBG] 2020:11:25 20:31:05 Considering key {d7141953-5d39-4a22-8113-0cb9b1951830} with expiration date 2021-02-21 19:10:47Z as default key.
+[DBG] 2020:11:25 20:31:05 Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+[DBG] 2020:11:25 20:31:05 Decrypting secret element using Windows DPAPI.
+[DBG] 2020:11:25 20:31:05 Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+[DBG] 2020:11:25 20:31:05 Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+[DBG] 2020:11:25 20:31:05 Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+[DBG] 2020:11:25 20:31:05 Using key {d7141953-5d39-4a22-8113-0cb9b1951830} as the default key.
+[DBG] 2020:11:25 20:31:05 Key ring with default key {d7141953-5d39-4a22-8113-0cb9b1951830} was loaded during application startup.
+[DBG] 2020:11:25 20:31:05 Hosting started
+[DBG] 2020:11:25 20:31:05 Loaded hosting startup assembly PhoneContact
+[INF] 2020:11:25 20:31:05 Request starting HTTP/2.0 GET https://localhost:44393/api/person/listall  
+[DBG] 2020:11:25 20:31:05 Wildcard detected, all requests with hosts will be allowed.
+[DBG] 2020:11:25 20:31:05 The request path /api/person/listall does not match a supported file type
+[DBG] 2020:11:25 20:31:05 1 candidate(s) found for the request path '/api/person/listall'
+[DBG] 2020:11:25 20:31:05 Endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)' with route pattern 'api/Person/ListAll' is valid for the request path '/api/person/listall'
+[DBG] 2020:11:25 20:31:05 Request matched endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:25 20:31:05 Executing endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[DBG] 2020:11:25 20:31:06 Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider"]
+[INF] 2020:11:25 20:31:06 Route matched with {action = "ListAll", controller = "Person"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[DataModels.Person]] ListAll() on controller PhoneContact.Controllers.PersonController (PhoneContact).
+[DBG] 2020:11:25 20:31:06 Execution plan of authorization filters (in the following order): ["None"]
+[DBG] 2020:11:25 20:31:06 Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+[DBG] 2020:11:25 20:31:06 Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[DBG] 2020:11:25 20:31:06 Execution plan of exception filters (in the following order): ["None"]
+[DBG] 2020:11:25 20:31:06 Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[DBG] 2020:11:25 20:31:06 Executing controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:25 20:31:06 Executed controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:25 20:31:14 List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+[DBG] 2020:11:25 20:31:14 No information found on request to perform content negotiation.
+[DBG] 2020:11:25 20:31:14 Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+[DBG] 2020:11:25 20:31:14 Attempting to select the first formatter in the output formatters list which can write the result.
+[DBG] 2020:11:25 20:31:14 Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+[INF] 2020:11:25 20:31:14 Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataModels.Person, DataModels, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[INF] 2020:11:25 20:31:14 Executed action PhoneContact.Controllers.PersonController.ListAll (PhoneContact) in 8292.0732ms
+[INF] 2020:11:25 20:31:14 Executed endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:25 20:31:14 Request finished in 8377.9361ms 200 application/json; charset=utf-8
+[INF] 2020:11:25 20:31:41 Starting web host
+[INF] 2020:11:25 20:32:21 Starting web host
+[INF] 2020:11:25 20:32:37 Starting web host
+[DBG] 2020:11:25 20:32:45 Hosting starting
+[INF] 2020:11:25 20:32:46 Starting @angular/cli on port 55244...
+[INF] 2020:11:25 20:32:47 User profile is available. Using 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[DBG] 2020:11:25 20:32:47 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-25e533eb-7f1a-408a-bbfd-4962644780bf.xml'.
+[DBG] 2020:11:25 20:32:47 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-74920df4-a3bd-4a60-8a64-6fbb33e0158b.xml'.
+[DBG] 2020:11:25 20:32:47 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-8bc9da5a-3689-478f-aec2-545a7961c9f5.xml'.
+[DBG] 2020:11:25 20:32:47 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-d7141953-5d39-4a22-8113-0cb9b1951830.xml'.
+[DBG] 2020:11:25 20:32:47 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-ebe4bfbf-9fe3-4fd0-ae9b-b5fbb3100364.xml'.
+[DBG] 2020:11:25 20:32:47 Found key {25e533eb-7f1a-408a-bbfd-4962644780bf}.
+[DBG] 2020:11:25 20:32:47 Found key {74920df4-a3bd-4a60-8a64-6fbb33e0158b}.
+[DBG] 2020:11:25 20:32:47 Found key {8bc9da5a-3689-478f-aec2-545a7961c9f5}.
+[DBG] 2020:11:25 20:32:47 Found key {d7141953-5d39-4a22-8113-0cb9b1951830}.
+[DBG] 2020:11:25 20:32:47 Found key {ebe4bfbf-9fe3-4fd0-ae9b-b5fbb3100364}.
+[DBG] 2020:11:25 20:32:47 Considering key {d7141953-5d39-4a22-8113-0cb9b1951830} with expiration date 2021-02-21 19:10:47Z as default key.
+[DBG] 2020:11:25 20:32:47 Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+[DBG] 2020:11:25 20:32:47 Decrypting secret element using Windows DPAPI.
+[DBG] 2020:11:25 20:32:47 Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+[DBG] 2020:11:25 20:32:47 Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+[DBG] 2020:11:25 20:32:47 Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+[DBG] 2020:11:25 20:32:47 Using key {d7141953-5d39-4a22-8113-0cb9b1951830} as the default key.
+[DBG] 2020:11:25 20:32:47 Key ring with default key {d7141953-5d39-4a22-8113-0cb9b1951830} was loaded during application startup.
+[DBG] 2020:11:25 20:32:47 Hosting started
+[DBG] 2020:11:25 20:32:47 Loaded hosting startup assembly PhoneContact
+[INF] 2020:11:25 20:32:48 Request starting HTTP/2.0 GET https://localhost:44393/api/person/listall  
+[DBG] 2020:11:25 20:32:48 Wildcard detected, all requests with hosts will be allowed.
+[DBG] 2020:11:25 20:32:48 The request path /api/person/listall does not match a supported file type
+[DBG] 2020:11:25 20:32:48 1 candidate(s) found for the request path '/api/person/listall'
+[DBG] 2020:11:25 20:32:48 Endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)' with route pattern 'api/Person/ListAll' is valid for the request path '/api/person/listall'
+[DBG] 2020:11:25 20:32:48 Request matched endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:25 20:32:48 Executing endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[DBG] 2020:11:25 20:32:48 Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider"]
+[INF] 2020:11:25 20:32:48 Route matched with {action = "ListAll", controller = "Person"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[DataModels.Person]] ListAll() on controller PhoneContact.Controllers.PersonController (PhoneContact).
+[DBG] 2020:11:25 20:32:48 Execution plan of authorization filters (in the following order): ["None"]
+[DBG] 2020:11:25 20:32:48 Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+[DBG] 2020:11:25 20:32:48 Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[DBG] 2020:11:25 20:32:48 Execution plan of exception filters (in the following order): ["None"]
+[DBG] 2020:11:25 20:32:48 Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[DBG] 2020:11:25 20:32:48 Executing controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:25 20:32:48 Executed controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:25 20:32:49 List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+[DBG] 2020:11:25 20:32:49 No information found on request to perform content negotiation.
+[DBG] 2020:11:25 20:32:49 Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+[DBG] 2020:11:25 20:32:49 Attempting to select the first formatter in the output formatters list which can write the result.
+[DBG] 2020:11:25 20:32:49 Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+[INF] 2020:11:25 20:32:49 Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataModels.Person, DataModels, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[INF] 2020:11:25 20:32:49 Executed action PhoneContact.Controllers.PersonController.ListAll (PhoneContact) in 1705.2712ms
+[INF] 2020:11:25 20:32:49 Executed endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:25 20:32:49 Request finished in 1790.2964ms 200 application/json; charset=utf-8
+[INF] 2020:11:25 20:33:31 Starting web host
+[DBG] 2020:11:25 20:33:38 Hosting starting
+[INF] 2020:11:25 20:33:40 Starting @angular/cli on port 55257...
+[INF] 2020:11:25 20:33:41 User profile is available. Using 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[DBG] 2020:11:25 20:33:41 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-25e533eb-7f1a-408a-bbfd-4962644780bf.xml'.
+[DBG] 2020:11:25 20:33:41 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-74920df4-a3bd-4a60-8a64-6fbb33e0158b.xml'.
+[DBG] 2020:11:25 20:33:41 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-8bc9da5a-3689-478f-aec2-545a7961c9f5.xml'.
+[DBG] 2020:11:25 20:33:41 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-d7141953-5d39-4a22-8113-0cb9b1951830.xml'.
+[DBG] 2020:11:25 20:33:41 Reading data from file 'C:\Users\saim_\AppData\Local\ASP.NET\DataProtection-Keys\key-ebe4bfbf-9fe3-4fd0-ae9b-b5fbb3100364.xml'.
+[DBG] 2020:11:25 20:33:41 Found key {25e533eb-7f1a-408a-bbfd-4962644780bf}.
+[DBG] 2020:11:25 20:33:41 Found key {74920df4-a3bd-4a60-8a64-6fbb33e0158b}.
+[DBG] 2020:11:25 20:33:41 Found key {8bc9da5a-3689-478f-aec2-545a7961c9f5}.
+[DBG] 2020:11:25 20:33:41 Found key {d7141953-5d39-4a22-8113-0cb9b1951830}.
+[DBG] 2020:11:25 20:33:41 Found key {ebe4bfbf-9fe3-4fd0-ae9b-b5fbb3100364}.
+[DBG] 2020:11:25 20:33:41 Considering key {d7141953-5d39-4a22-8113-0cb9b1951830} with expiration date 2021-02-21 19:10:47Z as default key.
+[DBG] 2020:11:25 20:33:41 Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+[DBG] 2020:11:25 20:33:41 Decrypting secret element using Windows DPAPI.
+[DBG] 2020:11:25 20:33:41 Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+[DBG] 2020:11:25 20:33:41 Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+[DBG] 2020:11:25 20:33:41 Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+[DBG] 2020:11:25 20:33:41 Using key {d7141953-5d39-4a22-8113-0cb9b1951830} as the default key.
+[DBG] 2020:11:25 20:33:41 Key ring with default key {d7141953-5d39-4a22-8113-0cb9b1951830} was loaded during application startup.
+[DBG] 2020:11:25 20:33:41 Hosting started
+[DBG] 2020:11:25 20:33:41 Loaded hosting startup assembly PhoneContact
+[INF] 2020:11:25 20:33:41 Request starting HTTP/2.0 GET https://localhost:44393/api/person/listall  
+[DBG] 2020:11:25 20:33:41 Wildcard detected, all requests with hosts will be allowed.
+[DBG] 2020:11:25 20:33:41 The request path /api/person/listall does not match a supported file type
+[DBG] 2020:11:25 20:33:41 1 candidate(s) found for the request path '/api/person/listall'
+[DBG] 2020:11:25 20:33:41 Endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)' with route pattern 'api/Person/ListAll' is valid for the request path '/api/person/listall'
+[DBG] 2020:11:25 20:33:41 Request matched endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:25 20:33:41 Executing endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[DBG] 2020:11:25 20:33:41 Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider"]
+[INF] 2020:11:25 20:33:41 Route matched with {action = "ListAll", controller = "Person"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[DataModels.Person]] ListAll() on controller PhoneContact.Controllers.PersonController (PhoneContact).
+[DBG] 2020:11:25 20:33:41 Execution plan of authorization filters (in the following order): ["None"]
+[DBG] 2020:11:25 20:33:41 Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+[DBG] 2020:11:25 20:33:41 Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[DBG] 2020:11:25 20:33:41 Execution plan of exception filters (in the following order): ["None"]
+[DBG] 2020:11:25 20:33:41 Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[DBG] 2020:11:25 20:33:41 Executing controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:25 20:33:41 Executed controller factory for controller PhoneContact.Controllers.PersonController (PhoneContact)
+[DBG] 2020:11:25 20:33:43 List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+[DBG] 2020:11:25 20:33:43 No information found on request to perform content negotiation.
+[DBG] 2020:11:25 20:33:43 Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+[DBG] 2020:11:25 20:33:43 Attempting to select the first formatter in the output formatters list which can write the result.
+[DBG] 2020:11:25 20:33:43 Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+[INF] 2020:11:25 20:33:43 Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataModels.Person, DataModels, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[INF] 2020:11:25 20:33:43 Executed action PhoneContact.Controllers.PersonController.ListAll (PhoneContact) in 1731.6252ms
+[INF] 2020:11:25 20:33:43 Executed endpoint 'PhoneContact.Controllers.PersonController.ListAll (PhoneContact)'
+[INF] 2020:11:25 20:33:43 Request finished in 1810.3421ms 200 application/json; charset=utf-8
+[INF] 2020:11:25 20:33:58 > article-assingment@0.0.0 start D:\Source\PhoneContact\PhoneContact\ClientApp
+> ng serve "--port" "55257"
+
+
+
+[INF] 2020:11:25 20:33:58 chunk {main} main.js, main.js.map (main) 2.02 kB [initial] [rendered]
+chunk {polyfills} polyfills.js, polyfills.js.map (polyfills) 691 bytes [initial] [rendered]
+chunk {runtime} runtime.js, runtime.js.map (runtime) 6.15 kB [entry] [rendered]
+chunk {scripts} scripts.js, scripts.js.map (scripts) 146 kB [entry] [rendered]
+chunk {styles} styles.js, styles.js.map (styles) 2.09 MB [initial] [rendered]
+chunk {vendor} vendor.js, vendor.js.map (vendor) 339 kB [initial] [rendered]
+Date: 2020-11-25T17:33:58.175Z - Hash: 04e17fc05c90f2620e8b - Time: 10399ms
+
+[ERR] 2020:11:25 20:33:58 ERROR in src/app/app-routing.module.ts:3:38 - error TS2307: Cannot find module './article/article-list/article-list.component'.
+
+3 import { ArticleListComponent } from './article/article-list/article-list.component';
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app-routing.module.ts:4:37 - error TS2307: Cannot find module './author/author-list/author-list.component'.
+
+4 import { AuthorListComponent } from './author/author-list/author-list.component';
+                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app-routing.module.ts:5:33 - error TS2307: Cannot find module './author/author/author.component'.
+
+5 import { AuthorComponent } from './author/author/author.component';
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app.module.ts:8:38 - error TS2307: Cannot find module './article/article-list/article-list.component'.
+
+8 import { ArticleListComponent } from './article/article-list/article-list.component';
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app.module.ts:9:37 - error TS2307: Cannot find module './author/author-list/author-list.component'.
+
+9 import { AuthorListComponent } from './author/author-list/author-list.component';
+                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app.module.ts:10:34 - error TS2307: Cannot find module './article/article/article.component'.
+
+10 import { ArticleComponent } from './article/article/article.component';
+

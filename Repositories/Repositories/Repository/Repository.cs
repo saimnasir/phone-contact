@@ -80,7 +80,7 @@ namespace Repositories
             return dataModel;
         }
 
-        public EntityStates Delete(long id)
+        public bool Delete(long id)
         {
             setCurrentTable();
 
@@ -93,7 +93,7 @@ namespace Repositories
                  _connStr,
                  conn =>
                  {
-                     return conn.ExecuteScalar<EntityStates>(
+                     return conn.ExecuteScalar<bool>(
                          _commandText.DeleteCommand,
                          parameters,
                          commandType: CommandType.StoredProcedure

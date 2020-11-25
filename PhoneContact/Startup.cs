@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -5,6 +6,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Repositories;
 
 namespace PhoneContact
 {
@@ -26,6 +28,23 @@ namespace PhoneContact
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddAutoMapper(typeof(Startup));
+            services.AddScoped<IRepositoryFactory, RepositoryFactory>();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
+                //options.AddDefaultPolicy(
+                //    builder =>
+                //    {
+                //        builder.WithOrigins("http://localhost:4200/").AllowAnyMethod().AllowAnyOrigin().AllowCredentials().AllowAnyOrigin();
+                //    });
+            });
+
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +69,10 @@ namespace PhoneContact
             }
 
             app.UseRouting();
+
+            app.UseCors("CorsPolicy");
+
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

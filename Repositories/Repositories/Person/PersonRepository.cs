@@ -12,16 +12,15 @@ namespace Repositories
             : base(configuration, commandText, executers, tableName)
         {
         }
+
         public Person Create(Person person)
         {
             var parameters = new
             {
-                UIID = Guid.NewGuid(),
                 person.FirstName,
                 person.MiddleName,
                 person.LastName,
                 person.CompanyName,
-                EntityState = EntityStates.Createted
             };
             return base.Create(person, parameters);
         }
@@ -36,7 +35,6 @@ namespace Repositories
                 person.MiddleName,
                 person.LastName,
                 person.CompanyName,
-                EntityState = EntityStates.Updated
             };
             return base.Update(person, parameters);
         }

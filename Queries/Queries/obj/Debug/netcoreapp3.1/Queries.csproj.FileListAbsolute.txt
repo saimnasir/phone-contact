@@ -1,9 +1,9 @@
 D:\Source\PhoneContact\Queries\Queries\bin\Debug\netcoreapp3.1\Queries.deps.json
 D:\Source\PhoneContact\Queries\Queries\bin\Debug\netcoreapp3.1\Queries.dll
+D:\Source\PhoneContact\Queries\Queries\bin\Debug\netcoreapp3.1\Queries.pdb
 D:\Source\PhoneContact\Queries\Queries\obj\Debug\netcoreapp3.1\Queries.csprojAssemblyReference.cache
+D:\Source\PhoneContact\Queries\Queries\obj\Debug\netcoreapp3.1\Queries.csproj.CoreCompileInputs.cache
 D:\Source\PhoneContact\Queries\Queries\obj\Debug\netcoreapp3.1\Queries.AssemblyInfoInputs.cache
 D:\Source\PhoneContact\Queries\Queries\obj\Debug\netcoreapp3.1\Queries.AssemblyInfo.cs
-D:\Source\PhoneContact\Queries\Queries\bin\Debug\netcoreapp3.1\Queries.pdb
-D:\Source\PhoneContact\Queries\Queries\obj\Debug\netcoreapp3.1\Queries.csproj.CoreCompileInputs.cache
 D:\Source\PhoneContact\Queries\Queries\obj\Debug\netcoreapp3.1\Queries.dll
 D:\Source\PhoneContact\Queries\Queries\obj\Debug\netcoreapp3.1\Queries.pdb

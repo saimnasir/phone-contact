@@ -12,7 +12,7 @@ namespace Repositories
       
         public T Update(T dataModel, object parameters);
       
-        public EntityStates Delete(long id);
+        public bool Delete(long id);
         
         IEnumerable<T> ListAll();
         
