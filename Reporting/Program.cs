@@ -46,7 +46,7 @@ namespace Reporting
             var logConfig = new LoggerConfiguration()
                              .Enrich.FromLogContext()
                              .WriteTo.File(
-                                path: "Logs\\log{Date}.json",
+                                path: "Logs\\log.json",
                                 outputTemplate: "[{Level:u3}] {Timestamp:yyyy:MM:dd HH:mm:ss} {Message:lj}{NewLine}{Exception}"
                             );
 
