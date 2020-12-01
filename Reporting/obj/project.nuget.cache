@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1MfrpjOgxyLZQojQD2dN1zac5BdgF0BEHgLVWcBTqOHRbZnaeXxducV7omnYloPpI/P9kRgGh5rTavOEs1OkaA==",
+  "dgSpecHash": "gX0C9HhOHu4OA/z6aaVrE4EmbZCUG+gG8tQDV79fA1Um7gmlbd/yspx2wRz+I1VAdxlC7aw2Ozro1rIMTLmZPw==",
   "success": true,
   "projectFilePath": "D:\\Source\\PhoneContactEx\\Reporting\\Reporting.csproj",
   "expectedPackageFiles": [
@@ -24,8 +24,8 @@
     "C:\\Users\\saim_\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.0\\microsoft.data.sqlclient.2.1.0.nupkg.sha512",
     "C:\\Users\\saim_\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\saim_\\.nuget\\packages\\microsoft.dotnet.platformabstractions\\2.0.4\\microsoft.dotnet.platformabstractions.2.0.4.nupkg.sha512",
-    "C:\\Users\\saim_\\.nuget\\packages\\microsoft.extensions.configuration\\5.0.0\\microsoft.extensions.configuration.5.0.0.nupkg.sha512",
-    "C:\\Users\\saim_\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\saim_\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.4\\microsoft.extensions.configuration.3.1.4.nupkg.sha512",
+    "C:\\Users\\saim_\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.1.4\\microsoft.extensions.configuration.abstractions.3.1.4.nupkg.sha512",
     "C:\\Users\\saim_\\.nuget\\packages\\microsoft.extensions.configuration.binder\\3.1.4\\microsoft.extensions.configuration.binder.3.1.4.nupkg.sha512",
     "C:\\Users\\saim_\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.1.4\\microsoft.extensions.dependencyinjection.3.1.4.nupkg.sha512",
     "C:\\Users\\saim_\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.4\\microsoft.extensions.dependencyinjection.abstractions.3.1.4.nupkg.sha512",
@@ -40,7 +40,7 @@
     "C:\\Users\\saim_\\.nuget\\packages\\microsoft.extensions.logging.console\\3.1.4\\microsoft.extensions.logging.console.3.1.4.nupkg.sha512",
     "C:\\Users\\saim_\\.nuget\\packages\\microsoft.extensions.options\\3.1.4\\microsoft.extensions.options.3.1.4.nupkg.sha512",
     "C:\\Users\\saim_\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\3.1.4\\microsoft.extensions.options.configurationextensions.3.1.4.nupkg.sha512",
-    "C:\\Users\\saim_\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+    "C:\\Users\\saim_\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.4\\microsoft.extensions.primitives.3.1.4.nupkg.sha512",
     "C:\\Users\\saim_\\.nuget\\packages\\microsoft.identity.client\\4.21.1\\microsoft.identity.client.4.21.1.nupkg.sha512",
     "C:\\Users\\saim_\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.8.0\\microsoft.identitymodel.jsonwebtokens.6.8.0.nupkg.sha512",
     "C:\\Users\\saim_\\.nuget\\packages\\microsoft.identitymodel.logging\\6.8.0\\microsoft.identitymodel.logging.6.8.0.nupkg.sha512",
