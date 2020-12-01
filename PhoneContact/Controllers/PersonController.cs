@@ -34,7 +34,7 @@ namespace PhoneContact.Controllers
             try
             {
                 var dataModels = _repository.ListAll();
-                var viewModels = _mapper.Map<List<Person>>(dataModels);               
+                var viewModels = _mapper.Map<List<Person>>(dataModels);
                 return viewModels;
             }
             catch (Exception ex)
@@ -53,8 +53,9 @@ namespace PhoneContact.Controllers
         {
             try
             {
-                 var dataModel = _repository.Read(id);
+                var dataModel = _repository.Read(id);
                 var viewModel = _mapper.Map<Person>(dataModel);
+                viewModel.ContactInfos = listContactInfos(id).ToList();
                 return viewModel;
             }
             catch (Exception ex)
