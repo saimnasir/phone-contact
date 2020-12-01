@@ -1,4 +1,4 @@
-﻿namespace Queries
+﻿namespace Queries.Commands
 {
     public class CommandText : ICommandText
     {

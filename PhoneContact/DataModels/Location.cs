@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DataModels
+﻿namespace DataModels
 {
-   public class Location: DataModel
+    public class Location: DataModel
     {
         public string Latitude { get; set; }
         public string Longitude { get; set; }

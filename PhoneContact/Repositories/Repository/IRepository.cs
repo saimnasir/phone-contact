@@ -1,5 +1,4 @@
-﻿using Core;
-using DataModels;
+﻿using DataModels;
 using System.Collections.Generic;
 
 namespace Repositories

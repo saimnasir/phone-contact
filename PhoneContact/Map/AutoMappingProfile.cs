@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 
-
 namespace PhoneContact.Map
 {
     public class AutoMappingProfile : Profile

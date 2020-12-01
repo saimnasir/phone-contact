@@ -1,5 +1,6 @@
 ﻿using DataModels;
-using Queries;
+using Queries.Commands;
+using Queries.Executers;
 using Microsoft.Extensions.Configuration;
 using System.Globalization;
 

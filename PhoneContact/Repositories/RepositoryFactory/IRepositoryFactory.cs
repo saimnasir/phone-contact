@@ -1,4 +1,5 @@
-﻿using Queries;
+﻿using Queries.Commands;
+using Queries.Executers;
 
 namespace Repositories
 {

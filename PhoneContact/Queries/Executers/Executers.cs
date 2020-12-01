@@ -1,7 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
 
-namespace Queries
+namespace Queries.Executers
 {
     public class Executers : IExecuters
     {

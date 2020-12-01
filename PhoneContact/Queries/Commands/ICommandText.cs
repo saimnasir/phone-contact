@@ -1,4 +1,4 @@
-﻿namespace Queries
+﻿namespace Queries.Commands
 {
     public interface ICommandText
     {
@@ -10,7 +10,6 @@
         public string ListAllCommand { get; }
         public string SearchCommand { get; }
         public string FindCommand { get; }
-
 
     }
 }

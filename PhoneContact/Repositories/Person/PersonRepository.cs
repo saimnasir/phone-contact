@@ -1,8 +1,7 @@
-﻿using System;
-using Core;
-using DataModels;
+﻿using DataModels;
 using Microsoft.Extensions.Configuration;
-using Queries;
+using Queries.Commands;
+using Queries.Executers;
 
 namespace Repositories
 {

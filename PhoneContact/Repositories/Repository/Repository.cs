@@ -1,6 +1,6 @@
-﻿using Core;
-using DataModels;
-using Queries;
+﻿using DataModels;
+using Queries.Commands;
+using Queries.Executers;
 using Dapper;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
