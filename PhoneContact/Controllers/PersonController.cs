@@ -46,8 +46,8 @@ namespace PhoneContact.Controllers
         }
 
 
-        // POST: api/Person/Read
-        [HttpPost]
+        // GET: api/Person/Read
+        [HttpGet]
         [Route("Read")]
         public ActionResult<Person> Read(long id)
         {
