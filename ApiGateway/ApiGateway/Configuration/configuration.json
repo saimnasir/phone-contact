@@ -1,0 +1,42 @@
+{
+  "ReRoutes": [
+    //person api config
+    {
+      "DownstreamPathTemplate": "/api/person/listall",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 65001
+        }
+      ],
+      "UpstreamPathTemplate": "/api/person/listall",
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ]
+    }
+    ////report api config
+    //{
+    //  "DownstreamPathTemplate": "/api/report/listall",
+    //  "DownstreamScheme": "https",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 65002
+    //    }
+    //  ],
+    //  "UpstreamPathTemplate": "/api/report/listall",
+    //  "UpstreamHttpMethod": [
+    //    "GET",
+    //    "POST",
+    //    "PUT",
+    //    "DELETE"
+    //  ]
+    //}
+  ],
+  "GlobalConfiguration": {
+  }
+}

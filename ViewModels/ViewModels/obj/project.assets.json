@@ -3615,11 +3615,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Source\\PhoneContact\\ViewModels\\ViewModels\\ViewModels.csproj",
+      "projectUniqueName": "D:\\Source\\PhoneContactEx\\ViewModels\\ViewModels\\ViewModels.csproj",
       "projectName": "ViewModels",
-      "projectPath": "D:\\Source\\PhoneContact\\ViewModels\\ViewModels\\ViewModels.csproj",
+      "projectPath": "D:\\Source\\PhoneContactEx\\ViewModels\\ViewModels\\ViewModels.csproj",
       "packagesPath": "C:\\Users\\saim_\\.nuget\\packages\\",
-      "outputPath": "D:\\Source\\PhoneContact\\ViewModels\\ViewModels\\obj\\",
+      "outputPath": "D:\\Source\\PhoneContactEx\\ViewModels\\ViewModels\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -3638,8 +3638,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\Source\\PhoneContact\\Core\\Core\\Core.csproj": {
-              "projectPath": "D:\\Source\\PhoneContact\\Core\\Core\\Core.csproj"
+            "D:\\Source\\PhoneContactEx\\Core\\Core\\Core.csproj": {
+              "projectPath": "D:\\Source\\PhoneContactEx\\Core\\Core\\Core.csproj"
             }
           }
         }

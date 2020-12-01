@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Source\\PhoneContact\\Core\\Core\\Core.csproj",
+      "projectUniqueName": "D:\\Source\\PhoneContactEx\\Core\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "D:\\Source\\PhoneContact\\Core\\Core\\Core.csproj",
+      "projectPath": "D:\\Source\\PhoneContactEx\\Core\\Core\\Core.csproj",
       "packagesPath": "C:\\Users\\saim_\\.nuget\\packages\\",
-      "outputPath": "D:\\Source\\PhoneContact\\Core\\Core\\obj\\",
+      "outputPath": "D:\\Source\\PhoneContactEx\\Core\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

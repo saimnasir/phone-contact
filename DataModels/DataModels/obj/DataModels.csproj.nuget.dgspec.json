@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Source\\PhoneContact\\DataModels\\DataModels\\DataModels.csproj": {}
+    "D:\\Source\\PhoneContactEx\\DataModels\\DataModels\\DataModels.csproj": {}
   },
   "projects": {
-    "D:\\Source\\PhoneContact\\Core\\Core\\Core.csproj": {
+    "D:\\Source\\PhoneContactEx\\Core\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Source\\PhoneContact\\Core\\Core\\Core.csproj",
+        "projectUniqueName": "D:\\Source\\PhoneContactEx\\Core\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "D:\\Source\\PhoneContact\\Core\\Core\\Core.csproj",
+        "projectPath": "D:\\Source\\PhoneContactEx\\Core\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\saim_\\.nuget\\packages\\",
-        "outputPath": "D:\\Source\\PhoneContact\\Core\\Core\\obj\\",
+        "outputPath": "D:\\Source\\PhoneContactEx\\Core\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -59,14 +59,14 @@
         }
       }
     },
-    "D:\\Source\\PhoneContact\\DataModels\\DataModels\\DataModels.csproj": {
+    "D:\\Source\\PhoneContactEx\\DataModels\\DataModels\\DataModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Source\\PhoneContact\\DataModels\\DataModels\\DataModels.csproj",
+        "projectUniqueName": "D:\\Source\\PhoneContactEx\\DataModels\\DataModels\\DataModels.csproj",
         "projectName": "DataModels",
-        "projectPath": "D:\\Source\\PhoneContact\\DataModels\\DataModels\\DataModels.csproj",
+        "projectPath": "D:\\Source\\PhoneContactEx\\DataModels\\DataModels\\DataModels.csproj",
         "packagesPath": "C:\\Users\\saim_\\.nuget\\packages\\",
-        "outputPath": "D:\\Source\\PhoneContact\\DataModels\\DataModels\\obj\\",
+        "outputPath": "D:\\Source\\PhoneContactEx\\DataModels\\DataModels\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -85,8 +85,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\Source\\PhoneContact\\Core\\Core\\Core.csproj": {
-                "projectPath": "D:\\Source\\PhoneContact\\Core\\Core\\Core.csproj"
+              "D:\\Source\\PhoneContactEx\\Core\\Core\\Core.csproj": {
+                "projectPath": "D:\\Source\\PhoneContactEx\\Core\\Core\\Core.csproj"
               }
             }
           }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lZbh6NWXLm5uNZmwhFKh9NadkPKQXh7V8No18+Rhl0LM+TzNgeY4wcreILdWVPyO4rWIZSc2bKGD37MdYKIjNg==",
+  "dgSpecHash": "LDkmFKuLw+D+CepI4R5aAmAadPFm8opMwaBOwePmcIkPr65seJa8NGawqFCJigwd8wfZ+wO1WYedCP57UawFoQ==",
   "success": true,
-  "projectFilePath": "D:\\Source\\PhoneContact\\Queries\\Queries\\Queries.csproj",
+  "projectFilePath": "D:\\Source\\PhoneContactEx\\Queries\\Queries\\Queries.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\saim_\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.0\\microsoft.data.sqlclient.2.1.0.nupkg.sha512",

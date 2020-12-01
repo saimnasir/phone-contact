@@ -4809,11 +4809,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Source\\PhoneContact\\Repositories\\Repositories\\Repositories.csproj",
+      "projectUniqueName": "D:\\Source\\PhoneContactEx\\Repositories\\Repositories\\Repositories.csproj",
       "projectName": "Repositories",
-      "projectPath": "D:\\Source\\PhoneContact\\Repositories\\Repositories\\Repositories.csproj",
+      "projectPath": "D:\\Source\\PhoneContactEx\\Repositories\\Repositories\\Repositories.csproj",
       "packagesPath": "C:\\Users\\saim_\\.nuget\\packages\\",
-      "outputPath": "D:\\Source\\PhoneContact\\Repositories\\Repositories\\obj\\",
+      "outputPath": "D:\\Source\\PhoneContactEx\\Repositories\\Repositories\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -4832,11 +4832,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\Source\\PhoneContact\\DataModels\\DataModels\\DataModels.csproj": {
-              "projectPath": "D:\\Source\\PhoneContact\\DataModels\\DataModels\\DataModels.csproj"
+            "D:\\Source\\PhoneContactEx\\DataModels\\DataModels\\DataModels.csproj": {
+              "projectPath": "D:\\Source\\PhoneContactEx\\DataModels\\DataModels\\DataModels.csproj"
             },
-            "D:\\Source\\PhoneContact\\Queries\\Queries\\Queries.csproj": {
-              "projectPath": "D:\\Source\\PhoneContact\\Queries\\Queries\\Queries.csproj"
+            "D:\\Source\\PhoneContactEx\\Queries\\Queries\\Queries.csproj": {
+              "projectPath": "D:\\Source\\PhoneContactEx\\Queries\\Queries\\Queries.csproj"
             }
           }
         }

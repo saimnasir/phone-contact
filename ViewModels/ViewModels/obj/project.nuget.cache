@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4DEA6YSenVSGg977VawoAeYK5vaFHfsjz1Kj0J4RQFmMDLg4HG3VdzpaTxqBJlIasO+Cwf0yumDiFj+d0BYKqw==",
+  "dgSpecHash": "0RD4U5WTm9QAFJ/vDEqL5aR0KkikHjnBOi7Pro0UMHMce2SBNmgRhX6BAJ+6VouzIlaEJaIPoyhKe/weBHr2fQ==",
   "success": true,
-  "projectFilePath": "D:\\Source\\PhoneContact\\ViewModels\\ViewModels\\ViewModels.csproj",
+  "projectFilePath": "D:\\Source\\PhoneContactEx\\ViewModels\\ViewModels\\ViewModels.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
     "C:\\Users\\saim_\\.nuget\\packages\\microsoft.dotnet.platformabstractions\\2.0.4\\microsoft.dotnet.platformabstractions.2.0.4.nupkg.sha512",

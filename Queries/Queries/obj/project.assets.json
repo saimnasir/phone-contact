@@ -4698,11 +4698,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Source\\PhoneContact\\Queries\\Queries\\Queries.csproj",
+      "projectUniqueName": "D:\\Source\\PhoneContactEx\\Queries\\Queries\\Queries.csproj",
       "projectName": "Queries",
-      "projectPath": "D:\\Source\\PhoneContact\\Queries\\Queries\\Queries.csproj",
+      "projectPath": "D:\\Source\\PhoneContactEx\\Queries\\Queries\\Queries.csproj",
       "packagesPath": "C:\\Users\\saim_\\.nuget\\packages\\",
-      "outputPath": "D:\\Source\\PhoneContact\\Queries\\Queries\\obj\\",
+      "outputPath": "D:\\Source\\PhoneContactEx\\Queries\\Queries\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
