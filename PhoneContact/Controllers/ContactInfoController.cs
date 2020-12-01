@@ -47,6 +47,24 @@ namespace PhoneContact.Controllers
             }
         }
 
+        // POST: api/ContactInfo/Read
+        [HttpPost]
+        [Route("Read")]
+        public ActionResult<ContactInfo> Read(long id)
+        {
+            try
+            {
+                var dataModel = _repository.Read(id);
+                var viewModel = _mapper.Map<ContactInfo>(dataModel);
+                return viewModel;
+            }
+            catch (Exception ex)
+            {
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} ContactInfo failed.{ex.Message}";
+                Log.Error(messageResponse);
+                throw new Exception(messageResponse);
+            }
+        }
 
         // GET: api/ContactInfo
         [HttpGet]

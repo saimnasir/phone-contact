@@ -34,16 +34,32 @@ namespace PhoneContact.Controllers
             try
             {
                 var dataModels = _repository.ListAll();
-                var viewModels = _mapper.Map<List<Person>>(dataModels);
-                viewModels.ForEach(viewModel =>
-                {
-                    viewModel.ContactInfos = listContactInfos(viewModel.Id).ToList();
-                });
+                var viewModels = _mapper.Map<List<Person>>(dataModels);               
                 return viewModels;
             }
             catch (Exception ex)
             {
                 var messageResponse = $"{MethodBase.GetCurrentMethod().Name} ContactInfo failed.{ex.Message}";
+                Log.Error(messageResponse);
+                throw new Exception(messageResponse);
+            }
+        }
+
+
+        // POST: api/Person/Read
+        [HttpPost]
+        [Route("Read")]
+        public ActionResult<Person> Read(long id)
+        {
+            try
+            {
+                 var dataModel = _repository.Read(id);
+                var viewModel = _mapper.Map<Person>(dataModel);
+                return viewModel;
+            }
+            catch (Exception ex)
+            {
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} Person failed.{ex.Message}";
                 Log.Error(messageResponse);
                 throw new Exception(messageResponse);
             }
@@ -59,7 +75,6 @@ namespace PhoneContact.Controllers
                 var dataModel = _mapper.Map<DataModels.Person>(viewModel);
                 dataModel = _repository.Create(dataModel);
                 viewModel = _mapper.Map<Person>(dataModel);
-                viewModel.ContactInfos = listContactInfos(viewModel.Id).ToList();
                 return viewModel;
             }
             catch (Exception ex)
