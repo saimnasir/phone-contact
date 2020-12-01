@@ -15,7 +15,9 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
+    <PackageReference Include="Dapper" Version="2.0.78" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.4" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.0" />
     <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.1.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -28,13 +30,31 @@
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="Core\Core\**" />
+    <Content Remove="DataModels\DataModels\**" />
+    <Content Remove="Queries\Queries\**" />
+    <Content Remove="Repositories\Repositories\**" />
     <None Remove="$(SpaRoot)**" />
+    <None Remove="Core\Core\**" />
+    <None Remove="DataModels\DataModels\**" />
+    <None Remove="Queries\Queries\**" />
+    <None Remove="Repositories\Repositories\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Repositories\Repositories\Repositories.csproj" />
-    <ProjectReference Include="..\ViewModels\ViewModels\ViewModels.csproj" />
+    <Compile Remove="Core\Core\**" />
+    <Compile Remove="DataModels\DataModels\**" />
+    <Compile Remove="Queries\Queries\**" />
+    <Compile Remove="Repositories\Repositories\**" />
+    <EmbeddedResource Remove="Core\Core\**" />
+    <EmbeddedResource Remove="DataModels\DataModels\**" />
+    <EmbeddedResource Remove="Queries\Queries\**" />
+    <EmbeddedResource Remove="Repositories\Repositories\**" />
+    <TypeScriptCompile Remove="Core\Core\**" />
+    <TypeScriptCompile Remove="DataModels\DataModels\**" />
+    <TypeScriptCompile Remove="Queries\Queries\**" />
+    <TypeScriptCompile Remove="Repositories\Repositories\**" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
