@@ -50,7 +50,7 @@ namespace PhoneContact.Controllers
         // GET: api/ContactInfo/Read
         [HttpGet]
         [Route("Read")]
-        public ActionResult<ContactInfo> Read(long id)
+        public ActionResult<ContactInfo> Read(Guid id)
         {
             try
             {
@@ -68,12 +68,12 @@ namespace PhoneContact.Controllers
 
         // GET: api/ContactInfo
         [HttpGet]
-        [Route("ListAllByMaster/{personId}")]
-        public ActionResult<IEnumerable<ContactInfo>> ListAllByMaster(long personId)
+        [Route("ListAllByMaster/{master}")]
+        public ActionResult<IEnumerable<ContactInfo>> ListAllByMaster(Guid master)
         {
             try
             {
-                var dataModels = _repository.ListAllByMaster(personId);
+                var dataModels = _repository.ListAllByMaster(master);
                 var viewModels = _mapper.Map<List<ContactInfo>>(dataModels);
                 //viewModels.ForEach(viewModel =>
                 //{
@@ -136,7 +136,7 @@ namespace PhoneContact.Controllers
         // DELETE: api/ContactInfo/Delete
         [HttpDelete]
         [Route("Delete")]
-        public ActionResult Delete(long id)
+        public ActionResult Delete(Guid id)
         {
             try
             {

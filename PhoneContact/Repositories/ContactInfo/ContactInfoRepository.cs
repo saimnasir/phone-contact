@@ -20,19 +20,18 @@ namespace Repositories
                 dataModel.InfoType,
                 dataModel.Information
             };
-            return base.Create(dataModel, parameters);
+            return base.Create(parameters);
         }
 
         public ContactInfo Update(ContactInfo dataModel)
         {
             var parameters = new
             {
-                dataModel.Id,
                 dataModel.Person,
                 dataModel.InfoType,
                 dataModel.Information
             };
-            return base.Update(dataModel, parameters);
+            return base.Update(parameters);
         }
 
     }

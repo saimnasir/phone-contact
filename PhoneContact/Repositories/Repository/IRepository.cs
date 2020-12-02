@@ -1,25 +1,30 @@
 ﻿using DataModels;
+using PhoneContact.Repositories;
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Repositories
 {
     public interface IRepository<T> where T : DataModel
     {
-        public T Create(T dataModel, object parameters);
+        IUnitOfWork UnitOfWork { get; }
 
-        public T Read(long id);
+        public T Create(object parameters);
 
-        public T Update(T dataModel, object parameters);
+        public T Read(Guid UIID);
 
-        public bool Delete(long id);
+        public T Update(object parameters);
+
+        public bool Delete(Guid UIID);
 
         public IEnumerable<T> ListAll();
 
-        public IEnumerable<T> ListAllByMaster(long masterId);
+        public IEnumerable<T> ListAllByMaster(Guid masterUIID);
 
         public IEnumerable<T> Search(object parameters);
 
-        public T Find(T dataModel, object parameters);
+        public T Find(object parameters); 
 
     }
 }

@@ -1,7 +1,11 @@
 ﻿using DataModels;
 using Microsoft.Extensions.Configuration;
+using PhoneContact.Repositories;
 using Queries.Commands;
 using Queries.Executers;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Repositories
 {
@@ -11,7 +15,7 @@ namespace Repositories
             : base(configuration, commandText, executers, tableName)
         {
         }
-
+ 
         public Person Create(Person person)
         {
             var parameters = new
@@ -21,21 +25,21 @@ namespace Repositories
                 person.LastName,
                 person.CompanyName,
             };
-            return base.Create(person, parameters);
+            return base.Create(parameters);
         }
+ 
 
         public Person Update(Person person)
         {
             var parameters = new
             {
-                person.Id,
                 person.UIID,
                 person.FirstName,
                 person.MiddleName,
                 person.LastName,
                 person.CompanyName,
             };
-            return base.Update(person, parameters);
+            return base.Update(parameters);
         }
 
     }

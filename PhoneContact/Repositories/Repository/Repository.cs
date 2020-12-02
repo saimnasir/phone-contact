@@ -5,6 +5,8 @@ using Dapper;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Data;
+using PhoneContact.Repositories;
+using System;
 
 namespace Repositories
 {
@@ -16,6 +18,8 @@ namespace Repositories
         private readonly IExecuters _executers;
         private readonly string _tableName;
 
+        IUnitOfWork IRepository<T>.UnitOfWork => throw new System.NotImplementedException();
+
         public Repository(IConfiguration configuration, ICommandText commandText, IExecuters executers, string tableName)
         {
             _commandText = commandText;
@@ -26,31 +30,31 @@ namespace Repositories
             _connStr = getConnectionString();
         }
 
-        public T Create(T dataModel, object parameters)
+        public T Create(object parameters)
         {
             setCurrentTable();
 
-            dataModel.Id = _executers.ExecuteCommand(
+            var UIID = _executers.ExecuteCommand(
                 _connStr,
                 conn =>
                 {
-                    return conn.ExecuteScalar<long>(
+                    return conn.ExecuteScalar<Guid>(
                         _commandText.CreateCommand,
                         parameters,
                         commandType: CommandType.StoredProcedure
                     );
                 });
 
-            return Read(dataModel.Id);
+            return Read(UIID);
         }
 
-        public T Read(long id)
+        public T Read(Guid UIID)
         {
             setCurrentTable();
 
             var parameters = new
             {
-                @Id = id
+                UIID
             };
 
             return _executers.ExecuteCommand(
@@ -62,11 +66,11 @@ namespace Repositories
                 ));
         }
 
-        public T Update(T dataModel, object parameters)
+        public T Update(object parameters)
         {
             setCurrentTable();
 
-            dataModel = _executers.ExecuteCommand(
+           var dataModel = _executers.ExecuteCommand(
                 _connStr,
                 conn =>
                 {
@@ -80,15 +84,14 @@ namespace Repositories
             return dataModel;
         }
 
-        public bool Delete(long id)
+        public bool Delete(Guid UIID)
         {
             setCurrentTable();
 
             var parameters = new
             {
-                Id = id
+                UIID
             };
-
             return _executers.ExecuteCommand(
                  _connStr,
                  conn =>
@@ -115,12 +118,12 @@ namespace Repositories
             return items;
         }
 
-        public IEnumerable<T> ListAllByMaster(long masterId)
+        public IEnumerable<T> ListAllByMaster(Guid masterUIID)
         {
             setCurrentTable();
             var parameters = new
             {
-                MasterId = masterId
+                masterUIID
             };
             var items = _executers.ExecuteCommand(
                          _connStr,
@@ -132,6 +135,7 @@ namespace Repositories
 
             return items;
         }
+
         public IEnumerable<T> Search(object parameters)
         {
             setCurrentTable();
@@ -146,7 +150,7 @@ namespace Repositories
 
             return items;
         }
-        public T Find(T dataModel, object parameters)
+        public T Find(object parameters)
         {
             setCurrentTable();
 
@@ -161,14 +165,12 @@ namespace Repositories
 
         private string getConnectionString()
         {
-            return _configuration.GetConnectionString("PhoneContactAssignmentDbConnection");
+            return _configuration.GetSection("DataSource:ConnectionString").Value;
         }
 
         private void setCurrentTable()
         {
             _commandText.CurrentTableName = _tableName;
         }
-
-      
     }
 }
