@@ -18,18 +18,17 @@ namespace Repositories
             {
                 report.Status,
             };
-            return base.Create(report, parameters);
+            return base.Create(parameters);
         }
 
         public Report Update(Report report)
         {
             var parameters = new
             {
-                report.Id,
                 report.UIID,
                 report.Status
             };
-            return base.Update(report, parameters);
+            return base.Update( parameters);
         }
 
     }

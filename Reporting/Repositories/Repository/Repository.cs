@@ -5,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Data;
 using Dapper;
+using Reporting.Repositories;
+using System;
 
 namespace Repositories
 {
@@ -16,6 +18,8 @@ namespace Repositories
         private readonly IExecuters _executers;
         private readonly string _tableName;
 
+        IUnitOfWork IRepository<T>.UnitOfWork => throw new NotImplementedException();
+
         public Repository(IConfiguration configuration, ICommandText commandText, IExecuters executers, string tableName)
         {
             _commandText = commandText;
@@ -26,11 +30,11 @@ namespace Repositories
             _connStr = getConnectionString();
         }
 
-        public T Create(T dataModel, object parameters)
+        public T Create(object parameters)
         {
             setCurrentTable();
 
-            dataModel.Id = _executers.ExecuteCommand(
+            var id = _executers.ExecuteCommand(
                 _connStr,
                 conn =>
                 {
@@ -41,7 +45,7 @@ namespace Repositories
                     );
                 });
 
-            return Read(dataModel.Id);
+            return Read(id);
         }
 
         public T Read(long id)
@@ -50,7 +54,7 @@ namespace Repositories
 
             var parameters = new
             {
-                @Id = id
+                id
             };
 
             return _executers.ExecuteCommand(
@@ -62,20 +66,20 @@ namespace Repositories
                 ));
         }
 
-        public T Update(T dataModel, object parameters)
+        public T Update(object parameters)
         {
             setCurrentTable();
 
-            dataModel = _executers.ExecuteCommand(
-                _connStr,
-                conn =>
-                {
-                    return conn.QueryFirstOrDefault<T>(
-                        _commandText.UpdateCommand,
-                        parameters,
-                        commandType: CommandType.StoredProcedure
-                    );
-                });
+            var dataModel = _executers.ExecuteCommand(
+                 _connStr,
+                 conn =>
+                 {
+                     return conn.QueryFirstOrDefault<T>(
+                         _commandText.UpdateCommand,
+                         parameters,
+                         commandType: CommandType.StoredProcedure
+                     );
+                 });
 
             return dataModel;
         }
@@ -86,9 +90,8 @@ namespace Repositories
 
             var parameters = new
             {
-                Id = id
+                id
             };
-
             return _executers.ExecuteCommand(
                  _connStr,
                  conn =>
@@ -115,12 +118,12 @@ namespace Repositories
             return items;
         }
 
-        public IEnumerable<T> ListAllByMaster(long masterId)
+        public IEnumerable<T> ListAllByMaster(long masterUIID)
         {
             setCurrentTable();
             var parameters = new
             {
-                MasterId = masterId
+                masterUIID
             };
             var items = _executers.ExecuteCommand(
                          _connStr,
@@ -132,6 +135,7 @@ namespace Repositories
 
             return items;
         }
+
         public IEnumerable<T> Search(object parameters)
         {
             setCurrentTable();
@@ -146,7 +150,7 @@ namespace Repositories
 
             return items;
         }
-        public T Find(T dataModel, object parameters)
+        public T Find(object parameters)
         {
             setCurrentTable();
 
@@ -161,14 +165,12 @@ namespace Repositories
 
         private string getConnectionString()
         {
-            return _configuration.GetConnectionString("PhoneContactAssignmentDbConnection");
+            return _configuration.GetSection("ConnectionStrings:ReportingDBConnectionString").Value;
         }
 
         private void setCurrentTable()
         {
             _commandText.CurrentTableName = _tableName;
         }
-
-      
     }
 }

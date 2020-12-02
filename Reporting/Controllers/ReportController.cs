@@ -12,19 +12,19 @@ namespace PhoneContact.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ReportController : ControllerBase
+    public class PersonController : ControllerBase
     {
         private readonly IRepositoryFactory _repositoryFactory;
         private readonly IReportRepository _repository;
-        private readonly IMapper _mapper;
-        public ReportController(IRepositoryFactory repositoryFactory, IMapper mapper)
+         private readonly IMapper _mapper;
+        public PersonController(IRepositoryFactory repositoryFactory, IMapper mapper)
         {
             _repositoryFactory = repositoryFactory;
             _mapper = mapper;
             _repository = _repositoryFactory.ReportRepository;
-        }
+         }
 
-        // GET: api/Report
+        // GET: api/Person
         [HttpGet]
         [Route("ListAll")]
         public ActionResult<IEnumerable<Report>> ListAll()
@@ -32,7 +32,7 @@ namespace PhoneContact.Controllers
             try
             {
                 var dataModels = _repository.ListAll();
-                var viewModels = _mapper.Map<List<Report>>(dataModels);
+                var viewModels = _mapper.Map<List<Report>>(dataModels);                
                 return viewModels;
             }
             catch (Exception ex)
@@ -43,7 +43,7 @@ namespace PhoneContact.Controllers
             }
         }
 
-        // POST: api/Report/Create
+        // POST: api/Person/Create
         [HttpPost]
         [Route("Create")]
         public ActionResult<Report> Create(Report viewModel)
@@ -52,7 +52,7 @@ namespace PhoneContact.Controllers
             {
                 var dataModel = _mapper.Map<DataModels.Report>(viewModel);
                 dataModel = _repository.Create(dataModel);
-                viewModel = _mapper.Map<Report>(dataModel);
+                viewModel = _mapper.Map<Report>(dataModel);                
                 return viewModel;
             }
             catch (Exception ex)
@@ -84,17 +84,17 @@ namespace PhoneContact.Controllers
         }
 
 
-        // DELETE: api/Report/Delete
+        // DELETE: api/Person/Delete
         [HttpDelete]
         [Route("Delete")]
         public ActionResult Delete(long id)
         {
             try
             {
-                var messageResponse = "Report Deleted.";
+                var messageResponse = "Person Deleted.";
                 if (_repository.Delete(id))
                 {
-                    messageResponse = $"Delete Report failed.";
+                    messageResponse = $"Delete Person failed.";
                     Log.Error(messageResponse);
                     throw new Exception(messageResponse);
                 }
@@ -102,11 +102,11 @@ namespace PhoneContact.Controllers
             }
             catch (Exception ex)
             {
-                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} Report failed.{ex.Message}";
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} Person failed.{ex.Message}";
                 Log.Error(messageResponse);
                 throw new Exception(messageResponse);
             }
         }
-
+ 
     }
 }

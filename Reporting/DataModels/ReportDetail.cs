@@ -7,13 +7,9 @@ using System.Threading.Tasks;
 namespace DataModels
 {
     public class ReportDetail: DataModel
-    {
-        public string FirstName { get; set; }
-        public string MiddleName { get; set; }
-        public string LastName { get; set; }
-        public string CompanyName { get; set; }
-        public string Lattitude { get; set; }
-        public string Longitude { get; set; }
-
+    {         
+        public long Report { get; set; }
+        public int NearbyPersonCount { get; set; }
+        public int NearbyPhoneNumberCount { get; set; } 
     }
 }

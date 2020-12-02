@@ -16,9 +16,10 @@ namespace Repositories
         {
             var parameters = new
             {
-               
+                report.Id,
+                report.UIID,
             };
-            return base.Create(report, parameters);
+            return base.Create(parameters);
         }
 
         public ReportDetail Update(ReportDetail report)
@@ -27,9 +28,8 @@ namespace Repositories
             {
                 report.Id,
                 report.UIID,
-
             };
-            return base.Update(report, parameters);
+            return base.Update(parameters);
         }
 
     }
