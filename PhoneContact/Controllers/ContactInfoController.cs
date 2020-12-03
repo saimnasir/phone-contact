@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Repositories;
 using Serilog;
@@ -50,15 +47,33 @@ namespace PhoneContact.Controllers
             }
         }
 
-
-        // GET: api/ContactInfo
+        // GET: api/ContactInfo/Read
         [HttpGet]
-        [Route("ListAllByMaster/{personId}")]
-        public ActionResult<IEnumerable<ContactInfo>> ListAllByMaster(long personId)
+        [Route("Read")]
+        public ActionResult<ContactInfo> Read(Guid id)
         {
             try
             {
-                var dataModels = _repository.ListAllByMaster(personId);
+                var dataModel = _repository.Read(id);
+                var viewModel = _mapper.Map<ContactInfo>(dataModel);
+                return viewModel;
+            }
+            catch (Exception ex)
+            {
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} ContactInfo failed.{ex.Message}";
+                Log.Error(messageResponse);
+                throw new Exception(messageResponse);
+            }
+        }
+
+        // GET: api/ContactInfo
+        [HttpGet]
+        [Route("ListAllByMaster/{master}")]
+        public ActionResult<IEnumerable<ContactInfo>> ListAllByMaster(Guid master)
+        {
+            try
+            {
+                var dataModels = _repository.ListAllByMaster(master);
                 var viewModels = _mapper.Map<List<ContactInfo>>(dataModels);
                 //viewModels.ForEach(viewModel =>
                 //{
@@ -121,7 +136,7 @@ namespace PhoneContact.Controllers
         // DELETE: api/ContactInfo/Delete
         [HttpDelete]
         [Route("Delete")]
-        public ActionResult Delete(long id)
+        public ActionResult Delete(Guid id)
         {
             try
             {

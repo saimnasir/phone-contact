@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Repositories;
 using Serilog;
@@ -37,15 +35,31 @@ namespace PhoneContact.Controllers
             {
                 var dataModels = _repository.ListAll();
                 var viewModels = _mapper.Map<List<Person>>(dataModels);
-                viewModels.ForEach(viewModel =>
-                {
-                    viewModel.ContactInfos = listContactInfos(viewModel.Id).ToList();
-                });
                 return viewModels;
             }
             catch (Exception ex)
             {
-                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} ContactInfo failed.{ex.Message}";
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} Person failed.{ex.Message}";
+                Log.Error(messageResponse);
+                throw new Exception(messageResponse);
+            }
+        }
+
+        // GET: api/Person/Read
+        [HttpGet]
+        [Route("Read")]
+        public ActionResult<Person> Read(Guid id)
+        {
+            try
+            {
+                var dataModel = _repository.Read(id);
+                var viewModel = _mapper.Map<Person>(dataModel);
+                viewModel.ContactInfos = listContactInfos(id).ToList();
+                return viewModel;
+            }
+            catch (Exception ex)
+            {
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} Person failed.{ex.Message}";
                 Log.Error(messageResponse);
                 throw new Exception(messageResponse);
             }
@@ -61,7 +75,6 @@ namespace PhoneContact.Controllers
                 var dataModel = _mapper.Map<DataModels.Person>(viewModel);
                 dataModel = _repository.Create(dataModel);
                 viewModel = _mapper.Map<Person>(dataModel);
-                viewModel.ContactInfos = listContactInfos(viewModel.Id).ToList();
                 return viewModel;
             }
             catch (Exception ex)
@@ -82,7 +95,7 @@ namespace PhoneContact.Controllers
                 var dataModel = _mapper.Map<DataModels.Person>(viewModel);
                 dataModel = _repository.Update(dataModel);
                 viewModel = _mapper.Map<Person>(dataModel);
-                viewModel.ContactInfos = listContactInfos(viewModel.Id).ToList();
+                viewModel.ContactInfos = listContactInfos(viewModel.UIID).ToList();
                 return viewModel;
             }
             catch (Exception ex)
@@ -97,7 +110,7 @@ namespace PhoneContact.Controllers
         // DELETE: api/Person/Delete
         [HttpDelete]
         [Route("Delete")]
-        public ActionResult Delete(long id)
+        public ActionResult Delete(Guid id)
         {
             try
             {
@@ -118,11 +131,11 @@ namespace PhoneContact.Controllers
             }
         }
 
-        private IEnumerable<ContactInfo> listContactInfos(long personId)
+        private IEnumerable<ContactInfo> listContactInfos(Guid UIID)
         {
             try
             {
-                var dataModels = _contactInfoRepository.ListAllByMaster(personId);
+                var dataModels = _contactInfoRepository.ListAllByMaster(UIID);
                 var viewModels = _mapper.Map<List<ContactInfo>>(dataModels);
                 return viewModels;
             }

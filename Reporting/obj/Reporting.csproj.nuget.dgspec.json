@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Source\\PhoneContact\\Reporting\\Reporting.csproj": {}
+    "D:\\Source\\PhoneContactEx\\Reporting\\Reporting.csproj": {}
   },
   "projects": {
-    "D:\\Source\\PhoneContact\\Reporting\\Reporting.csproj": {
+    "D:\\Source\\PhoneContactEx\\Reporting\\Reporting.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Source\\PhoneContact\\Reporting\\Reporting.csproj",
+        "projectUniqueName": "D:\\Source\\PhoneContactEx\\Reporting\\Reporting.csproj",
         "projectName": "Reporting",
-        "projectPath": "D:\\Source\\PhoneContact\\Reporting\\Reporting.csproj",
+        "projectPath": "D:\\Source\\PhoneContactEx\\Reporting\\Reporting.csproj",
         "packagesPath": "C:\\Users\\saim_\\.nuget\\packages\\",
-        "outputPath": "D:\\Source\\PhoneContact\\Reporting\\obj\\",
+        "outputPath": "D:\\Source\\PhoneContactEx\\Reporting\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -41,6 +41,72 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            },
+            "Autofac": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Autofac.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.1.0, )"
+            },
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.78, )"
+            },
+            "Hangfire.AspNetCore": {
+              "target": "Package",
+              "version": "[1.7.18, )"
+            },
+            "Hangfire.Core": {
+              "target": "Package",
+              "version": "[1.7.18, )"
+            },
+            "Hangfire.SqlServer": {
+              "target": "Package",
+              "version": "[1.7.18, )"
+            },
+            "Microsoft.AspNetCore.SpaServices.Extensions": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.TypeScript.MSBuild": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[4.1.2, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Polly": {
+              "target": "Package",
+              "version": "[7.2.1, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[106.11.7, )"
+            },
             "Serilog.AspNetCore": {
               "target": "Package",
               "version": "[3.4.0, )"

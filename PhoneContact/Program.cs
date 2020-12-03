@@ -1,10 +1,9 @@
 using System;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using PhoneContact;
 using Serilog;
 
-namespace ArticleAssignment
+namespace PhoneContact
 {
     [Obsolete]
     public class Program
@@ -35,6 +34,7 @@ namespace ArticleAssignment
 
         public static IWebHostBuilder CreateHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseUrls("http://localhost:5001/")
                 .UseStartup<Startup>()
                 .UseSerilog(); // <-- Add this line;
 
@@ -45,7 +45,7 @@ namespace ArticleAssignment
             var logConfig = new LoggerConfiguration()
                              .Enrich.FromLogContext()
                              .WriteTo.File(
-                                path: "Logs\\log{Date}.json",
+                                path: "Logs\\log.json",
                                 outputTemplate: "[{Level:u3}] {Timestamp:yyyy:MM:dd HH:mm:ss} {Message:lj}{NewLine}{Exception}"
                             );
 
@@ -64,7 +64,7 @@ namespace ArticleAssignment
             }
             else // as default
             {
-                logConfig.MinimumLevel.Warning();
+                logConfig.MinimumLevel.Debug();
             }
 
             return logConfig;
