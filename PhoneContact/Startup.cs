@@ -1,6 +1,8 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
+using Hangfire;
+using Hangfire.SqlServer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Data.SqlClient;
@@ -42,7 +44,7 @@ namespace PhoneContact
             {
                 configuration.RootPath = "ClientApp/dist";
             });
-            services.AddPhoneContactContext(Configuration.GetSection("DataSource:ConnectionString").Value);
+            services.AddPhoneContactContext(Configuration.GetSection("ConnectionStrings:ContactDBConnectionString").Value);
 
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped<IRepositoryFactory, RepositoryFactory>();
@@ -54,6 +56,21 @@ namespace PhoneContact
                     .AllowAnyHeader());
             });
 
+            services.AddHangfire(configuration => configuration
+              .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+              .UseSimpleAssemblyNameTypeSerializer()
+              .UseRecommendedSerializerSettings()
+              .UseSqlServerStorage(Configuration.GetConnectionString("HangfireConnectionString"), new SqlServerStorageOptions
+              {
+                  CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
+                  SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
+                  QueuePollInterval = TimeSpan.Zero,
+                  UseRecommendedIsolationLevel = true,
+                  DisableGlobalLocks = true
+              }));
+
+            // Add the processing server as IHostedService
+            services.AddHangfireServer();
             services.AddControllers();
 
 
@@ -121,7 +138,12 @@ namespace PhoneContact
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
+
+                endpoints.MapHangfireDashboard();
             });
+
+            app.UseHangfireDashboard("/ReportJobs");
+            //StartJobs(recurringJobManager, phoneContactOperations);
         }
 
         private void ExecuteMigrations(IApplicationBuilder app, IWebHostEnvironment env)
@@ -139,6 +161,9 @@ namespace PhoneContact
             retry.Execute(() =>
                 app.ApplicationServices.GetService<PhoneContactContext>().Database.Migrate());
         }
-
+        //private void StartJobs(IRecurringJobManager recurringJobManager, IPhoneContactOperations phoneContactOperations)
+        //{
+        //    recurringJobManager.AddOrUpdate("ProcessReport", Job.FromExpression(() => phoneContactOperations.ProcessPendingReports()), "*/1 * * * *");
+        //}
     }
 }

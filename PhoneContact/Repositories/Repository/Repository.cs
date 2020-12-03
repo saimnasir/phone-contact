@@ -167,7 +167,7 @@ namespace Repositories
 
         private string getConnectionString()
         {
-            return _configuration.GetSection("DataSource:ConnectionString").Value;
+            return _configuration.GetSection("ConnectionStrings:ContactDBConnectionString").Value;
         }
 
         private void setCurrentTable()
