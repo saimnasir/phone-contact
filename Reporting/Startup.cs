@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Polly;
 using Reporting.Extensions;
+using Reporting.PhoneContact;
 using Reporting.RecurringJobs;
 using Reporting.Repositories;
 using Repositories;
@@ -50,6 +51,8 @@ namespace Reporting
 
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped<IRepositoryFactory, RepositoryFactory>();
+            services.AddScoped<IPhoneContactOperations, PhoneContactOperations>();
+
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -89,6 +92,7 @@ namespace Reporting
 
             serviceCollection.AddAutoMapper(typeof(Startup));
             serviceCollection.AddScoped<IRepositoryFactory, RepositoryFactory>();
+            serviceCollection.AddScoped<IPhoneContactOperations, PhoneContactOperations>();
             serviceCollection.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -106,7 +110,7 @@ namespace Reporting
             //   builder.RegisterModule(new MyApplicationModule());
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IBackgroundJobClient backgroundJobs, IRecurringJobManager recurringJobManager, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IRecurringJobManager recurringJobManager, IPhoneContactOperations phoneContactOperations)
         {
             if (env.IsDevelopment())
             {
@@ -143,8 +147,8 @@ namespace Reporting
                 endpoints.MapHangfireDashboard();
             });
 
-            app.UseHangfireDashboard("/ReportJobs"); 
-            recurringJobManager.AddOrUpdate("ProcessReport", Job.FromExpression(() => recurringJobManager.ProcessReports()), "*/1 * * * *");
+            app.UseHangfireDashboard("/ReportJobs");
+            StartJobs(recurringJobManager, phoneContactOperations);
         }
 
         private void ExecuteMigrations(IApplicationBuilder app, IWebHostEnvironment env)
@@ -163,5 +167,9 @@ namespace Reporting
                 app.ApplicationServices.GetService<ReportingContext>().Database.Migrate());
         }
 
+        private void StartJobs(IRecurringJobManager recurringJobManager, IPhoneContactOperations phoneContactOperations)
+        {
+            recurringJobManager.AddOrUpdate("ProcessReport", Job.FromExpression(() => phoneContactOperations.ProcessPendingReports()), "*/1 * * * *");
+        }
     }
 }

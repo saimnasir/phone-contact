@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Queries.Executers;
 using Queries.Commands;
+using Core.Enums;
 
 namespace Repositories
 {
@@ -16,7 +17,9 @@ namespace Repositories
         {
             var parameters = new
             {
-                report.Status,
+                report.Lattitude,
+                report.Longitude,
+                Status = ReportStatuses.Requested
             };
             return base.Create(parameters);
         }
