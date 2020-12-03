@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Data;
 using PhoneContact.Repositories;
 using System;
+using PhoneContact.ViewModels.Requests;
 
 namespace Repositories
 {
@@ -34,27 +35,27 @@ namespace Repositories
         {
             setCurrentTable();
 
-            var UIID = _executers.ExecuteCommand(
+            var model = _executers.ExecuteCommand(
                 _connStr,
                 conn =>
                 {
-                    return conn.ExecuteScalar<Guid>(
+                    return conn.QueryFirstOrDefault<T>(
                         _commandText.CreateCommand,
                         parameters,
                         commandType: CommandType.StoredProcedure
                     );
                 });
 
-            return Read(UIID);
+            return model;
         }
 
-        public T Read(Guid UIID)
+        public T Read(long id)
         {
             setCurrentTable();
 
             var parameters = new
             {
-                UIID
+                Id = id
             };
 
             return _executers.ExecuteCommand(
@@ -70,27 +71,27 @@ namespace Repositories
         {
             setCurrentTable();
 
-           var dataModel = _executers.ExecuteCommand(
-                _connStr,
-                conn =>
-                {
-                    return conn.QueryFirstOrDefault<T>(
-                        _commandText.UpdateCommand,
-                        parameters,
-                        commandType: CommandType.StoredProcedure
-                    );
-                });
+            var dataModel = _executers.ExecuteCommand(
+                 _connStr,
+                 conn =>
+                 {
+                     return conn.QueryFirstOrDefault<T>(
+                         _commandText.UpdateCommand,
+                         parameters,
+                         commandType: CommandType.StoredProcedure
+                     );
+                 });
 
             return dataModel;
         }
 
-        public bool Delete(Guid UIID)
+        public bool Delete(long id)
         {
             setCurrentTable();
 
             var parameters = new
             {
-                UIID
+                Id = id
             };
             return _executers.ExecuteCommand(
                  _connStr,
@@ -118,12 +119,12 @@ namespace Repositories
             return items;
         }
 
-        public IEnumerable<T> ListAllByMaster(Guid masterUIID)
+        public IEnumerable<T> ListAllByMaster(long masterId)
         {
             setCurrentTable();
             var parameters = new
             {
-                masterUIID
+                MasterId = masterId,
             };
             var items = _executers.ExecuteCommand(
                          _connStr,
@@ -150,6 +151,7 @@ namespace Repositories
 
             return items;
         }
+
         public T Find(object parameters)
         {
             setCurrentTable();
@@ -172,5 +174,6 @@ namespace Repositories
         {
             _commandText.CurrentTableName = _tableName;
         }
+
     }
 }

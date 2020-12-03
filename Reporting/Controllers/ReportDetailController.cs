@@ -4,6 +4,8 @@ using System.Linq;
 using System.Reflection;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Reporting.Extensions;
+using Reporting.ViewModels.Requests;
 using Repositories;
 using Serilog;
 using ViewModels;
@@ -37,7 +39,51 @@ namespace PhoneContact.Controllers
             }
             catch (Exception ex)
             {
-                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} ContactInfo failed.{ex.Message}";
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} ReportDetail failed.{ex.Message}";
+                Log.Error(messageResponse);
+                throw new Exception(messageResponse);
+            }
+        }
+
+
+        // POST: api/ReportDetail
+        [HttpPost]
+        [Route("ListAllByMaster")]
+        public ActionResult<IEnumerable<ReportDetail>> ListAllByMaster(ReadByMasterRequest request)
+        {
+            try
+            {
+                var dataModel = _repository.Read(request.MasterId);
+                dataModel.ModelCheck(request.MasterUIID);
+
+                var dataModels = _repository.ListAllByMaster(request.MasterId);
+                var viewModels = _mapper.Map<List<ReportDetail>>(dataModels);
+                return viewModels;
+            }
+            catch (Exception ex)
+            {
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} ReportDetail failed.{ex.Message}";
+                Log.Error(messageResponse);
+                throw new Exception(messageResponse);
+            }
+        }
+
+
+        // POST: api/ReportDetail/Read
+        [HttpPost]
+        [Route("Read")]
+        public ActionResult<ReportDetail> Read(ReadModelRequest request)
+        {
+            try
+            {
+                var dataModel = _repository.Read(request.Id);
+                dataModel.ModelCheck(request.UIID);
+                var viewModel = _mapper.Map<ReportDetail>(dataModel);
+                return viewModel;
+            }
+            catch (Exception ex)
+            {
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} ReportDetail failed.{ex.Message}";
                 Log.Error(messageResponse);
                 throw new Exception(messageResponse);
             }
@@ -63,14 +109,17 @@ namespace PhoneContact.Controllers
             }
         }
 
-        // PUT: api/ContactInfo/Create
+        // PUT: api/ReportDetail/Create
         [HttpPut]
         [Route("Update")]
         public ActionResult<ReportDetail> Update(ReportDetail viewModel)
         {
             try
             {
-                var dataModel = _mapper.Map<DataModels.ReportDetail>(viewModel);
+                var dataModel = _repository.Read(viewModel.Id);
+                dataModel.ModelCheck(viewModel.UIID);
+
+                dataModel = _mapper.Map<DataModels.ReportDetail>(viewModel);
                 dataModel = _repository.Update(dataModel);
                 viewModel = _mapper.Map<ReportDetail>(dataModel);
                 return viewModel;
@@ -83,16 +132,18 @@ namespace PhoneContact.Controllers
             }
         }
 
-
-        // DELETE: api/ReportDetail/Delete
-        [HttpDelete]
+        // POST: api/ReportDetail/Delete
+        [HttpPost]
         [Route("Delete")]
-        public ActionResult Delete(long id)
+        public ActionResult Delete(DeleteModelRequest request)
         {
             try
             {
+                var dataModel = _repository.Read(request.Id);
+                dataModel.ModelCheck(request.UIID);
+
                 var messageResponse = "ReportDetail Deleted.";
-                if (_repository.Delete(id))
+                if (_repository.Delete(request.Id))
                 {
                     messageResponse = $"Delete ReportDetail failed.";
                     Log.Error(messageResponse);

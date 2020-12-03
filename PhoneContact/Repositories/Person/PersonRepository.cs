@@ -20,6 +20,7 @@ namespace Repositories
         {
             var parameters = new
             {
+                person.UIID,
                 person.FirstName,
                 person.MiddleName,
                 person.LastName,

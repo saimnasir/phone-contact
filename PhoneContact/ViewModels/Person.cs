@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ViewModels
+namespace PhoneContact.ViewModels
 {
     public class Person : ViewModel
     {

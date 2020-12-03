@@ -1,4 +1,4 @@
-﻿namespace ViewModels
+﻿namespace PhoneContact.ViewModels
 {
     public class Location: ViewModel
     {

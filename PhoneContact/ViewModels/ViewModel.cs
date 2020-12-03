@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ViewModels
+namespace PhoneContact.ViewModels
 {
     public class ViewModel
     {

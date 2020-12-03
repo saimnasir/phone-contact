@@ -1,6 +1,6 @@
 ﻿using Core.Enums;
 
-namespace ViewModels
+namespace PhoneContact.ViewModels
 {
     public class ContactInfo : ViewModel
     {

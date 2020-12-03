@@ -18,7 +18,7 @@ namespace Repositories
         private readonly IExecuters _executers;
         private readonly string _tableName;
 
-        IUnitOfWork IRepository<T>.UnitOfWork => throw new NotImplementedException();
+        IUnitOfWork IRepository<T>.UnitOfWork => throw new System.NotImplementedException();
 
         public Repository(IConfiguration configuration, ICommandText commandText, IExecuters executers, string tableName)
         {
@@ -34,18 +34,18 @@ namespace Repositories
         {
             setCurrentTable();
 
-            var id = _executers.ExecuteCommand(
+            var model = _executers.ExecuteCommand(
                 _connStr,
                 conn =>
                 {
-                    return conn.ExecuteScalar<long>(
+                    return conn.QueryFirstOrDefault<T>(
                         _commandText.CreateCommand,
                         parameters,
                         commandType: CommandType.StoredProcedure
                     );
                 });
 
-            return Read(id);
+            return model;
         }
 
         public T Read(long id)
@@ -54,7 +54,7 @@ namespace Repositories
 
             var parameters = new
             {
-                id
+                Id = id
             };
 
             return _executers.ExecuteCommand(
@@ -90,7 +90,7 @@ namespace Repositories
 
             var parameters = new
             {
-                id
+                Id = id
             };
             return _executers.ExecuteCommand(
                  _connStr,
@@ -118,12 +118,12 @@ namespace Repositories
             return items;
         }
 
-        public IEnumerable<T> ListAllByMaster(long masterUIID)
+        public IEnumerable<T> ListAllByMaster(long masterId)
         {
             setCurrentTable();
             var parameters = new
             {
-                masterUIID
+                MasterId = masterId,
             };
             var items = _executers.ExecuteCommand(
                          _connStr,
@@ -150,6 +150,7 @@ namespace Repositories
 
             return items;
         }
+
         public T Find(object parameters)
         {
             setCurrentTable();
@@ -165,12 +166,13 @@ namespace Repositories
 
         private string getConnectionString()
         {
-            return _configuration.GetSection("ConnectionStrings:ReportingDBConnectionString").Value;
+            return _configuration.GetSection("DataSource:ConnectionString").Value;
         }
 
         private void setCurrentTable()
         {
             _commandText.CurrentTableName = _tableName;
         }
+
     }
 }
