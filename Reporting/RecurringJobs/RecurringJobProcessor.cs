@@ -1,4 +1,5 @@
 ﻿using Hangfire;
+using Reporting.PhoneContact;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,7 +12,8 @@ namespace Reporting.RecurringJobs
     {
         public static void ProcessReports(this IRecurringJobManager recurringJobManager)
         {
-            Console.WriteLine("Saim");
+            var operation = new PhoneContactOperations();
+            operation.GetPhoneContacts();
         }
     }
 }

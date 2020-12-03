@@ -328,6 +328,7 @@ D:\Source\PhoneContactEx\Reporting\bin\Debug\netcoreapp3.1\runtimes\win-x86\nati
 D:\Source\PhoneContactEx\Reporting\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netstandard2.0\System.Data.SqlClient.dll
 D:\Source\PhoneContactEx\Reporting\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll
 D:\Source\PhoneContactEx\Reporting\bin\Debug\netcoreapp3.1\Hangfire.AspNetCore.dll
+D:\Source\PhoneContactEx\Reporting\bin\Debug\netcoreapp3.1\RestSharp.dll
 D:\Source\PhoneContactEx\Reporting\obj\Debug\netcoreapp3.1\Reporting.csproj.CoreCompileInputs.cache
 D:\Source\PhoneContactEx\Reporting\obj\Debug\netcoreapp3.1\Reporting.MvcApplicationPartsAssemblyInfo.cs
 D:\Source\PhoneContactEx\Reporting\obj\Debug\netcoreapp3.1\Reporting.MvcApplicationPartsAssemblyInfo.cache

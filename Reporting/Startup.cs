@@ -144,8 +144,7 @@ namespace Reporting
             });
 
             app.UseHangfireDashboard("/ReportJobs"); 
-            recurringJobManager.AddOrUpdate("ProcessReport", Job.FromExpression(() => recurringJobManager.ProcessReports()), "*/2 * * * *");
-            backgroundJobs.Enqueue(() => Console.WriteLine("Hello world from Hangfire!"));
+            recurringJobManager.AddOrUpdate("ProcessReport", Job.FromExpression(() => recurringJobManager.ProcessReports()), "*/1 * * * *");
         }
 
         private void ExecuteMigrations(IApplicationBuilder app, IWebHostEnvironment env)
