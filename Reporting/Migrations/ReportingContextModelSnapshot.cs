@@ -32,11 +32,11 @@ namespace PhoneContact.API.Migrations
                    .IsRequired()
                    .HasColumnType("uniqueidentifier");
 
-                m.Property<DateTimeOffset>("CreateDate")
+                m.Property<DateTime>("CreateDate")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("datetime");
 
-                m.Property<DateTimeOffset>("UpdateDate")
+                m.Property<DateTime>("UpdateDate")
                     .HasColumnType("datetime");
 
                 m.Property<bool>("IsDeleted")
@@ -46,7 +46,10 @@ namespace PhoneContact.API.Migrations
                 m.Property<int>("Status")
                     .HasColumnType("int");
 
-                m.Property<double>("Lattitude")
+                m.Property<double>("Radius")
+                  .HasColumnType("decimal(9,6)");
+                
+                m.Property<double>("Latitude")
                        .HasColumnType("decimal(9,6)");
 
                 m.Property<double>("Logitude")
@@ -55,7 +58,7 @@ namespace PhoneContact.API.Migrations
                 m.HasKey("Id");
                 m.HasIndex("Id").IsUnique();
 
-                m.ToTable("Report", "dbo");
+                m.ToTable("Report".ToUpper(), "dbo");
             });
 
 
@@ -72,11 +75,11 @@ namespace PhoneContact.API.Migrations
                    .IsRequired()
                    .HasColumnType("uniqueidentifier");
 
-                m.Property<DateTimeOffset>("CreateDate")
+                m.Property<DateTime>("CreateDate")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("datetime");
 
-                m.Property<DateTimeOffset>("UpdateDate")
+                m.Property<DateTime>("UpdateDate")
                     .HasColumnType("datetime");
 
                 m.Property<bool>("IsDeleted")
@@ -96,7 +99,7 @@ namespace PhoneContact.API.Migrations
                 m.HasIndex("Id").IsUnique();
                 m.HasIndex("Report");
 
-                m.ToTable("Report", "RPT");
+                m.ToTable("Report".ToUpper(), "RPT");
             });
         }
     }

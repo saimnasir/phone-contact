@@ -31,30 +31,34 @@ namespace Reporting.Migrations
                    .IsRequired()
                    .HasColumnType("uniqueidentifier");
 
-                m.Property<DateTimeOffset>("CreateDate")
+                m.Property<DateTime>("CreateDate")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("datetime");
 
-                m.Property<DateTimeOffset>("UpdateDate")
+                m.Property<DateTime>("UpdateDate")
                     .HasColumnType("datetime");
 
                 m.Property<bool>("IsDeleted")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("bit");
 
+                m.Property<double>("Radius")
+                  .HasColumnType("decimal(9,6)");
+
                 m.Property<int>("Status")
                     .HasColumnType("int");
 
-                m.Property<double>("Lattitude")
+                m.Property<double>("Latitude")
                        .HasColumnType("decimal(9,6)");
 
+            
                 m.Property<double>("Logitude")
                          .HasColumnType("decimal(9,6)");
 
                 m.HasKey("Id");
                 m.HasIndex("Id").IsUnique();
 
-                m.ToTable("Report", "dbo");
+                m.ToTable("Report".ToUpper(), "dbo");
             });
 
 
@@ -71,11 +75,11 @@ namespace Reporting.Migrations
                    .IsRequired()
                    .HasColumnType("uniqueidentifier");
 
-                m.Property<DateTimeOffset>("CreateDate")
+                m.Property<DateTime>("CreateDate")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("datetime");
 
-                m.Property<DateTimeOffset>("UpdateDate")
+                m.Property<DateTime>("UpdateDate")
                     .HasColumnType("datetime");
 
                 m.Property<bool>("IsDeleted")
@@ -95,9 +99,9 @@ namespace Reporting.Migrations
                 m.HasIndex("Id").IsUnique();
                 m.HasIndex("Report");
 
-                m.ToTable("Report", "RPT");
-            }); 
-            
+                m.ToTable("Report".ToUpper(), "RPT");
+            });
+
             //modelBuilder.Entity("BookShop.Domain.Entities.Book", b =>
             //{
             //    b.Property<Guid>("Id")
@@ -137,7 +141,7 @@ namespace Reporting.Migrations
             //    b.Property<string>("Price")
             //        .HasColumnType("nvarchar(max)");
 
-            //    b.Property<DateTimeOffset>("ReleaseDate")
+            //    b.Property<DateTime>("ReleaseDate")
             //        .HasColumnType("datetimeoffset");
 
             //    b.HasKey("Id");

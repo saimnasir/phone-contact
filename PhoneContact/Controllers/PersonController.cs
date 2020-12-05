@@ -4,9 +4,13 @@ using System.Linq;
 using System.Reflection;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using PhoneContact.ViewModels.Requests;
 using Repositories;
 using Serilog;
-using ViewModels;
+using PhoneContact.ViewModels;
+using PhoneContact.Extensions;
+using Core.Enums;
+using System.Globalization;
 
 namespace PhoneContact.Controllers
 {
@@ -17,6 +21,7 @@ namespace PhoneContact.Controllers
         private readonly IRepositoryFactory _repositoryFactory;
         private readonly IPersonRepository _repository;
         private readonly IContactInfoRepository _contactInfoRepository;
+        private readonly ILocationRepository _locationRepository;
         private readonly IMapper _mapper;
         public PersonController(IRepositoryFactory repositoryFactory, IMapper mapper)
         {
@@ -24,9 +29,10 @@ namespace PhoneContact.Controllers
             _mapper = mapper;
             _repository = _repositoryFactory.PersonRepository;
             _contactInfoRepository = _repositoryFactory.ContactInfoRepository;
+            _locationRepository = _repositoryFactory.LocationRepository;
         }
 
-        // GET: api/Person
+        // GET: api/Person/ListAll
         [HttpGet]
         [Route("ListAll")]
         public ActionResult<IEnumerable<Person>> ListAll()
@@ -45,16 +51,44 @@ namespace PhoneContact.Controllers
             }
         }
 
-        // GET: api/Person/Read
-        [HttpGet]
-        [Route("Read")]
-        public ActionResult<Person> Read(Guid id)
+
+        // POST: api/Person/ListAllWithDetails
+        [HttpPost]
+        [Route("ListAllWithDetails")]
+        public ActionResult<IEnumerable<Person>> ListAllWithDetails(ReadByMasterRequest request)
         {
             try
             {
-                var dataModel = _repository.Read(id);
+                var dataModel = _repository.Read(request.MasterId);
+                dataModel.ModelCheck(request.MasterUIID);
+
+                var dataModels = _repository.ListAllByMaster(request.MasterId);
+                var viewModels = _mapper.Map<List<Person>>(dataModels);
+                viewModels.ForEach(model =>
+                {
+                    model.ContactInfos = listContactInfos(new ReadByMasterRequest { MasterId = model.Id, MasterUIID = model.UIID }).ToList();
+                });
+                return viewModels;
+            }
+            catch (Exception ex)
+            {
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} Person failed.{ex.Message}";
+                Log.Error(messageResponse);
+                throw new Exception(messageResponse);
+            }
+        }
+
+        // POST: api/Person/Read
+        [HttpPost]
+        [Route("Read")]
+        public ActionResult<Person> Read(ReadModelRequest request)
+        {
+            try
+            {
+                var dataModel = _repository.Read(request.Id);
+                dataModel.ModelCheck(request.UIID);
                 var viewModel = _mapper.Map<Person>(dataModel);
-                viewModel.ContactInfos = listContactInfos(id).ToList();
+                viewModel.ContactInfos = listContactInfos(new ReadByMasterRequest { MasterId = request.Id, MasterUIID = request.UIID }).ToList();
                 return viewModel;
             }
             catch (Exception ex)
@@ -68,54 +102,84 @@ namespace PhoneContact.Controllers
         // POST: api/Person/Create
         [HttpPost]
         [Route("Create")]
-        public ActionResult<Person> Create(Person viewModel)
+        public ActionResult<Person> Create(CreatePersonRequest request)
         {
             try
             {
-                var dataModel = _mapper.Map<DataModels.Person>(viewModel);
+                var dataModel = _mapper.Map<DataModels.Person>(request);
                 dataModel = _repository.Create(dataModel);
-                viewModel = _mapper.Map<Person>(dataModel);
+                foreach (var contactInfo in request.ContactInfos)
+                {
+                    var contatInfoDataModel = _mapper.Map<DataModels.ContactInfo>(contactInfo);
+                    contatInfoDataModel.Person = dataModel.Id;
+                    contatInfoDataModel = _contactInfoRepository.Create(contatInfoDataModel);
+                    if (contactInfo.InfoType == InfoType.Location)
+                    {
+                        var point = contatInfoDataModel.Information.Split(",");
+                        var locationViewModel = new Location
+                        {
+                            Latitude = Convert.ToDecimal(point[0].Replace(".",",")),
+                            Longitude = Convert.ToDecimal(point[1].Replace(".", ",")),
+                            ContactInfo = contatInfoDataModel.Id
+                        };
+                        var locationDataModel = _mapper.Map<DataModels.Location>(locationViewModel);
+                        _locationRepository.CreateOrUpdate(locationDataModel);
+                    }
+                }
+                var viewModel = _mapper.Map<Person>(dataModel);
+                viewModel.ContactInfos = listContactInfos(new ReadByMasterRequest { MasterId = viewModel.Id, MasterUIID = viewModel.UIID }).ToList();
                 return viewModel;
             }
             catch (Exception ex)
             {
-                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} {viewModel.GetType().Name} failed.{ex.Message}";
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} Person failed.{ex.Message}";
                 Log.Error(messageResponse);
                 throw new Exception(messageResponse);
             }
         }
 
-        // PUT: api/ContactInfo/Create
+        // PUT: api/Person/Create
         [HttpPut]
         [Route("Update")]
-        public ActionResult<Person> Update(Person viewModel)
+        public ActionResult<Person> Update(UpdatePersonRequest request)
         {
             try
             {
-                var dataModel = _mapper.Map<DataModels.Person>(viewModel);
+                var dataModel = _mapper.Map<DataModels.Person>(request);
+                dataModel.ModelCheck(request.UIID);
+
+                dataModel = _repository.Read(request.Id);
+                //set properties
+                dataModel.FirstName = request.FirstName;
+                dataModel.MiddleName = request.MiddleName;
+                dataModel.LastName = request.LastName;
+                dataModel.CompanyName = request.CompanyName;
+
                 dataModel = _repository.Update(dataModel);
-                viewModel = _mapper.Map<Person>(dataModel);
-                viewModel.ContactInfos = listContactInfos(viewModel.UIID).ToList();
+                var viewModel = _mapper.Map<Person>(dataModel);
                 return viewModel;
             }
             catch (Exception ex)
             {
-                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} {viewModel.GetType().Name} failed.{ex.Message}";
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} Person failed.{ex.Message}";
                 Log.Error(messageResponse);
                 throw new Exception(messageResponse);
             }
         }
 
 
-        // DELETE: api/Person/Delete
-        [HttpDelete]
+        // POST: api/Person/Delete
+        [HttpPost]
         [Route("Delete")]
-        public ActionResult Delete(Guid id)
+        public ActionResult Delete(DeleteModelRequest request)
         {
             try
             {
+                var dataModel = _repository.Read(request.Id);
+                dataModel.ModelCheck(request.UIID);
+
                 var messageResponse = "Person Deleted.";
-                if (_repository.Delete(id))
+                if (_repository.Delete(request.Id))
                 {
                     messageResponse = $"Delete Person failed.";
                     Log.Error(messageResponse);
@@ -131,11 +195,14 @@ namespace PhoneContact.Controllers
             }
         }
 
-        private IEnumerable<ContactInfo> listContactInfos(Guid UIID)
+        private IEnumerable<ContactInfo> listContactInfos(ReadByMasterRequest request)
         {
             try
             {
-                var dataModels = _contactInfoRepository.ListAllByMaster(UIID);
+                var dataModel = _repository.Read(request.MasterId);
+                dataModel.ModelCheck(request.MasterUIID);
+
+                var dataModels = _contactInfoRepository.ListAllByMaster(request.MasterId);
                 var viewModels = _mapper.Map<List<ContactInfo>>(dataModels);
                 return viewModels;
             }

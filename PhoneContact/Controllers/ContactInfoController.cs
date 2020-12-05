@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Reflection;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using PhoneContact.ViewModels.Requests;
 using Repositories;
 using Serilog;
-using ViewModels;
+using PhoneContact.ViewModels;
+using PhoneContact.Extensions;
+using PhoneContact.ViewModels.Responses;
+using Core.Enums;
 
 namespace PhoneContact.Controllers
 {
@@ -15,12 +19,16 @@ namespace PhoneContact.Controllers
     {
         private readonly IRepositoryFactory _repositoryFactory;
         private readonly IContactInfoRepository _repository;
+        private readonly IPersonRepository _personRepository; 
+        private readonly ILocationRepository _locationRepository;
         private readonly IMapper _mapper;
         public ContactInfoController(IRepositoryFactory repositoryFactory, IMapper mapper)
         {
             _repositoryFactory = repositoryFactory;
             _mapper = mapper;
             _repository = _repositoryFactory.ContactInfoRepository;
+            _personRepository = _repositoryFactory.PersonRepository;
+            _locationRepository = _repositoryFactory.LocationRepository;
         }
 
 
@@ -33,10 +41,6 @@ namespace PhoneContact.Controllers
             {
                 var dataModels = _repository.ListAll();
                 var viewModels = _mapper.Map<List<ContactInfo>>(dataModels);
-                //viewModels.ForEach(viewModel =>
-                //{
-                //    // getContactInfoDetails(viewModel);
-                //});
                 return viewModels;
             }
             catch (Exception ex)
@@ -47,14 +51,16 @@ namespace PhoneContact.Controllers
             }
         }
 
-        // GET: api/ContactInfo/Read
-        [HttpGet]
+        // POST: api/ContactInfo/Read
+        [HttpPost]
         [Route("Read")]
-        public ActionResult<ContactInfo> Read(Guid id)
+        public ActionResult<ContactInfo> Read(ReadModelRequest request)
         {
             try
             {
-                var dataModel = _repository.Read(id);
+                var dataModel = _repository.Read(request.Id);
+                dataModel.ModelCheck(request.UIID);
+                dataModel = _repository.Read(request.Id);
                 var viewModel = _mapper.Map<ContactInfo>(dataModel);
                 return viewModel;
             }
@@ -66,19 +72,18 @@ namespace PhoneContact.Controllers
             }
         }
 
-        // GET: api/ContactInfo
-        [HttpGet]
-        [Route("ListAllByMaster/{master}")]
-        public ActionResult<IEnumerable<ContactInfo>> ListAllByMaster(Guid master)
+        // POST: api/ContactInfo
+        [HttpPost]
+        [Route("ListAllByMaster")]
+        public ActionResult<IEnumerable<ContactInfo>> ListAllByMaster(ReadByMasterRequest request)
         {
             try
             {
-                var dataModels = _repository.ListAllByMaster(master);
+                var master = _personRepository.Read(request.MasterId);
+                master.ModelCheck(request.MasterUIID);
+
+                var dataModels = _repository.ListAllByMaster(request.MasterId);
                 var viewModels = _mapper.Map<List<ContactInfo>>(dataModels);
-                //viewModels.ForEach(viewModel =>
-                //{
-                //    // getContactInfoDetails(viewModel);
-                //});
                 return viewModels;
             }
             catch (Exception ex)
@@ -92,20 +97,31 @@ namespace PhoneContact.Controllers
         // POST: api/ContactInfo/Create
         [HttpPost]
         [Route("Create")]
-        public ActionResult<ContactInfo> Create(ContactInfo viewModel)
+        public ActionResult<ContactInfo> Create(CreateContactInfoRequest request)
         {
             try
             {
-                var dataModel = _mapper.Map<DataModels.ContactInfo>(viewModel);
+                var dataModel = _mapper.Map<DataModels.ContactInfo>(request);
                 dataModel = _repository.Create(dataModel);
-                viewModel = _mapper.Map<ContactInfo>(dataModel);
-                // getContactInfoDetails(viewModel);
+                if (dataModel.InfoType == InfoType.Location)
+                {
+                    var point = dataModel.Information.Split(",");
+                    var locationViewModel = new Location
+                    {
+                        Latitude = Convert.ToDecimal(point[0].Replace(".", ",")),
+                        Longitude = Convert.ToDecimal(point[1].Replace(".", ",")),
+                        ContactInfo = dataModel.Id
+                    };
+                    var locationDataModel = _mapper.Map<DataModels.Location>(locationViewModel);
+                    _locationRepository.CreateOrUpdate(locationDataModel);
+                }
+                var viewModel = _mapper.Map<ContactInfo>(dataModel);
 
                 return viewModel;
             }
             catch (Exception ex)
             {
-                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} {viewModel.GetType().Name} failed.{ex.Message}";
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} ContactInfo failed.{ex.Message}";
                 Log.Error(messageResponse);
                 throw new Exception(messageResponse);
             }
@@ -114,34 +130,51 @@ namespace PhoneContact.Controllers
         // PUT: api/ContactInfo/Create
         [HttpPut]
         [Route("Update")]
-        public ActionResult<ContactInfo> Update(ContactInfo viewModel)
+        public ActionResult<ContactInfo> Update(UpdateContactInfoRequest request)
         {
             try
             {
-                var dataModel = _mapper.Map<DataModels.ContactInfo>(viewModel);
+                var dataModel = _mapper.Map<DataModels.ContactInfo>(request);
+                dataModel.ModelCheck(request.UIID);
+                dataModel = _repository.Read(request.Id);
+                dataModel.Information = request.Information;
                 dataModel = _repository.Update(dataModel);
-                viewModel = _mapper.Map<ContactInfo>(dataModel);
-                // getContactInfoDetails(viewModel);
+                if (dataModel.InfoType == InfoType.Location)
+                {
+                    var point = dataModel.Information.Split(",");
+                    var locationViewModel = new Location
+                    {
+                        Latitude = Convert.ToDecimal(point[0].Replace(".", ",")),
+                        Longitude = Convert.ToDecimal(point[1].Replace(".", ",")),
+                        ContactInfo = dataModel.Id
+                    };
+                    var locationDataModel = _mapper.Map<DataModels.Location>(locationViewModel);
+                    _locationRepository.CreateOrUpdate(locationDataModel);
+                }
+                var viewModel = _mapper.Map<ContactInfo>(dataModel);
 
                 return viewModel;
             }
             catch (Exception ex)
             {
-                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} {viewModel.GetType().Name} failed.{ex.Message}";
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} ContactInfo failed.{ex.Message}";
                 Log.Error(messageResponse);
                 throw new Exception(messageResponse);
             }
         }
 
-        // DELETE: api/ContactInfo/Delete
-        [HttpDelete]
+        // POST: api/ContactInfo/Delete
+        [HttpPost]
         [Route("Delete")]
-        public ActionResult Delete(Guid id)
+        public ActionResult Delete(DeleteModelRequest request)
         {
             try
             {
+                var dataModel = _repository.Read(request.Id);
+                dataModel.ModelCheck(request.UIID);
+
                 var messageResponse = "ContactInfo Deleted.";
-                if (_repository.Delete(id))
+                if (!_repository.Delete(request.Id))
                 {
                     messageResponse = $"Delete ContactInfo failed.";
                     Log.Error(messageResponse);
@@ -157,5 +190,23 @@ namespace PhoneContact.Controllers
             }
         }
 
+        // POST: api/ContactInfo/Delete
+        [HttpPost]
+        [Route("GetNearBy")]
+        public ActionResult<GetNearbyCountsResponse> GetNearBy(GetNearbyCountsRequest request)
+        {
+            try
+            {
+                var inputModel = _mapper.Map<DataModels.NearbyCountInputModel>(request);
+                var dataModel = _repository.GetNearbyCounts(inputModel);
+                return _mapper.Map<GetNearbyCountsResponse>(dataModel);
+            }
+            catch (Exception ex)
+            {
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} ContactInfo failed.{ex.Message}";
+                Log.Error(messageResponse);
+                throw new Exception(messageResponse);
+            }
+        }
     }
 }

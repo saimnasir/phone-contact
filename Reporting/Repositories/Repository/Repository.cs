@@ -18,7 +18,7 @@ namespace Repositories
         private readonly IExecuters _executers;
         private readonly string _tableName;
 
-        IUnitOfWork IRepository<T>.UnitOfWork => throw new NotImplementedException();
+        IUnitOfWork IRepository<T>.UnitOfWork => throw new System.NotImplementedException();
 
         public Repository(IConfiguration configuration, ICommandText commandText, IExecuters executers, string tableName)
         {
@@ -34,7 +34,7 @@ namespace Repositories
         {
             setCurrentTable();
 
-            var id = _executers.ExecuteCommand(
+            long id = _executers.ExecuteCommand(
                 _connStr,
                 conn =>
                 {
@@ -54,7 +54,7 @@ namespace Repositories
 
             var parameters = new
             {
-                id
+                Id = id
             };
 
             return _executers.ExecuteCommand(
@@ -90,9 +90,9 @@ namespace Repositories
 
             var parameters = new
             {
-                id
+                Id = id
             };
-            return _executers.ExecuteCommand(
+            var isDeleted = _executers.ExecuteCommand(
                  _connStr,
                  conn =>
                  {
@@ -102,6 +102,8 @@ namespace Repositories
                          commandType: CommandType.StoredProcedure
                      );
                  });
+
+            return isDeleted;
         }
 
         public IEnumerable<T> ListAll()
@@ -118,12 +120,12 @@ namespace Repositories
             return items;
         }
 
-        public IEnumerable<T> ListAllByMaster(long masterUIID)
+        public IEnumerable<T> ListAllByMaster(long masterId)
         {
             setCurrentTable();
             var parameters = new
             {
-                masterUIID
+                Master = masterId,
             };
             var items = _executers.ExecuteCommand(
                          _connStr,
@@ -150,6 +152,7 @@ namespace Repositories
 
             return items;
         }
+
         public T Find(object parameters)
         {
             setCurrentTable();
@@ -163,6 +166,30 @@ namespace Repositories
                 ));
         }
 
+        public IEnumerable<T> ListByCommand(string command)
+        {
+            setCurrentTable();
+
+            return _executers.ExecuteCommand(
+                _connStr,
+                conn => conn.Query<T>(
+                    command, 
+                    commandType: CommandType.StoredProcedure
+                ));
+        }
+
+        public IEnumerable<T> ListByCommand(string command, object parameters)
+        {
+            setCurrentTable();
+
+            return _executers.ExecuteCommand(
+                _connStr,
+                conn => conn.Query<T>(
+                    command,
+                    parameters,
+                    commandType: CommandType.StoredProcedure
+                ));
+        }
         private string getConnectionString()
         {
             return _configuration.GetSection("ConnectionStrings:ReportingDBConnectionString").Value;
@@ -172,5 +199,7 @@ namespace Repositories
         {
             _commandText.CurrentTableName = _tableName;
         }
+
+       
     }
 }

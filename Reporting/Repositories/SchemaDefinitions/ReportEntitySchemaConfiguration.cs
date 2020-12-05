@@ -12,7 +12,7 @@ namespace Reporting.Repositories.SchemaDefinitions
     {
         public void Configure(EntityTypeBuilder<Report> builder)
         {
-            builder.ToTable("Report", ReportingContext.DEFAULT_SCHEMA);
+            builder.ToTable("Report".ToUpper(), ReportingContext.DEFAULT_SCHEMA);
             builder.HasKey(k => k.UIID);
             builder.Property(p => p.CreateDate).IsRequired();
             builder.Property(p => p.UpdateDate);

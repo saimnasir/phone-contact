@@ -1,4 +1,4 @@
-﻿namespace ViewModels
+﻿namespace Reporting.ViewModels
 {
     public class ReportStatus : ViewModel
     {

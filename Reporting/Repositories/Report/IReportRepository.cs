@@ -1,4 +1,5 @@
 ﻿using DataModels;
+using System.Collections.Generic;
 
 namespace Repositories
 {
@@ -6,5 +7,6 @@ namespace Repositories
     {
         public Report Create(Report report);
         public Report Update(Report report);
+        public IEnumerable<Report> ListPendingReports();
     }
 }

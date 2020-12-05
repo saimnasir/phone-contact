@@ -33,7 +33,7 @@ namespace Repositories
         {
             var parameters = new
             {
-                person.UIID,
+                person.Id,
                 person.FirstName,
                 person.MiddleName,
                 person.LastName,

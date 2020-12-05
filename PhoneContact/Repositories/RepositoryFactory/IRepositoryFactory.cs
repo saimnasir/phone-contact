@@ -10,5 +10,6 @@ namespace Repositories
         ICommandText CommandText { get; }
         IPersonRepository PersonRepository { get; }
         IContactInfoRepository ContactInfoRepository { get; }
+        ILocationRepository LocationRepository { get; }
     }
 }

@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Reporting.RecurringJobs
 {
-    public static class RecurringJobProcessor
-    {
-        public static void ProcessReports(this IRecurringJobManager recurringJobManager)
-        {
-            var operation = new PhoneContactOperations();
-            operation.GetPhoneContacts();
-        }
-    }
+    //public static class RecurringJobProcessor
+    //{
+    //    public static void ProcessReports(this IRecurringJobManager recurringJobManager)
+    //    {
+    //        //var operation = new PhoneContactOperations();
+    //        //operation.GetPhoneContacts();
+    //    }
+    //}
 }

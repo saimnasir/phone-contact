@@ -1,5 +1,6 @@
 ﻿using DataModels;
 using PhoneContact.Repositories;
+using PhoneContact.ViewModels.Requests;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -12,19 +13,22 @@ namespace Repositories
 
         public T Create(object parameters);
 
-        public T Read(Guid UIID);
+        public T Read(long id);
 
         public T Update(object parameters);
 
-        public bool Delete(Guid UIID);
+        public bool Delete(long id);
 
         public IEnumerable<T> ListAll();
 
-        public IEnumerable<T> ListAllByMaster(Guid masterUIID);
+        public IEnumerable<T> ListAllByMaster(long masterId);
 
         public IEnumerable<T> Search(object parameters);
 
-        public T Find(object parameters); 
+        public T Find(object parameters);
+        public IEnumerable<T> ListByCommand(string command);
+        public IEnumerable<T> ListByCommand(string command, object parameters);
+        public dynamic Execute(string command, object parameters);
 
     }
 }

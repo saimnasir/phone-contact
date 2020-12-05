@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Data;
 using PhoneContact.Repositories;
 using System;
+using PhoneContact.ViewModels.Requests;
 
 namespace Repositories
 {
@@ -34,27 +35,27 @@ namespace Repositories
         {
             setCurrentTable();
 
-            var UIID = _executers.ExecuteCommand(
+            long id = _executers.ExecuteCommand(
                 _connStr,
                 conn =>
                 {
-                    return conn.ExecuteScalar<Guid>(
+                    return conn.ExecuteScalar<long>(
                         _commandText.CreateCommand,
                         parameters,
                         commandType: CommandType.StoredProcedure
                     );
                 });
 
-            return Read(UIID);
+            return Read(id);
         }
 
-        public T Read(Guid UIID)
+        public T Read(long id)
         {
             setCurrentTable();
 
             var parameters = new
             {
-                UIID
+                Id = id
             };
 
             return _executers.ExecuteCommand(
@@ -70,29 +71,29 @@ namespace Repositories
         {
             setCurrentTable();
 
-           var dataModel = _executers.ExecuteCommand(
-                _connStr,
-                conn =>
-                {
-                    return conn.QueryFirstOrDefault<T>(
-                        _commandText.UpdateCommand,
-                        parameters,
-                        commandType: CommandType.StoredProcedure
-                    );
-                });
+            var dataModel = _executers.ExecuteCommand(
+                 _connStr,
+                 conn =>
+                 {
+                     return conn.QueryFirstOrDefault<T>(
+                         _commandText.UpdateCommand,
+                         parameters,
+                         commandType: CommandType.StoredProcedure
+                     );
+                 });
 
             return dataModel;
         }
 
-        public bool Delete(Guid UIID)
+        public bool Delete(long id)
         {
             setCurrentTable();
 
             var parameters = new
             {
-                UIID
+                Id = id
             };
-            return _executers.ExecuteCommand(
+            var isDeleted = _executers.ExecuteCommand(
                  _connStr,
                  conn =>
                  {
@@ -102,6 +103,8 @@ namespace Repositories
                          commandType: CommandType.StoredProcedure
                      );
                  });
+
+            return isDeleted;
         }
 
         public IEnumerable<T> ListAll()
@@ -118,12 +121,12 @@ namespace Repositories
             return items;
         }
 
-        public IEnumerable<T> ListAllByMaster(Guid masterUIID)
+        public IEnumerable<T> ListAllByMaster(long masterId)
         {
             setCurrentTable();
             var parameters = new
             {
-                masterUIID
+                Master = masterId,
             };
             var items = _executers.ExecuteCommand(
                          _connStr,
@@ -150,6 +153,7 @@ namespace Repositories
 
             return items;
         }
+
         public T Find(object parameters)
         {
             setCurrentTable();
@@ -163,14 +167,47 @@ namespace Repositories
                 ));
         }
 
+        public IEnumerable<T> ListByCommand(string command)
+        {
+            setCurrentTable();
+
+            return _executers.ExecuteCommand(
+                _connStr,
+                conn => conn.Query<T>(
+                    command,
+                    commandType: CommandType.StoredProcedure
+                ));
+        }
+
+        public IEnumerable<T> ListByCommand(string command, object parameters)
+        {
+            return _executers.ExecuteCommand(
+                _connStr,
+                conn => conn.Query<T>(
+                    command,
+                    parameters,
+                    commandType: CommandType.StoredProcedure
+                ));
+        }
         private string getConnectionString()
         {
-            return _configuration.GetSection("DataSource:ConnectionString").Value;
+            return _configuration.GetSection("ConnectionStrings:ContactDBConnectionString").Value;
         }
 
         private void setCurrentTable()
         {
             _commandText.CurrentTableName = _tableName;
+        }
+
+        public dynamic Execute(string command, object parameters)
+        {
+            return _executers.ExecuteCommand(
+               _connStr,
+               conn => conn.QueryFirst<dynamic>(
+                   command,
+                   parameters,
+                   commandType: CommandType.StoredProcedure
+               ));
         }
     }
 }
