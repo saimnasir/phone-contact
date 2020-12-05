@@ -3,7 +3,21 @@
 Telefon rehberi assignment olarak hazırlanmıştır.
 .Net Core, MSSQL, Git kullanılarak geliştirmeler yapılmıştır.
 
-3 mikroservis içermektedir. 
+# Amaçlar
+
+1: Rehberde kişi oluşturma
+2: Rehberde kişi kaldırma
+3: Rehberdeki kişiye iletişim bilgisi ekleme
+4: Rehberdeki kişiden iletişim bilgisi kaldırma
+5: Rehberdeki kişilerin listelenmesi
+6: Rehberdeki bir kişiyle ilgili iletişim bilgilerinin de yer aldığı detay bilgilerin getirilmesi
+7: Rehberdeki kişilerin bulundukları konuma göre istatistiklerini çıkartan bir rapor talebi
+8: Sistemin oluşturduğu raporların listelenmesi
+9: Sistemin oluşturduğu bir raporun detay bilgilerinin getirilmesi
+
+# Mikro Servisler
+
+Üç mikroservis içermektedir:
 1: PhoneContactAPI
 2: ReportingAPI
 3: APIGateway
@@ -38,3 +52,6 @@ Swagger kütüphanesi kullanılarak basit bir şekilde tüm CRUDL işlemlerinin 
 
 # Unit Testing
 Yapılmadı.
+
+# [Id,UIID]
+Id ve UIID ikilisi birlikte kullanılarak veri güvenliği sağlanmıştır. Girilen Id ile veri okunup okunan veri üzerindeki UIID ile girilen UIID'nin *eşitliği* kontrol edilerek eşitsizlik durumunda hata verilir.
