@@ -18,10 +18,10 @@ namespace Reporting.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false).Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    UIID = table.Column<Guid>(nullable: false),
-                    CreateDate = table.Column<DateTimeOffset>(nullable: false),
+                    UIID = table.Column<Guid>(nullable: false, defaultValue: Guid.NewGuid()),
+                    CreateDate = table.Column<DateTimeOffset>(nullable: false, defaultValue: DateTime.Now),
                     UpdateDate = table.Column<DateTimeOffset>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false, defaultValue: false),
                     Status = table.Column<int>(nullable: false),
                     Lattitude = table.Column<double>(nullable: false),
                     Longitude = table.Column<double>(nullable: false)
@@ -41,10 +41,10 @@ namespace Reporting.Migrations
             columns: table => new
             {
                 Id = table.Column<long>(nullable: false).Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                UIID = table.Column<Guid>(nullable: false),
-                CreateDate = table.Column<DateTimeOffset>(nullable: false),
+                UIID = table.Column<Guid>(nullable: false, defaultValue: Guid.NewGuid()),
+                CreateDate = table.Column<DateTimeOffset>(nullable: false, defaultValue: DateTime.Now),
                 UpdateDate = table.Column<DateTimeOffset>(nullable: true),
-                IsDeleted = table.Column<bool>(nullable: false),
+                IsDeleted = table.Column<bool>(nullable: false, defaultValue: false),
                 Report = table.Column<long>(nullable: false),
                 NearbyReportCount = table.Column<int>(nullable: false),
                 NearbyPhoneNumberCount = table.Column<int>(nullable: false)
@@ -68,6 +68,8 @@ namespace Reporting.Migrations
                 column: "Report");
 
             #endregion
+
+            generateStoreProcedures(migrationBuilder);
 
             #region Commented
             //migrationBuilder.CreateTable(
@@ -133,15 +135,283 @@ namespace Reporting.Migrations
             #endregion
         }
 
+        private void generateStoreProcedures(MigrationBuilder migrationBuilder)
+        {
+            generateReportStoreProcedures(migrationBuilder);
+
+            generateReportDetailInfoStoreProcedures(migrationBuilder);
+        }
+
+        private void generateReportStoreProcedures(MigrationBuilder migrationBuilder)
+        {
+            var tableName = "REPORT";
+            var schema = "RPT";
+            var schemaTable = $"{schema}.{tableName}";
+
+            var procedureName = $"{schema}.INS_{tableName}_SP";
+            var insertProcedure = $@"
+IF OBJECT_ID('{procedureName}') IS NULL
+    EXEC('CREATE PROCEDURE {procedureName} AS SET NOCOUNT ON;')
+GO
+
+ALTER PROCEDURE {procedureName} 
+(	 	
+    @Lattitude decimal(9,6),
+	@Longitude decimal(9,6),
+	@Status INT
+)
+AS
+BEGIN  
+	INSERT INTO {schemaTable}
+            (Lattitude,
+            Longitude,
+		    Status) 
+	OUTPUT Inserted.Id
+	SELECT  @Lattitude,  
+		    @Longitude, 
+		    @Status
+END;  ";
+            migrationBuilder.Sql(insertProcedure);
+
+            procedureName = $"{schema}.LST_{tableName}_SP";
+            var listProcedure = $@"
+IF OBJECT_ID('{procedureName}') IS NULL
+    EXEC('CREATE PROCEDURE {procedureName} AS SET NOCOUNT ON;')
+GO
+
+ALTER PROCEDURE {procedureName}
+AS
+BEGIN  
+	SELECT * 
+    FROM {schemaTable}
+    WHERE IsDeleted = 0
+END;  ";
+            migrationBuilder.Sql(listProcedure);
+
+            procedureName = $"{schema}.SEL_{tableName}_SP";
+            var selectProcedureName = procedureName;
+            var selectProcedure = $@"
+IF OBJECT_ID('{procedureName}') IS NULL
+    EXEC('CREATE PROCEDURE {procedureName} AS SET NOCOUNT ON;')
+GO
+
+ALTER PROCEDURE {procedureName}(
+    @Id BIGINT
+)
+AS
+BEGIN  
+	SELECT * 
+    FROM {schemaTable}
+    WHERE IsDeleted = 0 AND Id = @Id
+END;  ";
+            migrationBuilder.Sql(selectProcedure);
+
+            procedureName = $"{schema}.DEL_{tableName}_SP";
+            var deleteProcedure = $@"
+IF OBJECT_ID('{procedureName}') IS NULL
+    EXEC('CREATE PROCEDURE {procedureName} AS SET NOCOUNT ON;')
+GO
+
+ALTER PROCEDURE {procedureName}
+(	 
+	@Id BIGINT
+)
+AS
+BEGIN   
+
+	DECLARE @IsDeleted BIT = 0;
+	UPDATE {schemaTable} 
+		Set IsDeleted = 1
+	Where Id = @Id
+
+	IF @@ROWCOUNT > 0 
+	BEGIN
+		SET @IsDeleted = 1;
+	END
+	
+	SELECT @IsDeleted
+END; ";
+            migrationBuilder.Sql(deleteProcedure);
+
+            procedureName = $"{schema}.UPD_{tableName}_SP";
+            var updateProcedure = $@"
+IF OBJECT_ID('{procedureName}') IS NULL
+    EXEC('CREATE PROCEDURE {procedureName} AS SET NOCOUNT ON;')
+GO
+
+ALTER PROCEDURE {procedureName}
+(	 
+	@Id BIGINT,
+	@Lattitude decimal(9,6),
+	@Longitude decimal(9,6),
+	@Status INT
+)
+AS
+BEGIN  
+
+	UPDATE {schemaTable}
+    SET 
+	Lattitude =@Lattitude,
+    Longitude = @Longitude,
+	Status = @Status,
+    UpdateDate = GETDATE()
+	WHERE @Id = Id
+
+	IF @@ROWCOUNT >0
+	BEGIN
+		EXEC {selectProcedureName} @Id
+	END
+	ELSE
+	BEGIN
+		THROW 50001, 'Nothing Updated', 1;
+	END
+END
+";
+            migrationBuilder.Sql(updateProcedure);
+
+        }
+
+        private void generateReportDetailInfoStoreProcedures(MigrationBuilder migrationBuilder)
+        {
+            var tableName = "REPORTDETAIL";
+            var schema = "RPT";
+            var schemaTable = $"{schema}.{tableName}";
+
+            var procedureName = $"{schema}.INS_{tableName}_SP";
+            var insertProcedure = $@"
+IF OBJECT_ID('{procedureName}') IS NULL
+    EXEC('CREATE PROCEDURE {procedureName} AS SET NOCOUNT ON;')
+GO
+
+ALTER PROCEDURE {procedureName} 
+(	 	
+    @Report BIGINT,
+	@NearbyPersonCount INT,
+	@NearbyPhoneNumberCount INT
+)
+AS
+BEGIN  
+	INSERT INTO {schemaTable}
+            (Report,
+            NearbyPersonCount,
+		    NearbyPhoneNumberCount) 
+	OUTPUT Inserted.Id
+	SELECT  @Report,  
+ 		    @NearbyPersonCount, 
+		    @NearbyPhoneNumberCount
+END;  ";
+            migrationBuilder.Sql(insertProcedure);
+
+            procedureName = $"{schema}.LST_{tableName}_SP";
+            var listProcedure = $@"
+IF OBJECT_ID('{procedureName}') IS NULL
+    EXEC('CREATE PROCEDURE {procedureName} AS SET NOCOUNT ON;')
+GO
+
+ALTER PROCEDURE {procedureName}
+(	 
+	@Master BIGINT = NULL
+)
+AS
+BEGIN  
+	SELECT * 
+    FROM {schemaTable}
+    WHERE IsDeleted = 0
+    AND @Master IS NULL OR Report = @Master
+END;  ";
+            migrationBuilder.Sql(listProcedure);
+
+            procedureName = $"{schema}.SEL_{tableName}_SP";
+            var selectProcedureName = procedureName;
+            var selectProcedure = $@"
+IF OBJECT_ID('{procedureName}') IS NULL
+    EXEC('CREATE PROCEDURE {procedureName} AS SET NOCOUNT ON;')
+GO
+
+ALTER PROCEDURE {procedureName}(
+    @Id BIGINT
+)
+AS
+BEGIN  
+	SELECT * 
+    FROM {schemaTable}
+    WHERE IsDeleted = 0 AND Id = @Id
+END;  ";
+            migrationBuilder.Sql(selectProcedure);
+
+            procedureName = $"{schema}.DEL_{tableName}_SP";
+            var deleteProcedure = $@"
+IF OBJECT_ID('{procedureName}') IS NULL
+    EXEC('CREATE PROCEDURE {procedureName} AS SET NOCOUNT ON;')
+GO
+
+ALTER PROCEDURE {procedureName}
+(	 
+	@Id BIGINT
+)
+AS
+BEGIN   
+
+	DECLARE @IsDeleted BIT = 0;
+	UPDATE PHC.PERSON 
+		Set IsDeleted = 1
+	Where Id = @Id
+
+	IF @@ROWCOUNT > 0 
+	BEGIN
+		SET @IsDeleted = 1;
+	END
+	
+	SELECT @IsDeleted
+END; ";
+            migrationBuilder.Sql(deleteProcedure);
+
+            procedureName = $"{schema}.UPD_{tableName}_SP";
+            var updateProcedure = $@"
+IF OBJECT_ID('{procedureName}') IS NULL
+    EXEC('CREATE PROCEDURE {procedureName} AS SET NOCOUNT ON;')
+GO
+
+ALTER PROCEDURE {procedureName}
+(	 
+	@Id BIGINT,
+	@Report BIGINT,
+	@NearbyPersonCount INT,
+	@NearbyPhoneNumberCount INT
+)
+AS
+BEGIN  
+
+	UPDATE {schemaTable}
+    SET 
+	Report =@Report,
+    NearbyPersonCount = @NearbyPersonCount,
+	NearbyPhoneNumberCount = @NearbyPhoneNumberCount,
+    UpdateDate = GETDATE()
+	WHERE @Id = Id
+
+	IF @@ROWCOUNT >0
+	BEGIN
+		EXEC {selectProcedureName} @Id
+	END
+	ELSE
+	BEGIN
+		THROW 50001, 'Nothing Updated', 1;
+	END
+END
+";
+            migrationBuilder.Sql(updateProcedure);
+        }
+
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                name: "Report",
                schema: "RPT");
 
-            //migrationBuilder.DropTable(
-            //    name: "Authors",
-            //    schema: "RPT");
+            migrationBuilder.DropTable(
+                name: "ReportDetail",
+                schema: "RPT");
 
             //migrationBuilder.DropTable(
             //    name: "Genres",

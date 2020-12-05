@@ -28,7 +28,9 @@ namespace Repositories
         {
             var parameters = new
             {
-                report.UIID,
+                report.Id,
+                report.Lattitude,
+                report.Longitude,
                 report.Status
             };
             return base.Update( parameters);

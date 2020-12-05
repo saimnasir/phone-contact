@@ -5,10 +5,10 @@ using System.Reflection;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Reporting.Extensions;
+using Reporting.ViewModels;
 using Reporting.ViewModels.Requests;
 using Repositories;
 using Serilog;
-using ViewModels;
 
 namespace PhoneContact.Controllers
 {
@@ -25,7 +25,7 @@ namespace PhoneContact.Controllers
             _repositoryFactory = repositoryFactory;
             _mapper = mapper;
             _repository = _repositoryFactory.ReportRepository;
-            _reportDetailRepository =repositoryFactory.ReportDetailRepository;
+            _reportDetailRepository = repositoryFactory.ReportDetailRepository;
         }
 
         // GET: api/Report
@@ -36,7 +36,7 @@ namespace PhoneContact.Controllers
             try
             {
                 var dataModels = _repository.ListAll();
-                var viewModels = _mapper.Map<List<Report>>(dataModels);                
+                var viewModels = _mapper.Map<List<Report>>(dataModels);
                 return viewModels;
             }
             catch (Exception ex)
@@ -99,41 +99,46 @@ namespace PhoneContact.Controllers
         // POST: api/Report/Create
         [HttpPost]
         [Route("Create")]
-        public ActionResult<Report> Create(Report viewModel)
+        public ActionResult<Report> Create(CreateReportRequest request)
         {
             try
             {
-                var dataModel = _mapper.Map<DataModels.Report>(viewModel);
+                var dataModel = _mapper.Map<DataModels.Report>(request);
                 dataModel = _repository.Create(dataModel);
-                viewModel = _mapper.Map<Report>(dataModel);                
+
+                var viewModel = _mapper.Map<Report>(dataModel);
                 return viewModel;
             }
             catch (Exception ex)
             {
-                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} {viewModel.GetType().Name} failed.{ex.Message}";
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} Report failed.{ex.Message}";
                 Log.Error(messageResponse);
                 throw new Exception(messageResponse);
             }
         }
-
+                 
         // PUT: api/ReportDetail/Create
         [HttpPut]
         [Route("Update")]
-        public ActionResult<Report> Update(Report viewModel)
+        public ActionResult<Report> Update(UpdateReportRequest request)
         {
             try
             {
-                var dataModel = _repository.Read(viewModel.Id);
-                dataModel.ModelCheck(viewModel.UIID); 
-                
-                dataModel = _mapper.Map<DataModels.Report>(viewModel);
+                var dataModel = _mapper.Map<DataModels.Report>(request);
+                dataModel.ModelCheck(request.UIID);
+
+                dataModel = _repository.Read(request.Id);
+                // set properties
+                dataModel.Lattitude = request.Lattitude;
+                dataModel.Longitude = request.Longitude;
+
                 dataModel = _repository.Update(dataModel);
-                viewModel = _mapper.Map<Report>(dataModel);
+                var viewModel = _mapper.Map<Report>(dataModel);
                 return viewModel;
             }
             catch (Exception ex)
             {
-                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} {viewModel.GetType().Name} failed.{ex.Message}";
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} Report failed.{ex.Message}";
                 Log.Error(messageResponse);
                 throw new Exception(messageResponse);
             }
@@ -148,8 +153,8 @@ namespace PhoneContact.Controllers
             try
             {
                 var dataModel = _repository.Read(request.Id);
-                dataModel.ModelCheck(request.UIID); 
-                
+                dataModel.ModelCheck(request.UIID);
+
                 var messageResponse = "Report Deleted.";
                 if (_repository.Delete(request.Id))
                 {

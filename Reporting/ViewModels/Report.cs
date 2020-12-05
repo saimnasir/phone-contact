@@ -1,7 +1,7 @@
 ﻿using Core.Enums;
 using System.Collections.Generic;
 
-namespace ViewModels
+namespace Reporting.ViewModels
 {
     public class Report : ViewModel
     {

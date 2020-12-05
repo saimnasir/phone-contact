@@ -5,10 +5,10 @@ using System.Reflection;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Reporting.Extensions;
+using Reporting.ViewModels;
 using Reporting.ViewModels.Requests;
 using Repositories;
 using Serilog;
-using ViewModels;
 
 namespace PhoneContact.Controllers
 {
@@ -89,6 +89,7 @@ namespace PhoneContact.Controllers
             }
         }
 
+        /* NOT USED METHODS
         // POST: api/ReportDetail/Create
         [HttpPost]
         [Route("Create")]
@@ -158,6 +159,6 @@ namespace PhoneContact.Controllers
                 throw new Exception(messageResponse);
             }
         }
-
+        */
     }
 }

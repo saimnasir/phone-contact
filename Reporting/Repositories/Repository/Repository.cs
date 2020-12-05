@@ -34,18 +34,18 @@ namespace Repositories
         {
             setCurrentTable();
 
-            var model = _executers.ExecuteCommand(
+            long id = _executers.ExecuteCommand(
                 _connStr,
                 conn =>
                 {
-                    return conn.QueryFirstOrDefault<T>(
+                    return conn.ExecuteScalar<long>(
                         _commandText.CreateCommand,
                         parameters,
                         commandType: CommandType.StoredProcedure
                     );
                 });
 
-            return model;
+            return Read(id);
         }
 
         public T Read(long id)
@@ -92,7 +92,7 @@ namespace Repositories
             {
                 Id = id
             };
-            return _executers.ExecuteCommand(
+            var isDeleted = _executers.ExecuteCommand(
                  _connStr,
                  conn =>
                  {
@@ -102,6 +102,8 @@ namespace Repositories
                          commandType: CommandType.StoredProcedure
                      );
                  });
+
+            return isDeleted;
         }
 
         public IEnumerable<T> ListAll()
@@ -123,7 +125,7 @@ namespace Repositories
             setCurrentTable();
             var parameters = new
             {
-                MasterId = masterId,
+                Master = masterId,
             };
             var items = _executers.ExecuteCommand(
                          _connStr,
@@ -166,7 +168,7 @@ namespace Repositories
 
         private string getConnectionString()
         {
-            return _configuration.GetSection("DataSource:ConnectionString").Value;
+            return _configuration.GetSection("ConnectionStrings:ReportingDBConnectionString").Value;
         }
 
         private void setCurrentTable()

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ViewModels
+namespace Reporting.ViewModels
 {
     public class ViewModel
     {

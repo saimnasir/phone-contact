@@ -12,22 +12,25 @@ namespace Repositories
         {
         }
 
-        public ReportDetail Create(ReportDetail report)
+        public ReportDetail Create(ReportDetail reportDetail)
         {
             var parameters = new
             {
-                report.Id,
-                report.UIID,
+                reportDetail.Report,
+                reportDetail.NearbyPersonCount,
+                reportDetail.NearbyPhoneNumberCount
             };
             return base.Create(parameters);
         }
 
-        public ReportDetail Update(ReportDetail report)
+        public ReportDetail Update(ReportDetail reportDetail)
         {
             var parameters = new
             {
-                report.Id,
-                report.UIID,
+                reportDetail.Id,
+                reportDetail.Report,
+                reportDetail.NearbyPersonCount,
+                reportDetail.NearbyPhoneNumberCount
             };
             return base.Update(parameters);
         }
