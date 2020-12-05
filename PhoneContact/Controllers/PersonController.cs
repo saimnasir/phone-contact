@@ -99,18 +99,18 @@ namespace PhoneContact.Controllers
         // POST: api/Person/Create
         [HttpPost]
         [Route("Create")]
-        public ActionResult<Person> Create(Person viewModel)
+        public ActionResult<Person> Create(CreatePersonRequest request)
         {
             try
             {
-                var dataModel = _mapper.Map<DataModels.Person>(viewModel);
+                var dataModel = _mapper.Map<DataModels.Person>(request);
                 dataModel = _repository.Create(dataModel);
-                viewModel = _mapper.Map<Person>(dataModel);
+                var viewModel = _mapper.Map<Person>(dataModel);
                 return viewModel;
             }
             catch (Exception ex)
             {
-                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} {viewModel.GetType().Name} failed.{ex.Message}";
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} Person failed.{ex.Message}";
                 Log.Error(messageResponse);
                 throw new Exception(messageResponse);
             }
@@ -119,21 +119,27 @@ namespace PhoneContact.Controllers
         // PUT: api/Person/Create
         [HttpPut]
         [Route("Update")]
-        public ActionResult<Person> Update(Person viewModel)
+        public ActionResult<Person> Update(UpdatePersonRequest request)
         {
             try
             {
-                var dataModel = _repository.Read(viewModel.Id);
-                dataModel.ModelCheck(viewModel.UIID); 
-                
-                dataModel = _mapper.Map<DataModels.Person>(viewModel);
+                var dataModel = _mapper.Map<DataModels.Person>(request);
+                dataModel.ModelCheck(request.UIID);
+
+                dataModel = _repository.Read(request.Id);
+                //set properties
+                dataModel.FirstName = request.FirstName;
+                dataModel.MiddleName = request.MiddleName;
+                dataModel.LastName = request.LastName;
+                dataModel.CompanyName = request.CompanyName;
+
                 dataModel = _repository.Update(dataModel);
-                viewModel = _mapper.Map<Person>(dataModel);
+                var viewModel = _mapper.Map<Person>(dataModel);
                 return viewModel;
             }
             catch (Exception ex)
             {
-                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} {viewModel.GetType().Name} failed.{ex.Message}";
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} Person failed.{ex.Message}";
                 Log.Error(messageResponse);
                 throw new Exception(messageResponse);
             }
@@ -148,8 +154,8 @@ namespace PhoneContact.Controllers
             try
             {
                 var dataModel = _repository.Read(request.Id);
-                dataModel.ModelCheck(request.UIID); 
-                
+                dataModel.ModelCheck(request.UIID);
+
                 var messageResponse = "Person Deleted.";
                 if (_repository.Delete(request.Id))
                 {

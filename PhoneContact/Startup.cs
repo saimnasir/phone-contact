@@ -40,10 +40,10 @@ namespace PhoneContact
         {
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
-            services.AddSpaStaticFiles(configuration =>
-            {
-                configuration.RootPath = "ClientApp/dist";
-            });
+            //services.AddSpaStaticFiles(configuration =>
+            //{
+            //    configuration.RootPath = "ClientApp/dist";
+            //});
             services.AddPhoneContactContext(Configuration.GetSection("ConnectionStrings:ContactDBConnectionString").Value);
 
             services.AddAutoMapper(typeof(Startup));
@@ -60,19 +60,21 @@ namespace PhoneContact
               .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
               .UseSimpleAssemblyNameTypeSerializer()
               .UseRecommendedSerializerSettings()
-              .UseSqlServerStorage(Configuration.GetConnectionString("HangfireConnectionString"), new SqlServerStorageOptions
-              {
-                  CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
-                  SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
-                  QueuePollInterval = TimeSpan.Zero,
-                  UseRecommendedIsolationLevel = true,
-                  DisableGlobalLocks = true
-              }));
+              .UseSqlServerStorage(Configuration.GetConnectionString("HangfireConnectionString"), 
+                  new SqlServerStorageOptions
+                  {
+                      CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
+                      SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
+                      QueuePollInterval = TimeSpan.Zero,
+                      UseRecommendedIsolationLevel = true,
+                      DisableGlobalLocks = true
+                  }
+              ));
 
             // Add the processing server as IHostedService
             services.AddHangfireServer();
             services.AddControllers();
-
+            services.AddSwaggerGen();
 
             var container = new ContainerBuilder();
             container.Populate(services);
@@ -97,6 +99,7 @@ namespace PhoneContact
             });
 
             serviceCollection.AddControllers();
+            serviceCollection.AddSwaggerGen();
 
             builder.Populate(serviceCollection);
             // var serviceProvider = new AutofacServiceProvider(builder.Build());
@@ -142,7 +145,12 @@ namespace PhoneContact
                 endpoints.MapHangfireDashboard();
             });
 
-            app.UseHangfireDashboard("/ReportJobs");
+            app.UseHangfireDashboard("/PhoneContactContactJobs");
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Phone Contact API V1");
+            });
             //StartJobs(recurringJobManager, phoneContactOperations);
         }
 

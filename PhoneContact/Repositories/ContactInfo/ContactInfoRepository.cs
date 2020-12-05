@@ -27,6 +27,8 @@ namespace Repositories
         {
             var parameters = new
             {
+                dataModel.Id,
+                dataModel.UIID,
                 dataModel.Person,
                 dataModel.InfoType,
                 dataModel.Information

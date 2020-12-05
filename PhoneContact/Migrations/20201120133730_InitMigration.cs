@@ -17,10 +17,10 @@ namespace PhoneContact.API.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false).Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    UIID = table.Column<Guid>(nullable: false),
-                    CreateDate = table.Column<DateTimeOffset>(nullable: false),
+                    UIID = table.Column<Guid>(nullable: false, defaultValue: Guid.NewGuid()),
+                    CreateDate = table.Column<DateTimeOffset>(nullable: false, defaultValue: DateTime.Now),
                     UpdateDate = table.Column<DateTimeOffset>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false, defaultValue: false),
                     FirstName = table.Column<string>(nullable: false),
                     MiddleName = table.Column<string>(nullable: false),
                     LastName = table.Column<string>(nullable: false),
@@ -40,10 +40,10 @@ namespace PhoneContact.API.Migrations
                columns: table => new
                {
                    Id = table.Column<long>(nullable: false).Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                   UIID = table.Column<Guid>(nullable: false),
-                   CreateDate = table.Column<DateTimeOffset>(nullable: false),
+                   UIID = table.Column<Guid>(nullable: false, defaultValue: Guid.NewGuid()),
+                   CreateDate = table.Column<DateTimeOffset>(nullable: false, defaultValue: DateTime.Now),
                    UpdateDate = table.Column<DateTimeOffset>(nullable: true),
-                   IsDeleted = table.Column<bool>(nullable: false),
+                   IsDeleted = table.Column<bool>(nullable: false, defaultValue: false),
                    Person = table.Column<long>(nullable: false),
                    InfoType = table.Column<int>(nullable: false),
                    Information = table.Column<string>(nullable: false)
@@ -66,6 +66,9 @@ namespace PhoneContact.API.Migrations
                 table: "ContactInfo",
                 column: "Person");
             #endregion
+            generateStoreProcedures(migrationBuilder);
+
+            #region commented 
             //migrationBuilder.CreateTable(
             //    name: "Genres",
             //    schema: "PHC",
@@ -126,7 +129,283 @@ namespace PhoneContact.API.Migrations
             //    schema: "bookshop",
             //    table: "Books",
             //    column: "GenreId");
+            #endregion
+
         }
+
+        private void generateStoreProcedures(MigrationBuilder migrationBuilder)
+        {
+            generatePersonStoreProcedures(migrationBuilder);
+
+            generateContactInfoStoreProcedures(migrationBuilder);
+        }
+
+
+        private static void generatePersonStoreProcedures(MigrationBuilder migrationBuilder)
+        {
+            var tableName = "PERSON";
+            var schema = "PHC";
+            var schemaTable = $"{schema}.{tableName}";
+
+            var procedureName = $"{schema}.INS_{tableName}_SP";
+            var insertProcedure = $@"
+IF OBJECT_ID('{procedureName}') IS NULL
+    EXEC('CREATE PROCEDURE {procedureName} AS SET NOCOUNT ON;')
+GO
+
+ALTER PROCEDURE {procedureName} 
+(	 	
+    @FirstName NVARCHAR(50),
+	@MiddleName NVARCHAR(50) = NULL,
+	@LastName NVARCHAR(50),
+	@CompanyName NVARCHAR(100) = NULL
+)
+AS
+BEGIN  
+	INSERT INTO {schemaTable}
+            (FirstName,
+            MiddleName,
+		    LastName,
+		    CompanyName) 
+	OUTPUT Inserted.Id
+	SELECT  @FirstName,  
+		    @MiddleName, 
+		    @LastName, 
+		    @CompanyName
+END;  ";
+            migrationBuilder.Sql(insertProcedure);
+
+            procedureName = $"{schema}.LST_{tableName}_SP";
+            var listProcedure = $@"
+IF OBJECT_ID('{procedureName}') IS NULL
+    EXEC('CREATE PROCEDURE {procedureName} AS SET NOCOUNT ON;')
+GO
+
+ALTER PROCEDURE {procedureName}
+AS
+BEGIN  
+	SELECT * 
+    FROM {schemaTable}
+    WHERE IsDeleted = 0
+END;  ";
+            migrationBuilder.Sql(listProcedure);
+
+            procedureName = $"{schema}.SEL_{tableName}_SP";
+            var selectProcedureName = procedureName;
+            var selectProcedure = $@"
+IF OBJECT_ID('{procedureName}') IS NULL
+    EXEC('CREATE PROCEDURE {procedureName} AS SET NOCOUNT ON;')
+GO
+
+ALTER PROCEDURE {procedureName}(
+    @Id BIGINT
+)
+AS
+BEGIN  
+	SELECT * 
+    FROM {schemaTable}
+    WHERE IsDeleted = 0 AND Id = @Id
+END;  ";
+            migrationBuilder.Sql(selectProcedure);
+
+            procedureName = $"{schema}.DEL_{tableName}_SP";
+            var deleteProcedure = $@"
+IF OBJECT_ID('{procedureName}') IS NULL
+    EXEC('CREATE PROCEDURE {procedureName} AS SET NOCOUNT ON;')
+GO
+
+ALTER PROCEDURE {procedureName}
+(	 
+	@Id BIGINT
+)
+AS
+BEGIN   
+
+	DECLARE @IsDeleted BIT = 0;
+	UPDATE {schemaTable} 
+		Set IsDeleted = 1
+	Where Id = @Id
+
+	IF @@ROWCOUNT > 0 
+	BEGIN
+		SET @IsDeleted = 1;
+	END
+	
+	SELECT @IsDeleted
+END; ";
+            migrationBuilder.Sql(deleteProcedure);
+
+            procedureName = $"{schema}.UPD_{tableName}_SP";
+            var updateProcedure = $@"
+IF OBJECT_ID('{procedureName}') IS NULL
+    EXEC('CREATE PROCEDURE {procedureName} AS SET NOCOUNT ON;')
+GO
+
+ALTER PROCEDURE {procedureName}
+(	 
+	@Id BIGINT,
+	@FirstName NVARCHAR(50),
+	@MiddleName NVARCHAR(50) = NULL,
+	@LastName NVARCHAR(50),
+	@CompanyName NVARCHAR(100) = NULL
+)
+AS
+BEGIN  
+
+	UPDATE {schemaTable}
+    SET 
+	FirstName =@FirstName,
+    MiddleName = @MiddleName,
+	LastName = @LastName,
+	CompanyName = @CompanyName,
+    UpdateDate = GETDATE()
+	WHERE @Id = Id
+
+	IF @@ROWCOUNT >0
+	BEGIN
+		EXEC {selectProcedureName} @Id
+	END
+	ELSE
+	BEGIN
+		THROW 50001, 'Nothing Updated', 1;
+	END
+END
+";
+            migrationBuilder.Sql(updateProcedure);
+        }
+
+        private void generateContactInfoStoreProcedures(MigrationBuilder migrationBuilder)
+        {
+            var tableName = "CONTACTINFO";
+            var schema = "PHC";
+            var schemaTable = $"{schema}.{tableName}";
+
+            var procedureName = $"{schema}.INS_{tableName}_SP";
+            var insertProcedure = $@"
+IF OBJECT_ID('{procedureName}') IS NULL
+    EXEC('CREATE PROCEDURE {procedureName} AS SET NOCOUNT ON;')
+GO
+
+ALTER PROCEDURE {procedureName} 
+(	 
+    @Person BIGINT,
+	@InfoType BIGINT,
+	@Information NVARCHAR(200)
+)
+AS
+BEGIN  
+	INSERT INTO {schemaTable}
+            (Person,
+            InfoType,
+		    Information) 
+	OUTPUT Inserted.Id
+	SELECT  @Person,  
+		    @InfoType, 
+		    @Information
+END;  ";
+            migrationBuilder.Sql(insertProcedure);
+
+            procedureName = $"{schema}.LST_{tableName}_SP";
+            var listProcedure = $@"
+IF OBJECT_ID('{procedureName}') IS NULL
+    EXEC('CREATE PROCEDURE {procedureName} AS SET NOCOUNT ON;')
+GO
+
+ALTER PROCEDURE {procedureName}
+(	 
+	@Master BIGINT = NULL
+)
+AS
+BEGIN  
+	SELECT * 
+    FROM {schemaTable}
+    WHERE IsDeleted = 0
+    AND @Master IS NULL OR Person = @Master
+END;  ";
+            migrationBuilder.Sql(listProcedure);
+
+            procedureName = $"{schema}.SEL_{tableName}_SP";
+            var selectProcedureName = procedureName;
+            var selectProcedure = $@"
+IF OBJECT_ID('{procedureName}') IS NULL
+    EXEC('CREATE PROCEDURE {procedureName} AS SET NOCOUNT ON;')
+GO
+
+ALTER PROCEDURE {procedureName}(
+    @Id BIGINT
+)
+AS
+BEGIN  
+	SELECT * 
+    FROM {schemaTable}
+    WHERE IsDeleted = 0 AND Id = @Id
+END;  ";
+            migrationBuilder.Sql(selectProcedure);
+
+            procedureName = $"{schema}.DEL_{tableName}_SP";
+            var deleteProcedure = $@"
+IF OBJECT_ID('{procedureName}') IS NULL
+    EXEC('CREATE PROCEDURE {procedureName} AS SET NOCOUNT ON;')
+GO
+
+ALTER PROCEDURE {procedureName}
+(	 
+	@Id BIGINT
+)
+AS
+BEGIN   
+
+	DECLARE @IsDeleted BIT = 0;
+	UPDATE {schemaTable} 
+		Set IsDeleted = 1
+	Where Id = @Id
+
+	IF @@ROWCOUNT > 0 
+	BEGIN
+		SET @IsDeleted = 1;
+	END
+	
+	SELECT @IsDeleted
+END; ";
+            migrationBuilder.Sql(deleteProcedure);
+
+            procedureName = $"{schema}.UPD_{tableName}_SP";
+            var updateProcedure = $@"
+IF OBJECT_ID('{procedureName}') IS NULL
+    EXEC('CREATE PROCEDURE {procedureName} AS SET NOCOUNT ON;')
+GO
+
+ALTER PROCEDURE {procedureName}
+(	 
+	@Id BIGINT,
+	@Person BIGINT,
+	@InfoType BIGINT,
+	@Information NVARCHAR(200)
+)
+AS
+BEGIN  
+
+	UPDATE {schemaTable}
+    SET 
+	Person =@Person, 
+    InfoType = @InfoType,
+	Information = @Information,
+    UpdateDate = GETDATE()
+	WHERE @Id = Id
+
+	IF @@ROWCOUNT >0
+	BEGIN
+		EXEC {selectProcedureName} @Id
+	END
+	ELSE
+	BEGIN
+		THROW 50001, 'Nothing Updated', 1;
+	END
+END
+";
+            migrationBuilder.Sql(updateProcedure);
+        }
+
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

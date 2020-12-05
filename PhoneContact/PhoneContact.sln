@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneContact", "PhoneContac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reporting", "..\Reporting\Reporting.csproj", "{CCFA973A-5D2B-4EF2-94B4-AF2CDA61CD1F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway", "..\ApiGateway\ApiGateway\ApiGateway.csproj", "{4F42FD21-C6F6-446C-B4FA-F7CD504EDD22}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "..\ApiGateway\ApiGateway.csproj", "{CED43A66-72F1-4DBC-8C96-E253B436A175}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{CCFA973A-5D2B-4EF2-94B4-AF2CDA61CD1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCFA973A-5D2B-4EF2-94B4-AF2CDA61CD1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCFA973A-5D2B-4EF2-94B4-AF2CDA61CD1F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4F42FD21-C6F6-446C-B4FA-F7CD504EDD22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4F42FD21-C6F6-446C-B4FA-F7CD504EDD22}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4F42FD21-C6F6-446C-B4FA-F7CD504EDD22}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4F42FD21-C6F6-446C-B4FA-F7CD504EDD22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CED43A66-72F1-4DBC-8C96-E253B436A175}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CED43A66-72F1-4DBC-8C96-E253B436A175}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CED43A66-72F1-4DBC-8C96-E253B436A175}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CED43A66-72F1-4DBC-8C96-E253B436A175}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

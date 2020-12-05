@@ -88,8 +88,13 @@ namespace PhoneContact.API.Migrations
                    .IsRequired()
                    .HasColumnType("uniqueidentifier");
 
+                m.Property<DateTimeOffset>("CreateDate")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("datetime");
+
                 m.Property<DateTimeOffset>("UpdateDate")
                     .HasColumnType("datetime");
+
 
                 m.Property<bool>("IsDeleted")
                     .HasColumnType("bit");

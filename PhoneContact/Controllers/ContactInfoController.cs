@@ -17,12 +17,14 @@ namespace PhoneContact.Controllers
     {
         private readonly IRepositoryFactory _repositoryFactory;
         private readonly IContactInfoRepository _repository;
+        private readonly IPersonRepository _personRepository;
         private readonly IMapper _mapper;
         public ContactInfoController(IRepositoryFactory repositoryFactory, IMapper mapper)
         {
             _repositoryFactory = repositoryFactory;
             _mapper = mapper;
             _repository = _repositoryFactory.ContactInfoRepository;
+            _personRepository = _repositoryFactory.PersonRepository;
         }
 
 
@@ -73,8 +75,8 @@ namespace PhoneContact.Controllers
         {
             try
             {
-                var dataModel = _repository.Read(request.MasterId);
-                dataModel.ModelCheck(request.MasterUIID);
+                var master = _personRepository.Read(request.MasterId);
+                master.ModelCheck(request.MasterUIID);
 
                 var dataModels = _repository.ListAllByMaster(request.MasterId);
                 var viewModels = _mapper.Map<List<ContactInfo>>(dataModels);
@@ -88,24 +90,22 @@ namespace PhoneContact.Controllers
             }
         }
 
-
         // POST: api/ContactInfo/Create
         [HttpPost]
         [Route("Create")]
-        public ActionResult<ContactInfo> Create(ContactInfo viewModel)
+        public ActionResult<ContactInfo> Create(CreateContactInfoRequest request)
         {
             try
             {
-                var dataModel = _mapper.Map<DataModels.ContactInfo>(viewModel);
+                var dataModel = _mapper.Map<DataModels.ContactInfo>(request);
                 dataModel = _repository.Create(dataModel);
-                viewModel = _mapper.Map<ContactInfo>(dataModel);
-                // getContactInfoDetails(viewModel);
+                var viewModel = _mapper.Map<ContactInfo>(dataModel);
 
                 return viewModel;
             }
             catch (Exception ex)
             {
-                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} {viewModel.GetType().Name} failed.{ex.Message}";
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} ContactInfo failed.{ex.Message}";
                 Log.Error(messageResponse);
                 throw new Exception(messageResponse);
             }
@@ -114,22 +114,22 @@ namespace PhoneContact.Controllers
         // PUT: api/ContactInfo/Create
         [HttpPut]
         [Route("Update")]
-        public ActionResult<ContactInfo> Update(ContactInfo viewModel)
+        public ActionResult<ContactInfo> Update(UpdateContactInfoRequest request)
         {
             try
             {
-                var dataModel = _repository.Read(viewModel.Id);
-                dataModel.ModelCheck(viewModel.UIID);
-
-                dataModel = _mapper.Map<DataModels.ContactInfo>(viewModel);
+                var dataModel = _mapper.Map<DataModels.ContactInfo>(request);
+                dataModel.ModelCheck(request.UIID);
+                dataModel = _repository.Read(request.Id);
+                dataModel.Information = request.Information;
                 dataModel = _repository.Update(dataModel);
-                viewModel = _mapper.Map<ContactInfo>(dataModel);
+                var viewModel = _mapper.Map<ContactInfo>(dataModel);
 
                 return viewModel;
             }
             catch (Exception ex)
             {
-                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} {viewModel.GetType().Name} failed.{ex.Message}";
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} ContactInfo failed.{ex.Message}";
                 Log.Error(messageResponse);
                 throw new Exception(messageResponse);
             }
@@ -146,7 +146,7 @@ namespace PhoneContact.Controllers
                 dataModel.ModelCheck(request.UIID);
 
                 var messageResponse = "ContactInfo Deleted.";
-                if (_repository.Delete(request.Id))
+                if (!_repository.Delete(request.Id))
                 {
                     messageResponse = $"Delete ContactInfo failed.";
                     Log.Error(messageResponse);
