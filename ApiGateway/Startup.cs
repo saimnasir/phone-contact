@@ -1,3 +1,5 @@
+using ApiGateway.ServiceContracts;
+using ApiGateway.Services;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
@@ -31,6 +33,7 @@ namespace ApiGateway
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<IReportService, ReportService>();
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -52,7 +55,8 @@ namespace ApiGateway
         {
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddControllersWithViews();
-             
+
+            serviceCollection.AddScoped<IReportService, ReportService>();
             serviceCollection.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",

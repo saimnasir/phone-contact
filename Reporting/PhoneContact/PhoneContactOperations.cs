@@ -1,10 +1,15 @@
-﻿using DataModels;
+﻿using Core.Enums;
+using DataModels;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using Queries.Commands;
 using Queries.Executers;
+using Reporting.PhoneContact.Requests;
+using Reporting.PhoneContact.Responses;
 using Repositories;
 using RestSharp;
+using Serilog;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 
@@ -13,6 +18,8 @@ namespace Reporting.PhoneContact
     public class PhoneContactOperations : IPhoneContactOperations
     {
         private IReportRepository _reportRepository;
+        private IReportDetailRepository _reportDetailRepository;
+
         private IExecuters _executers;
         private ICommandText _commandText;
 
@@ -58,6 +65,18 @@ namespace Reporting.PhoneContact
             }
         }
 
+        public IReportDetailRepository ReportDetailRepository
+        {
+            get
+            {
+                if (_reportDetailRepository == null)
+                {
+                    _reportDetailRepository = new ReportDetailRepository(_configuration, CommandText, Executers, TableName<ReportDetail>());
+                }
+                return _reportDetailRepository;
+            }
+        }
+
         public string TableName<M>()
         {
             var culture = new CultureInfo("en-EN", false);
@@ -66,27 +85,65 @@ namespace Reporting.PhoneContact
 
         public void ProcessPendingReports()
         {
-            var reports = getPendingReports();
-            foreach (var report in reports)
+            try
             {
-                var persons = getPersons();
+                var reports = ReportRepository.ListPendingReports();
+                foreach (var report in reports)
+                {
+                    report.Status = ReportStatuses.Processing;
+                    ReportRepository.Update(report);
+                    try
+                    {
+                        var nearbyCounts = getNearbyCounts(new GetNearbyCountsRequest
+                        {
+                            Radius = report.Radius,
+                            Latitude = report.Latitude,
+                            Longitude = report.Longitude,
+                        });
+                        var reportDetail = new ReportDetail
+                        {
+                            Report = report.Id,
+                            NearbyPersonCount = nearbyCounts.NearbyPersonCount,
+                            NearbyPhoneNumberCount = nearbyCounts.NearbyPhoneNumberCount
+                        };
+                        ReportDetailRepository.Create(reportDetail);
+                        report.Status = ReportStatuses.Completed;
+                        ReportRepository.Update(report);
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error(ex.Message, ex);
+                        report.Status = ReportStatuses.Failed;
+                        ReportRepository.Update(report);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex.Message, ex);
             }
         }
 
-        private IEnumerable<Report> getPendingReports()
+        private GetNearbyCountsResponse getNearbyCounts(GetNearbyCountsRequest getNearbyCountsRequest)
         {
-            return ReportRepository.ListAll();
-        }
+            var client = new RestClient($"{getPhoneContactApiBaseUrl()}/api/contactInfo/GetNearBy");
+            var request = new RestRequest(Method.POST);
+            //request.AddHeader("postman-token", "865928a5-721d-38c9-f6d7-7cff4253fc59");
+            request.AddHeader("cache-control", "no-cache");
+            request.AddHeader("content-type", "application/json");
 
-        private IEnumerable<Person> getPersons()
-        {
-            var client = new RestClient("https://localhost:44393/api/person/listall");
-            var request = new RestRequest(Method.GET);
-            request.AddHeader("Content-Type", "application/json");
+            var input = JsonConvert.SerializeObject(getNearbyCountsRequest);
+            request.AddParameter("application/json", input, ParameterType.RequestBody);
             IRestResponse response = client.Execute(request);
-            var people = JsonConvert.DeserializeObject<IEnumerable<Person>>(response.Content);
+            var getNearbyCountsResponse = JsonConvert.DeserializeObject<GetNearbyCountsResponse>(response.Content);
 
-            return people;
+            return getNearbyCountsResponse;
         }
+
+        private string getPhoneContactApiBaseUrl()
+        {
+            return _configuration.GetSection("ApiBaseUrls:PhoneContactApiBaseUrl").Value;
+        }
+
     }
 }

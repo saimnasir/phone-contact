@@ -2,7 +2,8 @@
 {
     public class Location: DataModel
     {
-        public string Latitude { get; set; }
-        public string Longitude { get; set; }
+        public long ContactInfo { get; set; }
+        public decimal Latitude { get; set; }
+        public decimal Longitude { get; set; }
     }
 }

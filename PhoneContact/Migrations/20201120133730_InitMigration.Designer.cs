@@ -35,11 +35,11 @@ namespace PhoneContact.API.Migrations
                    .IsRequired()
                    .HasColumnType("uniqueidentifier");
 
-                m.Property<DateTimeOffset>("CreateDate")
+                m.Property<DateTime>("CreateDate")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("datetime");
 
-                m.Property<DateTimeOffset>("UpdateDate")
+                m.Property<DateTime>("UpdateDate")
                     .HasColumnType("datetime");
 
                 m.Property<bool>("IsDeleted")
@@ -72,7 +72,7 @@ namespace PhoneContact.API.Migrations
                 m.HasKey("Id");
                 m.HasIndex("Id").IsUnique();
 
-                m.ToTable("Person", "PHC");
+                m.ToTable("PERSON", "PHC");
             });
 
             modelBuilder.Entity("DataModels.ContactInfo", m =>
@@ -88,11 +88,11 @@ namespace PhoneContact.API.Migrations
                    .IsRequired()
                    .HasColumnType("uniqueidentifier");
 
-                m.Property<DateTimeOffset>("CreateDate")
+                m.Property<DateTime>("CreateDate")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("datetime");
 
-                m.Property<DateTimeOffset>("UpdateDate")
+                m.Property<DateTime>("UpdateDate")
                     .HasColumnType("datetime");
 
 
@@ -100,6 +100,7 @@ namespace PhoneContact.API.Migrations
                     .HasColumnType("bit");
 
                 m.Property<long>("Person")
+                    .IsRequired()
                     .HasColumnType("bigint");
 
                 m.Property<int>("InfoType")
@@ -115,89 +116,52 @@ namespace PhoneContact.API.Migrations
 
                 m.HasIndex("Person");
 
-                m.ToTable("ContactInfo", "PHC");
+                m.ToTable("CONTACTINFO", "PHC");
             });
 
-            #region commented
-            //modelBuilder.Entity("BookShop.Domain.Entities.Book", b =>
-            //{
-            //    b.Property<Guid>("Id")
-            //        .ValueGeneratedOnAdd()
-            //        .HasColumnType("uniqueidentifier");
+            modelBuilder.Entity("DataModels.Location", m =>
+            {
+                m.Property<long>("Id")
+                 .ValueGeneratedOnAdd()
+                 .IsRequired()
+                 .HasColumnType("bigint")
+                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            //    b.Property<Guid>("AuthorId")
-            //        .HasColumnType("uniqueidentifier");
+                m.Property<Guid>("UIID")
+                   .ValueGeneratedOnAdd()
+                   .IsRequired()
+                   .HasColumnType("uniqueidentifier");
 
-            //    b.Property<int>("AvailableStock")
-            //        .HasColumnType("int");
+                m.Property<DateTime>("CreateDate")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("datetime");
 
-            //    b.Property<string>("Description")
-            //        .IsRequired()
-            //        .HasColumnType("nvarchar(1000)")
-            //        .HasMaxLength(1000);
+                m.Property<DateTime>("UpdateDate")
+                    .HasColumnType("datetime");
 
-            //    b.Property<string>("Format")
-            //        .HasColumnType("nvarchar(max)");
+                m.Property<bool>("IsDeleted")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("bit"); 
 
-            //    b.Property<Guid>("GenreId")
-            //        .HasColumnType("uniqueidentifier");
+                m.Property<decimal>("Latitude")
+                    .IsRequired()
+                    .HasColumnType("decimal(9,6)");
 
-            //    b.Property<string>("LabelName")
-            //        .HasColumnType("nvarchar(max)");
+                m.Property<decimal>("Longitude")
+                    .IsRequired()
+                    .HasColumnType("decimal(9,6)");
 
-            //    b.Property<string>("Name")
-            //        .IsRequired()
-            //        .HasColumnType("nvarchar(max)");
+                m.Property<long>("ContactInfo")
+                    .IsRequired()
+                    .HasColumnType("bigint");
 
-            //    b.Property<string>("PictureUri")
-            //        .HasColumnType("nvarchar(max)");
+                m.HasKey("Id");
+                m.HasIndex("Id").IsUnique();
 
-            //    b.Property<string>("Price")
-            //        .HasColumnType("nvarchar(max)");
+                m.HasIndex("ContactInfo");
 
-            //    b.Property<DateTimeOffset>("ReleaseDate")
-            //        .HasColumnType("datetimeoffset");
-
-            //    b.HasKey("Id");
-
-            //    b.HasIndex("AuthorId");
-
-            //    b.HasIndex("GenreId");
-
-            //    b.ToTable("Books", "bookshop");
-            //});
-
-            //modelBuilder.Entity("BookShop.Domain.Entities.Genre", b =>
-            //{
-            //    b.Property<Guid>("GenreId")
-            //        .ValueGeneratedOnAdd()
-            //        .HasColumnType("uniqueidentifier");
-
-            //    b.Property<string>("GenreDescription")
-            //        .IsRequired()
-            //        .HasColumnType("nvarchar(1000)")
-            //        .HasMaxLength(1000);
-
-            //    b.HasKey("GenreId");
-
-            //    b.ToTable("Genres", "bookshop");
-            //});
-
-            //modelBuilder.Entity("BookShop.Domain.Entities.Book", b =>
-            //{
-            //    b.HasOne("BookShop.Domain.Entities.Author", "Author")
-            //        .WithMany("Books")
-            //        .HasForeignKey("AuthorId")
-            //        .OnDelete(DeleteBehavior.Cascade)
-            //        .IsRequired();
-
-            //    b.HasOne("BookShop.Domain.Entities.Genre", "Genre")
-            //        .WithMany("Books")
-            //        .HasForeignKey("GenreId")
-            //        .OnDelete(DeleteBehavior.Cascade)
-            //        .IsRequired();
-            //});
-            #endregion
+                m.ToTable("LOCATION", "PHC");
+            });           
         }
 
     }

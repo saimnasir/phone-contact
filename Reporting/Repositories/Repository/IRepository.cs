@@ -25,5 +25,8 @@ namespace Repositories
 
         public T Find(object parameters);
 
+        public IEnumerable<T> ListByCommand(string command);
+        public IEnumerable<T> ListByCommand(string command, object parameters);
+
     }
 }

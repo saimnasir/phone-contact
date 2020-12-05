@@ -8,6 +8,8 @@ using Repositories;
 using Serilog;
 using PhoneContact.ViewModels;
 using PhoneContact.Extensions;
+using PhoneContact.ViewModels.Responses;
+using Core.Enums;
 
 namespace PhoneContact.Controllers
 {
@@ -17,7 +19,8 @@ namespace PhoneContact.Controllers
     {
         private readonly IRepositoryFactory _repositoryFactory;
         private readonly IContactInfoRepository _repository;
-        private readonly IPersonRepository _personRepository;
+        private readonly IPersonRepository _personRepository; 
+        private readonly ILocationRepository _locationRepository;
         private readonly IMapper _mapper;
         public ContactInfoController(IRepositoryFactory repositoryFactory, IMapper mapper)
         {
@@ -25,6 +28,7 @@ namespace PhoneContact.Controllers
             _mapper = mapper;
             _repository = _repositoryFactory.ContactInfoRepository;
             _personRepository = _repositoryFactory.PersonRepository;
+            _locationRepository = _repositoryFactory.LocationRepository;
         }
 
 
@@ -99,6 +103,18 @@ namespace PhoneContact.Controllers
             {
                 var dataModel = _mapper.Map<DataModels.ContactInfo>(request);
                 dataModel = _repository.Create(dataModel);
+                if (dataModel.InfoType == InfoType.Location)
+                {
+                    var point = dataModel.Information.Split(",");
+                    var locationViewModel = new Location
+                    {
+                        Latitude = Convert.ToDecimal(point[0].Replace(".", ",")),
+                        Longitude = Convert.ToDecimal(point[1].Replace(".", ",")),
+                        ContactInfo = dataModel.Id
+                    };
+                    var locationDataModel = _mapper.Map<DataModels.Location>(locationViewModel);
+                    _locationRepository.CreateOrUpdate(locationDataModel);
+                }
                 var viewModel = _mapper.Map<ContactInfo>(dataModel);
 
                 return viewModel;
@@ -123,6 +139,18 @@ namespace PhoneContact.Controllers
                 dataModel = _repository.Read(request.Id);
                 dataModel.Information = request.Information;
                 dataModel = _repository.Update(dataModel);
+                if (dataModel.InfoType == InfoType.Location)
+                {
+                    var point = dataModel.Information.Split(",");
+                    var locationViewModel = new Location
+                    {
+                        Latitude = Convert.ToDecimal(point[0].Replace(".", ",")),
+                        Longitude = Convert.ToDecimal(point[1].Replace(".", ",")),
+                        ContactInfo = dataModel.Id
+                    };
+                    var locationDataModel = _mapper.Map<DataModels.Location>(locationViewModel);
+                    _locationRepository.CreateOrUpdate(locationDataModel);
+                }
                 var viewModel = _mapper.Map<ContactInfo>(dataModel);
 
                 return viewModel;
@@ -162,5 +190,23 @@ namespace PhoneContact.Controllers
             }
         }
 
+        // POST: api/ContactInfo/Delete
+        [HttpPost]
+        [Route("GetNearBy")]
+        public ActionResult<GetNearbyCountsResponse> GetNearBy(GetNearbyCountsRequest request)
+        {
+            try
+            {
+                var inputModel = _mapper.Map<DataModels.NearbyCountInputModel>(request);
+                var dataModel = _repository.GetNearbyCounts(inputModel);
+                return _mapper.Map<GetNearbyCountsResponse>(dataModel);
+            }
+            catch (Exception ex)
+            {
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} ContactInfo failed.{ex.Message}";
+                Log.Error(messageResponse);
+                throw new Exception(messageResponse);
+            }
+        }
     }
 }

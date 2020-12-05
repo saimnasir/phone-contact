@@ -324,7 +324,6 @@ D:\Source\PhoneContactEx\Reporting\bin\Debug\netcoreapp3.1\runtimes\unix\lib\net
 D:\Source\PhoneContactEx\Reporting\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll
 D:\Source\PhoneContactEx\Reporting\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\Source\PhoneContactEx\Reporting\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\Source\PhoneContactEx\Reporting\obj\Debug\netcoreapp3.1\Reporting.csprojAssemblyReference.cache
 D:\Source\PhoneContactEx\Reporting\obj\Debug\netcoreapp3.1\Reporting.csproj.CoreCompileInputs.cache
 D:\Source\PhoneContactEx\Reporting\obj\Debug\netcoreapp3.1\Reporting.MvcApplicationPartsAssemblyInfo.cs
 D:\Source\PhoneContactEx\Reporting\obj\Debug\netcoreapp3.1\Reporting.MvcApplicationPartsAssemblyInfo.cache
@@ -337,3 +336,4 @@ D:\Source\PhoneContactEx\Reporting\obj\Debug\netcoreapp3.1\staticwebassets\Repor
 D:\Source\PhoneContactEx\Reporting\obj\Debug\netcoreapp3.1\Reporting.dll
 D:\Source\PhoneContactEx\Reporting\obj\Debug\netcoreapp3.1\Reporting.pdb
 D:\Source\PhoneContactEx\Reporting\obj\Debug\netcoreapp3.1\Reporting.genruntimeconfig.cache
+D:\Source\PhoneContactEx\Reporting\obj\Debug\netcoreapp3.1\Reporting.csprojAssemblyReference.cache

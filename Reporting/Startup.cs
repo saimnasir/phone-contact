@@ -179,7 +179,7 @@ namespace Reporting
 
         private void StartJobs(IRecurringJobManager recurringJobManager, IPhoneContactOperations phoneContactOperations)
         {
-            recurringJobManager.AddOrUpdate("ProcessReport", Job.FromExpression(() => phoneContactOperations.ProcessPendingReports()), "*/1 * * * *");
+            recurringJobManager.AddOrUpdate("ProcessReport", Job.FromExpression(() => phoneContactOperations.ProcessPendingReports()), "*/2 * * * *");
         }
     }
 }

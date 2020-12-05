@@ -9,7 +9,8 @@ namespace PhoneContact.Repositories.SchemaDefinitions
         public void Configure(EntityTypeBuilder<ContactInfo> builder)
         {
             builder.ToTable("ContactInfo", PhoneContactContext.DEFAULT_SCHEMA);
-            builder.HasKey(k => k.UIID);
+            builder.HasKey(k => k.Id);
+            builder.Property(p => p.UIID).IsRequired();
             builder.Property(p => p.CreateDate).IsRequired();
             builder.Property(p => p.UpdateDate);
             builder.Property(p => p.IsDeleted);

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Reporting.Extensions;
 using Reporting.ViewModels;
 using Reporting.ViewModels.Requests;
+using Reporting.ViewModels.Responses;
 using Repositories;
 using Serilog;
 
@@ -31,13 +32,16 @@ namespace PhoneContact.Controllers
         // GET: api/Report
         [HttpGet]
         [Route("ListAll")]
-        public ActionResult<IEnumerable<Report>> ListAll()
+        public ActionResult<ListAllReportsResponse> ListAll()
         {
             try
             {
                 var dataModels = _repository.ListAll();
                 var viewModels = _mapper.Map<List<Report>>(dataModels);
-                return viewModels;
+                return new ListAllReportsResponse
+                {
+                    Reports = viewModels
+                };
             }
             catch (Exception ex)
             {
@@ -129,7 +133,7 @@ namespace PhoneContact.Controllers
 
                 dataModel = _repository.Read(request.Id);
                 // set properties
-                dataModel.Lattitude = request.Lattitude;
+                dataModel.Latitude = request.Latitude;
                 dataModel.Longitude = request.Longitude;
 
                 dataModel = _repository.Update(dataModel);

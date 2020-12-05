@@ -9,7 +9,7 @@ namespace Reporting.ViewModels.Requests
     {
         public long Id { get; set; }
         public Guid UIID { get; set; }
-        public double Lattitude { get; set; }
+        public double Latitude { get; set; }
         public double Longitude { get; set; }
     }
 }

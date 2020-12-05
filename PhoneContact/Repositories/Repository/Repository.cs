@@ -167,6 +167,28 @@ namespace Repositories
                 ));
         }
 
+        public IEnumerable<T> ListByCommand(string command)
+        {
+            setCurrentTable();
+
+            return _executers.ExecuteCommand(
+                _connStr,
+                conn => conn.Query<T>(
+                    command,
+                    commandType: CommandType.StoredProcedure
+                ));
+        }
+
+        public IEnumerable<T> ListByCommand(string command, object parameters)
+        {
+            return _executers.ExecuteCommand(
+                _connStr,
+                conn => conn.Query<T>(
+                    command,
+                    parameters,
+                    commandType: CommandType.StoredProcedure
+                ));
+        }
         private string getConnectionString()
         {
             return _configuration.GetSection("ConnectionStrings:ContactDBConnectionString").Value;
@@ -177,5 +199,15 @@ namespace Repositories
             _commandText.CurrentTableName = _tableName;
         }
 
+        public dynamic Execute(string command, object parameters)
+        {
+            return _executers.ExecuteCommand(
+               _connStr,
+               conn => conn.QueryFirst<dynamic>(
+                   command,
+                   parameters,
+                   commandType: CommandType.StoredProcedure
+               ));
+        }
     }
 }

@@ -8,6 +8,7 @@ namespace PhoneContact.Map
         {
             personMapper();
             contactInfoMapper();
+            locationMapper();
         }
         protected virtual void ViceVersa<T1, T2>()
         {
@@ -28,6 +29,13 @@ namespace PhoneContact.Map
             ViceVersa<DataModels.ContactInfo, ViewModels.ContactInfo>();
             ViceVersa<DataModels.ContactInfo, ViewModels.Requests.CreateContactInfoRequest>();
             ViceVersa<DataModels.ContactInfo, ViewModels.Requests.UpdateContactInfoRequest>();
+            ViceVersa<DataModels.NearbyCountInputModel, ViewModels.Requests.GetNearbyCountsRequest>();
+            ViceVersa<DataModels.NearbyCountModel, ViewModels.Responses.GetNearbyCountsResponse>();
+        }
+
+        private void locationMapper()
+        {
+            ViceVersa<DataModels.Location, ViewModels.Location>();
         }
     }
 }

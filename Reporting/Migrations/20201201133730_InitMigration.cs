@@ -13,18 +13,19 @@ namespace Reporting.Migrations
             #region Report
 
             migrationBuilder.CreateTable(
-                name: "Report",
+                name: "Report".ToUpper(),
                 schema: "RPT",
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false).Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    UIID = table.Column<Guid>(nullable: false, defaultValue: Guid.NewGuid()),
-                    CreateDate = table.Column<DateTimeOffset>(nullable: false, defaultValue: DateTime.Now),
-                    UpdateDate = table.Column<DateTimeOffset>(nullable: true),
+                    UIID = table.Column<Guid>(nullable: false),
+                    CreateDate = table.Column<DateTime>(nullable: false),
+                    UpdateDate = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false, defaultValue: false),
                     Status = table.Column<int>(nullable: false),
-                    Lattitude = table.Column<double>(nullable: false),
-                    Longitude = table.Column<double>(nullable: false)
+                    Latitude = table.Column<decimal>(nullable: false, precision: 16, scale: 6),
+                    Radius = table.Column<decimal>(nullable: false,  precision: 16, scale: 6),
+                    Longitude = table.Column<decimal>(nullable: false, precision: 16, scale: 6)
                 },
                 constraints: table =>
                 {
@@ -36,17 +37,17 @@ namespace Reporting.Migrations
             #region ReportDetail
 
             migrationBuilder.CreateTable(
-            name: "ReportDetail",
+            name: "REPORTDETAIL",
             schema: "RPT",
             columns: table => new
             {
                 Id = table.Column<long>(nullable: false).Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                UIID = table.Column<Guid>(nullable: false, defaultValue: Guid.NewGuid()),
-                CreateDate = table.Column<DateTimeOffset>(nullable: false, defaultValue: DateTime.Now),
-                UpdateDate = table.Column<DateTimeOffset>(nullable: true),
+                UIID = table.Column<Guid>(nullable: false),
+                CreateDate = table.Column<DateTime>(nullable: false),
+                UpdateDate = table.Column<DateTime>(nullable: true),
                 IsDeleted = table.Column<bool>(nullable: false, defaultValue: false),
                 Report = table.Column<long>(nullable: false),
-                NearbyReportCount = table.Column<int>(nullable: false),
+                NearbyPersonCount = table.Column<int>(nullable: false),
                 NearbyPhoneNumberCount = table.Column<int>(nullable: false)
             },
             constraints: table =>
@@ -56,7 +57,7 @@ namespace Reporting.Migrations
                     name: "FK_ReportDetail_Report_Id",
                     column: x => x.Report,
                     principalSchema: "RPT",
-                    principalTable: "Report",
+                    principalTable: "Report".ToUpper(),
                     principalColumn: "Id",
                     onDelete: ReferentialAction.NoAction);
             });
@@ -64,75 +65,13 @@ namespace Reporting.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_ReportDetail_Report",
                 schema: "RPT",
-                table: "ReportDetail",
+                table: "REPORTDETAIL",
                 column: "Report");
 
             #endregion
 
             generateStoreProcedures(migrationBuilder);
-
-            #region Commented
-            //migrationBuilder.CreateTable(
-            //    name: "Genres",
-            //    schema: "RPT",
-            //    columns: table => new
-            //    {
-            //        GenreId = table.Column<Guid>(nullable: false),
-            //        GenreDescription = table.Column<string>(maxLength: 1000, nullable: false)
-            //    },
-            //    constraints: table =>
-            //    {
-            //        table.PrimaryKey("PK_Genres", x => x.GenreId);
-            //    });
-
-            //migrationBuilder.CreateTable(
-            //    name: "Books",
-            //    schema: "RPT",
-            //    columns: table => new
-            //    {
-            //        Id = table.Column<Guid>(nullable: false),
-            //        Name = table.Column<string>(nullable: false),
-            //        Description = table.Column<string>(maxLength: 1000, nullable: false),
-            //        LabelName = table.Column<string>(nullable: true),
-            //        Price = table.Column<string>(nullable: true),
-            //        PictureUri = table.Column<string>(nullable: true),
-            //        ReleaseDate = table.Column<DateTimeOffset>(nullable: false),
-            //        Format = table.Column<string>(nullable: true),
-            //        AvailableStock = table.Column<int>(nullable: false),
-            //        GenreId = table.Column<Guid>(nullable: false),
-            //        AuthorId = table.Column<Guid>(nullable: false)
-            //    },
-            //    constraints: table =>
-            //    {
-            //        table.PrimaryKey("PK_Books", x => x.Id);
-            //        table.ForeignKey(
-            //            name: "FK_Books_Authors_AuthorId",
-            //            column: x => x.AuthorId,
-            //            principalSchema: "bookshop",
-            //            principalTable: "Authors",
-            //            principalColumn: "AuthorId",
-            //            onDelete: ReferentialAction.Cascade);
-            //        table.ForeignKey(
-            //            name: "FK_Books_Genres_GenreId",
-            //            column: x => x.GenreId,
-            //            principalSchema: "bookshop",
-            //            principalTable: "Genres",
-            //            principalColumn: "GenreId",
-            //            onDelete: ReferentialAction.Cascade);
-            //    });
-
-            //migrationBuilder.CreateIndex(
-            //    name: "IX_Books_AuthorId",
-            //    schema: "bookshop",
-            //    table: "Books",
-            //    column: "AuthorId");
-
-            //migrationBuilder.CreateIndex(
-            //    name: "IX_Books_GenreId",
-            //    schema: "bookshop",
-            //    table: "Books",
-            //    column: "GenreId");
-            #endregion
+             
         }
 
         private void generateStoreProcedures(MigrationBuilder migrationBuilder)
@@ -156,20 +95,27 @@ GO
 
 ALTER PROCEDURE {procedureName} 
 (	 	
-    @Lattitude decimal(9,6),
-	@Longitude decimal(9,6),
+    @Radius decimal(16,6),
+    @Latitude decimal(16,6),
+	@Longitude decimal(16,6),
 	@Status INT
 )
 AS
 BEGIN  
 	INSERT INTO {schemaTable}
-            (Lattitude,
+            (Radius,
+            Latitude,
             Longitude,
-		    Status) 
+		    Status,
+		    UIID,
+            CreateDate) 
 	OUTPUT Inserted.Id
-	SELECT  @Lattitude,  
+	SELECT  @Radius,
+            @Latitude,  
 		    @Longitude, 
-		    @Status
+		    @Status,
+            NEWID(),
+            GETDATE()
 END;  ";
             migrationBuilder.Sql(insertProcedure);
 
@@ -242,8 +188,9 @@ GO
 ALTER PROCEDURE {procedureName}
 (	 
 	@Id BIGINT,
-	@Lattitude decimal(9,6),
-	@Longitude decimal(9,6),
+	@Radius decimal(16,6),
+    @Latitude decimal(16,6),
+	@Longitude decimal(16,6),
 	@Status INT
 )
 AS
@@ -251,7 +198,8 @@ BEGIN
 
 	UPDATE {schemaTable}
     SET 
-	Lattitude =@Lattitude,
+	Radius = @Radius,
+	Latitude = @Latitude,
     Longitude = @Longitude,
 	Status = @Status,
     UpdateDate = GETDATE()
@@ -268,6 +216,24 @@ BEGIN
 END
 ";
             migrationBuilder.Sql(updateProcedure);
+
+
+            procedureName = $"{schema}.LST_{tableName}SPENDING_SP";
+            var pendingListProcedure = $@"
+IF OBJECT_ID('{procedureName}') IS NULL
+    EXEC('CREATE PROCEDURE {procedureName} AS SET NOCOUNT ON;')
+GO
+
+ALTER PROCEDURE {procedureName}
+AS
+BEGIN  
+	SELECT * 
+    FROM {schemaTable}
+    WHERE IsDeleted = 0 AND Status IN (1, 4) -- requested and failed
+	 
+END
+";
+            migrationBuilder.Sql(pendingListProcedure);
 
         }
 
@@ -294,11 +260,15 @@ BEGIN
 	INSERT INTO {schemaTable}
             (Report,
             NearbyPersonCount,
-		    NearbyPhoneNumberCount) 
+		    NearbyPhoneNumberCount,
+            UIID,
+            CreateDate)  
 	OUTPUT Inserted.Id
 	SELECT  @Report,  
  		    @NearbyPersonCount, 
-		    @NearbyPhoneNumberCount
+		    @NearbyPhoneNumberCount,
+            NEWID(),
+            GETDATE()
 END;  ";
             migrationBuilder.Sql(insertProcedure);
 
@@ -406,11 +376,11 @@ END
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-               name: "Report",
+               name: "Report".ToUpper(),
                schema: "RPT");
 
             migrationBuilder.DropTable(
-                name: "ReportDetail",
+                name: "REPORTDETAIL",
                 schema: "RPT");
 
             //migrationBuilder.DropTable(

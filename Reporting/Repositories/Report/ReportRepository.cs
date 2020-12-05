@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Queries.Executers;
 using Queries.Commands;
 using Core.Enums;
+using System.Collections.Generic;
 
 namespace Repositories
 {
@@ -17,11 +18,17 @@ namespace Repositories
         {
             var parameters = new
             {
-                report.Lattitude,
+                report.Radius,
+                report.Latitude,
                 report.Longitude,
                 Status = ReportStatuses.Requested
             };
             return base.Create(parameters);
+        }
+
+        public IEnumerable<Report> ListPendingReports()
+        {
+            return base.ListByCommand("RPT.LST_REPORTSPENDING_SP");
         }
 
         public Report Update(Report report)
@@ -29,7 +36,8 @@ namespace Repositories
             var parameters = new
             {
                 report.Id,
-                report.Lattitude,
+                report.Radius,
+                report.Latitude,
                 report.Longitude,
                 report.Status
             };

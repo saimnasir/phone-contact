@@ -56,23 +56,23 @@ namespace PhoneContact
                     .AllowAnyHeader());
             });
 
-            services.AddHangfire(configuration => configuration
-              .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
-              .UseSimpleAssemblyNameTypeSerializer()
-              .UseRecommendedSerializerSettings()
-              .UseSqlServerStorage(Configuration.GetConnectionString("HangfireConnectionString"), 
-                  new SqlServerStorageOptions
-                  {
-                      CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
-                      SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
-                      QueuePollInterval = TimeSpan.Zero,
-                      UseRecommendedIsolationLevel = true,
-                      DisableGlobalLocks = true
-                  }
-              ));
+            //services.AddHangfire(configuration => configuration
+            //  .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+            //  .UseSimpleAssemblyNameTypeSerializer()
+            //  .UseRecommendedSerializerSettings()
+            //  .UseSqlServerStorage(Configuration.GetConnectionString("HangfireConnectionString"), 
+            //      new SqlServerStorageOptions
+            //      {
+            //          CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
+            //          SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
+            //          QueuePollInterval = TimeSpan.Zero,
+            //          UseRecommendedIsolationLevel = true,
+            //          DisableGlobalLocks = true
+            //      }
+            //  ));
 
             // Add the processing server as IHostedService
-            services.AddHangfireServer();
+            //services.AddHangfireServer();
             services.AddControllers();
             services.AddSwaggerGen();
 
@@ -142,10 +142,10 @@ namespace PhoneContact
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
 
-                endpoints.MapHangfireDashboard();
+                // endpoints.MapHangfireDashboard();
             });
 
-            app.UseHangfireDashboard("/PhoneContactContactJobs");
+           // app.UseHangfireDashboard("/PhoneContactContactJobs");
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {

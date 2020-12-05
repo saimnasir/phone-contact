@@ -9,6 +9,8 @@ using Repositories;
 using Serilog;
 using PhoneContact.ViewModels;
 using PhoneContact.Extensions;
+using Core.Enums;
+using System.Globalization;
 
 namespace PhoneContact.Controllers
 {
@@ -19,6 +21,7 @@ namespace PhoneContact.Controllers
         private readonly IRepositoryFactory _repositoryFactory;
         private readonly IPersonRepository _repository;
         private readonly IContactInfoRepository _contactInfoRepository;
+        private readonly ILocationRepository _locationRepository;
         private readonly IMapper _mapper;
         public PersonController(IRepositoryFactory repositoryFactory, IMapper mapper)
         {
@@ -26,6 +29,7 @@ namespace PhoneContact.Controllers
             _mapper = mapper;
             _repository = _repositoryFactory.PersonRepository;
             _contactInfoRepository = _repositoryFactory.ContactInfoRepository;
+            _locationRepository = _repositoryFactory.LocationRepository;
         }
 
         // GET: api/Person/ListAll
@@ -62,7 +66,7 @@ namespace PhoneContact.Controllers
                 var viewModels = _mapper.Map<List<Person>>(dataModels);
                 viewModels.ForEach(model =>
                 {
-                    model.ContactInfos = listPersons(new ReadByMasterRequest { MasterId = model.Id, MasterUIID = model.UIID }).ToList();
+                    model.ContactInfos = listContactInfos(new ReadByMasterRequest { MasterId = model.Id, MasterUIID = model.UIID }).ToList();
                 });
                 return viewModels;
             }
@@ -74,7 +78,6 @@ namespace PhoneContact.Controllers
             }
         }
 
-
         // POST: api/Person/Read
         [HttpPost]
         [Route("Read")]
@@ -85,7 +88,7 @@ namespace PhoneContact.Controllers
                 var dataModel = _repository.Read(request.Id);
                 dataModel.ModelCheck(request.UIID);
                 var viewModel = _mapper.Map<Person>(dataModel);
-                viewModel.ContactInfos = listPersons(new ReadByMasterRequest { MasterId = request.Id, MasterUIID = request.UIID }).ToList();
+                viewModel.ContactInfos = listContactInfos(new ReadByMasterRequest { MasterId = request.Id, MasterUIID = request.UIID }).ToList();
                 return viewModel;
             }
             catch (Exception ex)
@@ -105,7 +108,26 @@ namespace PhoneContact.Controllers
             {
                 var dataModel = _mapper.Map<DataModels.Person>(request);
                 dataModel = _repository.Create(dataModel);
+                foreach (var contactInfo in request.ContactInfos)
+                {
+                    var contatInfoDataModel = _mapper.Map<DataModels.ContactInfo>(contactInfo);
+                    contatInfoDataModel.Person = dataModel.Id;
+                    contatInfoDataModel = _contactInfoRepository.Create(contatInfoDataModel);
+                    if (contactInfo.InfoType == InfoType.Location)
+                    {
+                        var point = contatInfoDataModel.Information.Split(",");
+                        var locationViewModel = new Location
+                        {
+                            Latitude = Convert.ToDecimal(point[0].Replace(".",",")),
+                            Longitude = Convert.ToDecimal(point[1].Replace(".", ",")),
+                            ContactInfo = contatInfoDataModel.Id
+                        };
+                        var locationDataModel = _mapper.Map<DataModels.Location>(locationViewModel);
+                        _locationRepository.CreateOrUpdate(locationDataModel);
+                    }
+                }
                 var viewModel = _mapper.Map<Person>(dataModel);
+                viewModel.ContactInfos = listContactInfos(new ReadByMasterRequest { MasterId = viewModel.Id, MasterUIID = viewModel.UIID }).ToList();
                 return viewModel;
             }
             catch (Exception ex)
@@ -173,7 +195,7 @@ namespace PhoneContact.Controllers
             }
         }
 
-        private IEnumerable<ContactInfo> listPersons(ReadByMasterRequest request)
+        private IEnumerable<ContactInfo> listContactInfos(ReadByMasterRequest request)
         {
             try
             {

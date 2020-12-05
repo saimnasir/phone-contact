@@ -20,7 +20,7 @@ namespace PhoneContact.Repositories
         {
             modelBuilder.ApplyConfiguration(new PersonEntitySchemaConfiguration());
             modelBuilder.ApplyConfiguration(new ContactInfoEntitySchemaConfiguration());
-            //modelBuilder.ApplyConfiguration(new AuthorEntitySchemaConfiguration());
+            modelBuilder.ApplyConfiguration(new LocationEntitySchemaConfiguration());
             base.OnModelCreating(modelBuilder);
         }
         public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default(CancellationToken))

@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+using ApiGateway.RequestModels;
+using ApiGateway.ResponseModels;
+using ApiGateway.ServiceContracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace ApiGateway.Controllers
 {
@@ -11,23 +16,64 @@ namespace ApiGateway.Controllers
     [Route("[controller]")]
     public class ReportController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        private readonly IReportService _reportService;
 
-        private readonly ILogger<ReportController> _logger;
-
-        public ReportController(ILogger<ReportController> logger)
+        public ReportController(IReportService reportService)
         {
-            _logger = logger;
+            _reportService = reportService;
         }
 
+        // POST: api/Report/Create
+        [HttpPost]
+        [Route("Create")]
+        public ActionResult<CreateReportResponse> Create(CreateReportRequest request)
+        {
+            try
+            {
+                return _reportService.RequestReport(request);
+            }
+            catch (Exception ex)
+            {
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} failed.{ex.Message}";
+                Log.Error(messageResponse);
+                throw new Exception(messageResponse);
+            }
+        }
+
+        // GET: api/Report
         [HttpGet]
-        public IEnumerable<string> Get()
+        [Route("ListAll")]
+        public ActionResult<GetReportResponse> ListAll()
         {
-            return Summaries;
-
+            try
+            {
+                return _reportService.GetReports();
+            }
+            catch (Exception ex)
+            {
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} failed.{ex.Message}";
+                Log.Error(messageResponse);
+                throw new Exception(messageResponse);
+            }
         }
+
+       
+        // POST: api/Report/Create
+        [HttpPost]
+        [Route("Read")]
+        public ActionResult<ReadReportResponse> Read(ReadReportRequest request)
+        {
+            try
+            {
+                return _reportService.ReadReport(request);
+            }
+            catch (Exception ex)
+            {
+                var messageResponse = $"{MethodBase.GetCurrentMethod().Name} failed.{ex.Message}";
+                Log.Error(messageResponse);
+                throw new Exception(messageResponse);
+            }
+        }
+
     }
 }

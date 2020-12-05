@@ -10,6 +10,7 @@ namespace Repositories
     {
         private IPersonRepository _personRepository;
         private IContactInfoRepository _contactInfoRepository;
+        private ILocationRepository _locationRepository;
 
         private IExecuters _executers;
         private ICommandText _commandText;
@@ -50,6 +51,19 @@ namespace Repositories
                     _contactInfoRepository = new ContactInfoRepository(_configuration, CommandText, Executers, TableName<ContactInfo>());
                 }
                 return _contactInfoRepository;
+            }
+        }
+
+
+        public ILocationRepository LocationRepository
+        {
+            get
+            {
+                if (_locationRepository == null)
+                {
+                    _locationRepository = new LocationRepository(_configuration, CommandText, Executers, TableName<Location>());
+                }
+                return _locationRepository;
             }
         }
 
